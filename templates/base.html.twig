@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark info-color" id="myNavbar">
             <a class="navbar-brand" href="#">
                 <i class="fa fa-snowflake-o" aria-hidden="true"></i> <strong>Snowtricks</strong> <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-            </a>
+        </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -126,6 +126,36 @@
             <!-- Copyright -->
         </footer>
 
+        <section id="myPhoneNavbarMarge"></section>
+
+        <nav class="container-fluid" id="myPhoneNavbar">
+            <div class="row info-color" id="myPhoneNavbarA">
+                <div class="col-3">
+                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="#"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-3">
+                    <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                </div>
+                {#
+                <div class="col-4">
+                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-4">
+                    <a href="#"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-4">
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                </div>
+                #}
+            </div>
+        </nav>
+
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
@@ -135,5 +165,6 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/js/mdb.min.js"></script>
         {% block javascripts %}{% endblock %}
+        <script type="text/javascript" src="js/myJs.js"></script>
     </body>
 </html>

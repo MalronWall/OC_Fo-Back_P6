@@ -1,0 +1,60 @@
+/* ----------------------- Addons Bootstrap ----------------------- */
+/* TOP / BOTTOM / LEFT / RIGHT */
+.t-0{top:0!important;}.t-1{top:0.25rem!important;}.t-2{top:0.5rem!important;}.t-3{top:1rem!important;}.t-4{top:1.5rem!important;}.t-5{top:3rem!important;}
+.b-0{bottom:0!important;}.b-1{bottom:0.25rem!important;}.b-2{bottom:0.5rem!important;}.b-3{bottom:1rem!important;}.b-4{bottom:1.5rem!important;}.b-5{bottom:3rem!important;}
+.l-0{left:0!important;}.l-1{left:0.25rem!important;}.l-2{left:0.5rem!important;}.l-3{left:1rem!important;}.l-4{left:1.5rem!important;}.l-5{left:3rem!important;}
+.r-0{right:0!important;}.r-1{right:0.25rem!important;}.r-2{right:0.5rem!important;}.r-3{right:1rem!important;}.r-4{right:1.5rem!important;}.r-5{right:3rem!important;}
+
+/* ADDS XS (ex : xs display none) */
+@media(max-width:575px){.d-xs-none{display:none!important;}.d-xs-inline{display:inline!important;}.d-xs-inline-block{display:inline-block!important;}.d-xs-block{display:block!important;}.d-xs-table{display:table!important;}.d-xs-table-row{display:table-row!important;}.d-xs-table-cell{display:table-cell!important;}.d-xs-flex{display:-ms-flexbox!important;display:flex!important;}.d-xs-inline-flex{display:-ms-inline-flexbox!important;display:inline-flex!important;}}
+
+/* ----------------------- Addons pour mes projets ----------------------- */
+/* TITLE BEHIND AN IMAGE */
+.text-image{position:absolute!important;right:15%!important;left:15%!important;z-index:10!important;padding-top:20px!important;padding-bottom:20px!important;color:white!important;text-shadow:5px 3px black!important;text-align:center!important;}
+/*xs*/@media(min-width:1px){.text-image{top:30px!important;}}/*sm*/@media(min-width:576px){.text-image{top:100px!important;}}/*md*/@media(min-width:768px){.text-image{top:200px!important;}}/*lg*/@media(min-width:992px){.text-image{top:200px!important;}}/*xl*/@media(min-width:1200px){.text-image{top:300px!important;}}
+
+/* SWITCH BUTTON */
+/*
+<div class="btn-group float-right" data-toggle="buttons">
+    <label class="btn btn-secondary btn-sm btn-on">
+        <input type="radio" value="1" name="[LENOM]" hidden="">Publier
+    </label>
+    <label class="btn btn-secondary btn-sm btn-X active">
+        <input type="radio" checked="" hidden="">X
+    </label>
+    <label class="btn btn-secondary btn-sm btn-off">
+        <input type="radio" value="0" name="[LENOM]" hidden="">Supprimer
+    </label>
+</div>
+*/
+.btn-on.active {background-color:#5BB75B!important;color:white!important;border:1px solid #5BB75B!important;}.btn-off.active{background-color:#DA4F49!important;color:white!important;border:1px solid #DA4F49!important;}
+
+/* ----------------------- Spécifique au projet ----------------------- */
+/*xs + sm*/
+@media (max-width:767px){
+  #myNavbar{display: none!important;}
+  #myPhoneNavbar{text-align:center!important;
+    position: fixed!important;
+    bottom: 0!important;
+    height: 50px;
+    padding: auto auto auto auto;
+    background-color: #33b5e5;
+    z-index: 100;
+  }
+  #myPhoneNavbarA>div>a{
+    font-size: 35px;
+    color: white!important;
+  }
+  #myPhoneNavbarMarge{
+    height: 50px;
+  }
+}
+
+/*md + ld + xl*/
+@media (min-width:768px){
+  #myPhoneNavbar{display:none!important;}}
+
+/* ----------------------- /tricks/details/[trick] ----------------------- */
+#bg-img-trick-details{
+  background: #EBE9E7 url("/images/home.jpg") top center fixed no-repeat;
+}

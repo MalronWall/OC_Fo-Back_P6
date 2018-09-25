@@ -45,6 +45,10 @@
     font-size: 35px;
     color: white!important;
   }
+  #myPhoneNavbarA>div>a:active{
+    color: #0e49c2!important;
+  }
+  /* Put a div with this class before the navbar */
   #myPhoneNavbarMarge{
     height: 50px;
   }
@@ -57,4 +61,9 @@
 /* ----------------------- /tricks/details/[trick] ----------------------- */
 #bg-img-trick-details{
   background: #EBE9E7 url("/images/home.jpg") top center fixed no-repeat;
+}
+
+/* /registration & /login */
+.bg-modal{
+  background-color: #e0e0e0;
 }

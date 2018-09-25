@@ -57,48 +57,39 @@
                             </a>
                         </li>
                     {% endif %}
-                    {% if app.request.attributes.get('_route') == "" %}
+                    {% if app.request.attributes.get('_route') in ["login", "forgot_password"] %}
                     <li class="nav-item active">
-                        <a class="nav-link waves-effect waves-light" href="#">
+                        <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
                             <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="#">
+                            <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
                                 <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
                             </a>
                         </li>
                     {% endif %}
-                    {% if app.request.attributes.get('_route') == "" %}
+                    {% if app.request.attributes.get('_route') == "registration" %}
                     <li class="nav-item active">
-                        <a class="nav-link waves-effect waves-light" href="#">
+                        <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="#">
+                            <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
                             </a>
                         </li>
                     {% endif %}
-                    {% if app.request.attributes.get('_route') == "" %}
-                    <li class="nav-item active">
-                        <a class="nav-link waves-effect waves-light" href="#">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="{{ path('logout') }}">
                             <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
-                            <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="#">
-                                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
-                            </a>
-                        </li>
-                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -180,10 +171,10 @@
                     <a href="{{ path('tricks_details') }}"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    <a href="{{ path('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </div>
                 <div class="col-3">
-                    <a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="{{ path('registration') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 </div>
                 {#
                 <div class="col-4">

@@ -30,10 +30,9 @@ class TricksUpdateAction implements TricksUpdateActionInterface
     /**
      * @Route("/tricks/update/{slug}", name="tricks_update", requirements={"slug":".+"})
      * @param $slug
-     * @param int $page
      * @return mixed
      */
-    public function action($slug = "test", $page = 1):Response
+    public function action($slug = "test"):Response
     {
         return $this->responder->response();
     }

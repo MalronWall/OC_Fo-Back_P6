@@ -23,8 +23,7 @@ interface TricksUpdateActionInterface
 
     /**
      * @param $slug
-     * @param int $page
      * @return Response
      */
-    public function action($slug, $page = 1):Response;
+    public function action($slug):Response;
 }

@@ -94,6 +94,26 @@
             </div>
         </nav>
 
+        <!-- Modale confirm delete -->
+        <div class="modal fade top modal-content-clickable" id="js-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" aria-hidden="true">
+            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <p class="pt-3 pr-2">
+                                Etes-vous sûr d'effectuer cette action ? Les données supprimées ne pourront être récupérées !
+                            </p>
+                            <a class="btn btn-outline-success">Oui</a>
+                            <a class="btn btn-outline-danger" data-dismiss="modal">Non</a>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+
         {% block body %}{% endblock %}
 
         <footer class="page-footer font-small blue pt-4" id="myFooter">

@@ -1,14 +1,14 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    encoders:
-      App\Domain\Model\User:
-        algorithm: bcrypt
+#    encoders:
+#      App\Domain\Model\User:
+#        algorithm: bcrypt
 
 
-    providers:
-      custom_provider:
-        entity:
-          class: App\Domain\Model\User
+#    providers:
+#      custom_provider:
+#        entity:
+#          class: App\Domain\Model\User
 
 
     firewalls:
@@ -17,7 +17,7 @@ security:
             security: false
         main:
             anonymous: true
-            provider: custom_provider
+#            provider: custom_provider
 
             logout:
               path: /logout

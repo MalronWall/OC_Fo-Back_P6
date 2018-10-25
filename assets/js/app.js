@@ -103,6 +103,14 @@ $(function() {
         }
     });
 });
+// or with a beautiful modal
+$(function() {
+    $('.js-confirm-modal').click(function(e) {
+        e.preventDefault();
+        const href = $(e.currentTarget).attr("href");
+        $("#js-confirm-modal").find("a").first().attr("href", href);
+    });
+});
 
 // CLASS TO CONFIRM A DANGEROUS ACTION ON A FORM
 $(function() {

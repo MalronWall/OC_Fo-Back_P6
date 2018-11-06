@@ -23,7 +23,11 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Domain/Model'
-                prefix: 'App\Domain\Model'
+                type: xml
+                dir: '%kernel.project_dir%/src/Domain/Mappings'
+                prefix: 'App\Domain\Models'
                 alias: App
+                #type: annotation
+                #dir: '%kernel.project_dir%/src/Domain/Models'
+                #prefix: 'App\Domain\Models'
+                #alias: App

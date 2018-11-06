@@ -1,0 +1,30 @@
+{% block form %}
+    {{ form_start(form) }}
+    <div class="md-form form-group">
+        {{ form_row(form.username, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="md-form form-group">
+        {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="md-form form-group">
+        {{ form_row(form.password.first, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="md-form form-group">
+        {{ form_row(form.password.second, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <button type="submit" class="btn btn-success waves-effect waves-light mb-4">Create an account</button>
+    <br/>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <div class="alert alert-danger">
+                {% for error in errors %}
+                    <small>{{ error.message }}</small>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

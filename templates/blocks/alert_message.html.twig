@@ -1,0 +1,22 @@
+{% block alert_message %}
+    {% for label, messages in app.flashes(['success', 'primary', 'secondary', 'info', 'warning', 'danger']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }} alert-dismissible fade show text-center mb-0" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {#
+    {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show text-center mb-0" role="alert">
+            <strong>{{ error.messageKey|trans(error.messageData, 'security') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    #}
+{% endblock %}

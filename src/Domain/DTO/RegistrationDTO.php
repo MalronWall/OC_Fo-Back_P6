@@ -9,8 +9,18 @@ declare(strict_types=1);
 namespace App\Domain\DTO;
 
 use App\Domain\DTO\Interfaces\RegistrationDTOInterface;
+use App\Validator\Constraints\UniqueEmailInDb;
+use App\Validator\Constraints\UniqueUsernameInDb;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * @UniqueUsernameInDb(
+ *     message="Ce pseudo existe déjà !"
+ * )
+ * @UniqueEmailInDb(
+ *     message="Cet email existe déjà !"
+ * )
+ */
 class RegistrationDTO implements RegistrationDTOInterface
 {
     /** @var string
@@ -28,6 +38,9 @@ class RegistrationDTO implements RegistrationDTOInterface
     /** @var string
      * @Assert\NotBlank(
      *     message="L'email est obligatoire !"
+     * )
+     * @Assert\Email(
+     *     message="Merci de renseigner un email valide !"
      * )
      */
     public $email;

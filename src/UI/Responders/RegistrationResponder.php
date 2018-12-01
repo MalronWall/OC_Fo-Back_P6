@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace App\UI\Responders;
 
 use App\UI\Responders\Interfaces\RegistrationResponderInterface;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;

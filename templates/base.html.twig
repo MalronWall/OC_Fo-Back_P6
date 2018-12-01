@@ -43,76 +43,62 @@
                             </a>
                         </li>
                     {% endif %}
-                    {% if app.request.attributes.get('_route') in ["tricks_details", "tricks_update"] %}
+                    {% if app.user %}
+                        {% if app.request.attributes.get('_route') in ["tricks_details", "tricks_add", "tricks_update"] %}
+                            <li class="nav-item active">
+                                <a class="nav-link waves-effect waves-light" href="{{ path('tricks_add') }}">
+                                    <i class="fa fa-snowflake-o" aria-hidden="true"></i> New trick
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="{{ path('tricks_add') }}">
+                                    <i class="fa fa-snowflake-o" aria-hidden="true"></i> New trick
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="{{ path('logout') }}">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
+                            </a>
+                        </li>
+                    {% else %}
+                        {% if app.request.attributes.get('_route') in ["login", "forgot_password"] %}
+                            <li class="nav-item active">
+                                <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if app.request.attributes.get('_route') == "registration" %}
                         <li class="nav-item active">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('tricks_details') }}">
-                                <i class="fa fa-snowflake-o" aria-hidden="true"></i> Tricks
+                            <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('tricks_details') }}">
-                                <i class="fa fa-snowflake-o" aria-hidden="true"></i> Tricks
-                            </a>
-                        </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
+                                </a>
+                            </li>
+                        {% endif %}
                     {% endif %}
-                    {% if app.request.attributes.get('_route') in ["login", "forgot_password"] %}
-                    <li class="nav-item active">
-                        <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
-                            <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% if app.request.attributes.get('_route') == "registration" %}
-                    <li class="nav-item active">
-                        <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
-                            </a>
-                        </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light" href="{{ path('logout') }}">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Modale confirm delete -->
-        <div class="modal fade top modal-content-clickable" id="js-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" aria-hidden="true">
-            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-                <!--Content-->
-                <div class="modal-content">
-                    <!--Body-->
-                    <div class="modal-body">
-                        <div class="row d-flex justify-content-center align-items-center">
-                            <p class="pt-3 pr-2">
-                                Etes-vous sûr d'effectuer cette action ? Les données supprimées ne pourront être récupérées !
-                            </p>
-                            <a class="btn btn-outline-success">Oui</a>
-                            <a class="btn btn-outline-danger" data-dismiss="modal">Non</a>
-                        </div>
-                    </div>
-                </div>
-                <!--/.Content-->
-            </div>
-        </div>
+        {% include 'blocks/modale_confirm_delete.html.twig' %}
+        {% include 'blocks/alert_message.html.twig' %}
 
         {% block body %}{% endblock %}
 
@@ -184,29 +170,24 @@
 
         <nav class="container-fluid" id="myPhoneNavbar">
             <div class="row info-color" id="myPhoneNavbarA">
-                <div class="col-3">
+                <div class="col-4">
                     <a href="{{ path('homepage') }}"><i class="fa fa-home" aria-hidden="true"></i></a>
                 </div>
-                <div class="col-3">
-                    <a href="{{ path('tricks_details') }}"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-3">
-                    <a href="{{ path('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-3">
-                    <a href="{{ path('registration') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                </div>
-                {#
-                <div class="col-4">
-                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-4">
-                    <a href="#"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
-                </div>
-                <div class="col-4">
-                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-                </div>
-                #}
+                {% if app.user %}
+                    <div class="col-4">
+                        <a href="{{ path('tricks_add') }}"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                    </div>
+                {% else %}
+                    <div class="col-4">
+                        <a href="{{ path('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{{ path('registration') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    </div>
+                {% endif %}
             </div>
         </nav>
 

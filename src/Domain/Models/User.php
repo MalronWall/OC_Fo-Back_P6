@@ -26,7 +26,7 @@ class User implements UserInterface, UISymfony
     private $roles;
 
     /**
-     * UserInterface constructor.
+     * User constructor.
      * @param string $username
      * @param string $email
      */

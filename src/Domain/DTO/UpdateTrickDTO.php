@@ -8,8 +8,9 @@ declare(strict_types=1);
 
 namespace App\Domain\DTO;
 
-use App\Domain\DTO\Interfaces\CreateTrickDTOInterface;
+use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Validator\Constraints\UniqueTitleInDb;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -17,8 +18,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     message="Ce titre existe déjà !"
  * )
  */
-class CreateTrickDTO implements CreateTrickDTOInterface
+class UpdateTrickDTO implements UpdateTrickDTOInterface
 {
+    /** @var null|string */
+    public $id;
     /** @var string
      * @Assert\NotBlank(
      *     message="Le titre est obligatoire !"
@@ -42,18 +45,21 @@ class CreateTrickDTO implements CreateTrickDTOInterface
     public $figureGroup;
 
     /**
-     * CreateTrickDTO constructor.
+     * UpdateTrickDTO constructor.
      * @param null|string $title
      * @param null|string $description
      * @param null|string $figureGroup
+     * @param null|UuidInterface $id
      */
     public function __construct(
         ?string $title,
         ?string $description,
-        ?string $figureGroup
+        ?string $figureGroup,
+        ?UuidInterface $id = null
     ) {
         $this->title = $title;
         $this->description = $description;
         $this->figureGroup = $figureGroup;
+        $this->id = $id;
     }
 }

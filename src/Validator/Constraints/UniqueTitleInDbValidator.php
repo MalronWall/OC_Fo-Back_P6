@@ -37,10 +37,17 @@ class UniqueTitleInDbValidator extends ConstraintValidator
      */
     public function validate($protocol, Constraint $constraint)
     {
-        $nbTrick =
-            $this->entityManager
-                ->getRepository(Trick::class)
-                ->verifyUniqueTitle($protocol->title);
+        if (isset($protocol->id)) {
+            $nbTrick =
+                $this->entityManager
+                    ->getRepository(Trick::class)
+                    ->verifyUniqueTitle($protocol->title, $protocol->id);
+        } else {
+            $nbTrick =
+                $this->entityManager
+                    ->getRepository(Trick::class)
+                    ->verifyUniqueTitle($protocol->title);
+        }
 
         if ($nbTrick) {
             $this->context->buildViolation($constraint->message)

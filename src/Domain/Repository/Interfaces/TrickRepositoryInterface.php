@@ -11,14 +11,11 @@ namespace App\Domain\Repository\Interfaces;
 interface TrickRepositoryInterface
 {
     /**
-     * @param $id
-     * @param $title
-     * @param $description
-     * @param $figureGroup
-     * @return array
-     * @throws \Doctrine\DBAL\DBALException
+     * @param $slug
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function updateTrick($id, $title, $description, $figureGroup);
+    public function getTrick($slug);
 
     /**
      * @param $title

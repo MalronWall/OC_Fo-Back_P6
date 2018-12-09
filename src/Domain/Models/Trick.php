@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use Ramsey\Uuid\UuidInterface;
 
@@ -33,6 +34,16 @@ class Trick implements TrickInterface
         $this->title = $title;
         $this->description = $description;
         $this->figureGroup = $figureGroup;
+    }
+
+    /**
+     * @param UpdateTrickDTOInterface $dto
+     */
+    public function updateTrick(UpdateTrickDTOInterface $dto):void
+    {
+        $this->title = $dto->title;
+        $this->description = $dto->description;
+        $this->figureGroup = $dto->figureGroup;
     }
 
     /**

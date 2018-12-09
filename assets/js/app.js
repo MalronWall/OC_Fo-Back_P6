@@ -1,4 +1,5 @@
 // TYNYMCE
+// CDN <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=b4tpr3u5rzqh58sg99vmmi45zswzdicshnnsc2rv8oyop1fm"></script>
 /*
 tinymce.init({
     selector:'.tinymce'
@@ -45,6 +46,10 @@ tinymce.init({
         },
     }
 });
+
+// CKEDITOR
+// CDN <script src="//cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
+CKEDITOR.replace('ckeditor');
 
 // SHOW OR HIDE PASSWORD
 $(document).ready(function() {

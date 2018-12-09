@@ -1,0 +1,26 @@
+{% block form %}
+    {{ form_start(form) }}
+    <div class="md-form form-group">
+        {{ form_row(form.title, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="my-md-form form-group">
+        {{ form_row(form.description, { 'attr': {'class': 'form-control ckeditor'} }) }}
+    </div>
+    <div class="md-form form-group">
+        {{ form_row(form.figureGroup, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <button type="submit" class="btn btn-success waves-effect waves-light mb-4">Update trick</button>
+    <br/>
+
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            {% for error in errors %}
+                <small class="text-danger">{{ error.message }}</small>
+            {% endfor %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

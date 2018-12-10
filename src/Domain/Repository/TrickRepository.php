@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository;
 
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
 
@@ -16,29 +17,36 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
-    public function updateTrick($id, $title, $description, $figureGroup)
+    public function getTrick($id)
     {
-        $sql = <<<SQL
-UPDATE trick
-SET title = '$title', description = '$description', figure_group = '$figureGroup'
-WHERE id = '$id'
-SQL;
-        $statement = $this->getEntityManager()->getConnection()->prepare($sql);
-        $statement->execute();
+        return $this->createQueryBuilder('t')
+            ->where('t.id = :id')
 
-        return $statement->fetchAll();
+            ->setParameter('id', $id)
+
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     /**
      * @inheritdoc
      */
-    public function verifyUniqueTitle($title)
+    public function verifyUniqueTitle($title, $id = null)
     {
-        $sql = <<<SQL
+        if ($id) {
+            $sql = <<<SQL
+SELECT *
+FROM trick
+WHERE title = '$title' AND id <> '$id'
+SQL;
+        } else {
+            $sql = <<<SQL
 SELECT *
 FROM trick
 WHERE title = '$title'
 SQL;
+        }
+
         $statement = $this->getEntityManager()->getConnection()->prepare($sql);
         $statement->execute();
 

@@ -8,19 +8,19 @@ declare(strict_types=1);
 
 namespace App\Validator\Constraints;
 
-use App\Domain\Models\User;
+use App\Domain\Models\Trick;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class UniqueUsernameInDbValidator extends ConstraintValidator
+class UniqueTitleInDbValidator extends ConstraintValidator
 {
 
     /** @var EntityManagerInterface */
     private $entityManager;
 
     /**
-     * UniqueUsernameInDbValidator constructor.
+     * UniqueTitleInDbValidator constructor.
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(
@@ -33,18 +33,18 @@ class UniqueUsernameInDbValidator extends ConstraintValidator
      * Checks if the passed value is valid.
      * @param $protocol
      * @param Constraint $constraint The constraint for the validation
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Doctrine\DBAL\DBALException
      */
     public function validate($protocol, Constraint $constraint)
     {
-        $nbUser =
+        $nbTrick =
             $this->entityManager
-                ->getRepository(User::class)
-                ->verifyUniqueUser($protocol->username);
+                ->getRepository(Trick::class)
+                ->verifyUniqueTitle($protocol->title);
 
-        if ($nbUser) {
+        if ($nbTrick) {
             $this->context->buildViolation($constraint->message)
-                ->atPath('username')
+                ->atPath('title')
                 ->addViolation();
         }
     }

@@ -6,174 +6,16 @@
     <div class="container-fluid py-5" id="bg-img-trick-details">
         <div class="row">
             <div class="col-12">
-                <section class="container bg-white border border-dark" id="container-trick-add">
-                    <div class="row">
-                        <div class="col-md-12 px-0 mx-auto">
-                            <div class="btn-group position-absolute r-0 px-3 mt-3">
-                                <a href="{{ path('tricks_update') }}" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                                <a href="#" class="btn btn-outline-danger px-2 py-1 js-confirm-link"><i class="fa fa-trash fa-lg"></i></a>
-                            </div>
-                            <div class="text-image">
-                                <h1>Lorem ipsum dolor</h1>
-                            </div>
-                            <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid" alt="Responsive image">
-                        </div>
-                    </div>
+                <section class="container bg-white border border-dark pt-4" id="container-trick-add">
 
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-0 mt-3 view overlay zoom">
-                            <a href="{{ asset('images/no_trick.jpg') }}">
-                                <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid img-thumbnail" alt="Responsive image">
-                                <div class="mask flex-center waves-effect waves-light">
-                                    <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-0 mt-3 view overlay zoom">
-                            <a href="{{ asset('images/no_trick.jpg') }}">
-                                <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid img-thumbnail" alt="Responsive image">
-                                <div class="mask flex-center waves-effect waves-light">
-                                    <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-0 mt-3 view overlay zoom">
-                            <a href="{{ asset('images/no_trick.jpg') }}">
-                                <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid img-thumbnail" alt="Responsive image">
-                                <div class="mask flex-center waves-effect waves-light">
-                                    <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
-                            <div class="embed-responsive embed-responsive-16by9 full-height">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/n0F6hSpxaFc" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
-                            <div class="embed-responsive embed-responsive-16by9 full-height">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/n0F6hSpxaFc" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
-                            <div class="embed-responsive embed-responsive-16by9 full-height">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/n0F6hSpxaFc" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row text-center d-md-none d-lg-none d-xl-none">
-                        <div class="col-md-12">
-                            <a class="btn btn-success waves-effect waves-light my-2"><i class="fa fa-gear" aria-hidden="true"></i> See medias</a>
-                        </div>
-                    </div>
+                    <h1 class="text-center">Create new trick</h1>
 
                     <br/>
 
                     <div class="row">
                         <div class="col-md-12 px-5">
-                            <p class="text-justify mx-lg-5">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet
-                                fermentum. Donec sed odio operae,
-                                eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis
-                                piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium
-                                purus sit amet fermentum.<br/><br/>
-                                Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet
-                                fermentum. Donec sed odio operae,
-                                eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis
-                                piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium
-                                purus sit amet fermentum.
-                            </p>
-                        </div>
-                    </div>
-
-                    <br/>
-
-                    <div class="row justify-content-center text-center">
-                        <div class="col-6 col-sm-5 col-lg-4 blue lighten-4 px-2">
-                            <span>Créé le <strong>19/09/2018</strong> par<br/><strong>Thibaut Tourte</strong></span>
-                        </div>
-                        <div class="col-6 col-sm-5 col-lg-4 offset-sm-1 blue lighten-4 px-2">
-                            <span>Modifié le <strong>20/09/2018</strong> par<br/><strong>Aurélien Morvan</strong></span>
-                        </div>
-                    </div>
-
-                    <hr class="grey">
-
-                    <form class="row needs-validation text-center" method="post" action="{{ path('tricks_details', {'slug':'blabla'}) }}" novalidate>
-                        <div class="col-12">
-                            <label for="trick_comment"><strong>Leave a comment !</strong></label>
-                        </div>
-                        <div class="col-8 col-md-9 col-lg-8 offset-lg-1 form-group mb-0">
-                            <textarea class="form-control" id="trick_comment" name="trick_comment" rows="2"></textarea>
-                        </div>
-                        <div class="col-1 px-0">
-                            <button type="submit" class="btn btn-primary" name="comment">Submit</button>
-                        </div>
-                    </form>
-
-                    <hr class="grey">
-
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h04 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h03 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h02 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h01 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h00 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class="row text-center">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-success waves-effect waves-light my-2">
-                                <i class="fa fa-gear" aria-hidden="true"></i> Load more
-                            </button>
+                            {% form_theme form '/forms/create_trick.html.twig' %}
+                            {{ form(form) }}
                         </div>
                     </div>
 
@@ -183,4 +25,31 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script src="//cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('ckeditor');
+        CKEDITOR.editorConfig = function (config) {
+            config.skin = 'moono-dark';
+        };
+    </script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

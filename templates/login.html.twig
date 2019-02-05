@@ -25,6 +25,9 @@
                             </div>
                             <button type="submit" class="btn btn-success waves-effect waves-light mb-4">Login</button><br/>
                             -->
+                            {% if error %}
+                                <div class="text-danger">{{ error.messageKey|trans(error.messageData) }}</div>
+                            {% endif %}
                             {% form_theme form '/forms/login.html.twig' %}
                             {{ form(form) }}
                             <a href="{{ path('registration') }}">Register</a>

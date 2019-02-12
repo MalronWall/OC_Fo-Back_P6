@@ -4,20 +4,13 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-    <entity name="App\Domain\Models\Trick" table="trick" repository-class="App\Domain\Repository\TrickRepository">
+    <entity name="App\Domain\Models\FigureGroup" table="figure_group" repository-class="App\Domain\Repository\FigureGroupRepository">
         <id name="id" type="uuid" column="id">
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
         <field name="title" type="string" unique="true" />
-        <field name="description" type="text" />
-        <many-to-one field="figureGroup" target-entity="FigureGroup">
-            <join-column name="figureGroup_id" referenced-column-name="id" />
-        </many-to-one>
-        <many-to-one field="user" target-entity="User">
-            <join-column name="user_id" referenced-column-name="id" />
-        </many-to-one>
-        <one-to-many field="medias" target-entity="Media" mapped-by="typeMedia" />
+        <one-to-many field="tricks" target-entity="Trick" mapped-by="figureGroup" />
     </entity>
 
 </doctrine-mapping>

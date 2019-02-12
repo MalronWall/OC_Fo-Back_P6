@@ -9,7 +9,10 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
+use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\UuidInterface;
 
 class Trick implements TrickInterface
@@ -20,8 +23,12 @@ class Trick implements TrickInterface
     private $title;
     /** @var string */
     private $description;
-    /** @var string */
+    /** @var FigureGroupInterface */
     private $figureGroup;
+    /** @var UserInterface */
+    private $user;
+    /** @var ArrayCollection */
+    private $medias;
 
     /**
      * Trick constructor.
@@ -73,8 +80,24 @@ class Trick implements TrickInterface
     /**
      * @return string
      */
-    public function getGroup(): string
+    public function getFigureGroup(): string
     {
         return $this->figureGroup;
+    }
+
+    /**
+     * @return UserInterface
+     */
+    public function getUser(): UserInterface
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getMedias(): ArrayCollection
+    {
+        return $this->medias;
     }
 }

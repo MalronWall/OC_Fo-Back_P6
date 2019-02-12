@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface as UISymfony;
 
@@ -24,11 +25,16 @@ class User implements UserInterface, UISymfony
     private $password;
     /** @var array */
     private $roles;
+    /** @var Media */
+    private $media;
+    /** @var ArrayCollection */
+    private $tricks;
 
     /**
      * User constructor.
      * @param string $username
      * @param string $email
+     * @param string $password
      */
     public function __construct(string $username, string $email, string $password)
     {
@@ -62,9 +68,20 @@ class User implements UserInterface, UISymfony
         return $this->email;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    /**
+     * @return Media
+     */
+    public function getMedia(): Media
+    {
+        return $this->media;
     }
 
     /**
@@ -109,5 +126,13 @@ class User implements UserInterface, UISymfony
     public function eraseCredentials()
     {
         return;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTricks(): ArrayCollection
+    {
+        return $this->tricks;
     }
 }

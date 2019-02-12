@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace App\Domain\Models\Interfaces;
 
 use App\Domain\Models\Media;
-use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\UuidInterface;
 
 interface UserInterface
@@ -50,9 +49,4 @@ interface UserInterface
      * @return Media
      */
     public function getMedia(): Media;
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTricks(): ArrayCollection;
 }

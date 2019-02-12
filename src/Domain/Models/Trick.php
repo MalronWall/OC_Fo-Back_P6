@@ -12,7 +12,7 @@ use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use App\Domain\Models\Interfaces\UserInterface;
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
 class Trick implements TrickInterface
@@ -27,7 +27,7 @@ class Trick implements TrickInterface
     private $figureGroup;
     /** @var UserInterface */
     private $user;
-    /** @var ArrayCollection */
+    /** @var Collection|Media[] */
     private $medias;
 
     /**
@@ -94,9 +94,9 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @return ArrayCollection
+     * @return Media[]|Collection
      */
-    public function getMedias(): ArrayCollection
+    public function getMedias(): Collection
     {
         return $this->medias;
     }

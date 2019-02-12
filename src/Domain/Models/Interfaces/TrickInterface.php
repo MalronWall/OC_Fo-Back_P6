@@ -9,7 +9,8 @@ declare(strict_types=1);
 namespace App\Domain\Models\Interfaces;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
-use Doctrine\Common\Collections\ArrayCollection;
+use App\Domain\Models\Media;
+use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
 interface TrickInterface
@@ -57,7 +58,7 @@ interface TrickInterface
     public function getUser(): UserInterface;
 
     /**
-     * @return ArrayCollection
+     * @return Media[]|Collection
      */
-    public function getMedias(): ArrayCollection;
+    public function getMedias(): Collection;
 }

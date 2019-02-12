@@ -10,7 +10,6 @@
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
         <field name="title" type="string" unique="true" />
-        <one-to-many field="tricks" target-entity="Trick" mapped-by="figureGroup" />
     </entity>
 
 </doctrine-mapping>

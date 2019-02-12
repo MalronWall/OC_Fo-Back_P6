@@ -28,9 +28,4 @@ interface FigureGroupInterface
      * @return string
      */
     public function getTitle(): string;
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTricks(): ArrayCollection;
 }

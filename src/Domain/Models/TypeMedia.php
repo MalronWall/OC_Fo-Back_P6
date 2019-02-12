@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\TypeMediaInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\UuidInterface;
 
 class TypeMedia implements TypeMediaInterface
@@ -18,8 +17,6 @@ class TypeMedia implements TypeMediaInterface
     private $id;
     /** @var string */
     private $type;
-    /** @var ArrayCollection */
-    private $medias;
 
     /**
      * TypeMedia constructor.
@@ -44,13 +41,5 @@ class TypeMedia implements TypeMediaInterface
     public function getType(): string
     {
         return $this->type;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getMedias(): ArrayCollection
-    {
-        return $this->medias;
     }
 }

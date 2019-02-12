@@ -14,11 +14,11 @@
         <!-- field = champ de Media concernant la cible -->
         <!-- target-entity = classe User où se trouve la clé étrangère -->
         <!-- mapped-by = champ de User qui est la clé étrangère -->
-        <one-to-one field="user" target-entity="User" mapped-by="media" />
+        <!-- one-to-one field="user" target-entity="User" mapped-by="media" /-->
         <many-to-one field="typeMedia" target-entity="TypeMedia">
             <join-column name="typeMedia_id" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="trick" target-entity="Trick">
+        <many-to-one field="trick" target-entity="Trick" inversed-by="medias">
             <join-column name="trick_id" referenced-column-name="id" />
         </many-to-one>
 

@@ -30,9 +30,4 @@ interface TypeMediaInterface
      * @return string
      */
     public function getType(): string;
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getMedias(): ArrayCollection;
 }

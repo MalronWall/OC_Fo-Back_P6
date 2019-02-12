@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\UserInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface as UISymfony;
 
@@ -27,8 +26,6 @@ class User implements UserInterface, UISymfony
     private $roles;
     /** @var Media */
     private $media;
-    /** @var ArrayCollection */
-    private $tricks;
 
     /**
      * User constructor.
@@ -126,13 +123,5 @@ class User implements UserInterface, UISymfony
     public function eraseCredentials()
     {
         return;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTricks(): ArrayCollection
-    {
-        return $this->tricks;
     }
 }

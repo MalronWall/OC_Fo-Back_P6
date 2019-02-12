@@ -18,8 +18,6 @@ class FigureGroup implements FigureGroupInterface
     private $id;
     /** @var string */
     private $title;
-    /** @var ArrayCollection */
-    private $tricks;
 
     /**
      * TypeMedia constructor.
@@ -44,13 +42,5 @@ class FigureGroup implements FigureGroupInterface
     public function getTitle(): string
     {
         return $this->title;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getTricks(): ArrayCollection
-    {
-        return $this->tricks;
     }
 }

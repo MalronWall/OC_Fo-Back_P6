@@ -10,7 +10,6 @@
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
         <field name="type" type="string" unique="true" />
-        <one-to-many field="medias" target-entity="Media" mapped-by="typeMedia" />
     </entity>
 
 </doctrine-mapping>

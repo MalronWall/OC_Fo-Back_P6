@@ -16,21 +16,17 @@ use Ramsey\Uuid\UuidInterface;
 interface TrickInterface
 {
     /**
-     * TrickInterface constructor.
+     * Trick constructor.
      * @param string $title
      * @param string $description
      * @param string $figureGroup
      */
-    public function __construct(
-        string $title,
-        string $description,
-        string $figureGroup
-    );
+    public function __construct(string $title, string $description, string $figureGroup);
 
     /**
      * @param UpdateTrickDTOInterface $dto
      */
-    public function updateTrick(UpdateTrickDTOInterface $dto):void;
+    public function updateTrick(UpdateTrickDTOInterface $dto): void;
 
     /**
      * @return UuidInterface
@@ -41,6 +37,11 @@ interface TrickInterface
      * @return string
      */
     public function getTitle(): string;
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string;
 
     /**
      * @return string

@@ -22,6 +22,8 @@ class Trick implements TrickInterface
     /** @var string */
     private $title;
     /** @var string */
+    private $slug;
+    /** @var string */
     private $description;
     /** @var FigureGroupInterface */
     private $figureGroup;
@@ -67,6 +69,14 @@ class Trick implements TrickInterface
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 
     /**

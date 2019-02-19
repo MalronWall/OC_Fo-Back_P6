@@ -25,7 +25,7 @@ class FigureGroup implements FigureGroupInterface
      */
     public function __construct(string $title)
     {
-        $this->type = $title;
+        $this->title = $title;
     }
 
     /**

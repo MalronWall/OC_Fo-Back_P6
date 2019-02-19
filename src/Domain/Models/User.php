@@ -19,6 +19,8 @@ class User implements UserInterface, UISymfony
     /** @var string */
     private $username;
     /** @var string */
+    private $slug;
+    /** @var string */
     private $email;
     /** @var string */
     private $password;
@@ -55,6 +57,14 @@ class User implements UserInterface, UISymfony
     public function getUsername(): string
     {
         return $this->username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 
     /**

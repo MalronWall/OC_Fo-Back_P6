@@ -10,6 +10,7 @@
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
         <field name="username" type="string" unique="true" />
+        <field name="slug" type="string" nullable="true" />
         <field name="email" type="string" unique="true" />
         <field name="password" type="string" />
         <field name="roles" type="array" />

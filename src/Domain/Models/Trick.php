@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Application\Helpers\SafeRenameHelper;
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use App\Domain\Models\Interfaces\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
@@ -30,19 +32,34 @@ class Trick implements TrickInterface
     /** @var UserInterface */
     private $user;
     /** @var Collection|Media[] */
-    private $medias;
+    private $links;
+    /** @var Collection|Media[] */
+    private $images;
 
     /**
      * Trick constructor.
+     * @param UserInterface $user
      * @param string $title
      * @param string $description
-     * @param string $figureGroup
+     * @param FigureGroupInterface $figureGroup
+     * @param array $links
+     * @param array $images
      */
-    public function __construct(string $title, string $description, string $figureGroup)
-    {
+    public function __construct(
+        UserInterface $user,
+        string $title,
+        string $description,
+        FigureGroupInterface $figureGroup,
+        array $links = [],
+        array $images = []
+    ) {
+        $this->user = $user;
         $this->title = $title;
+        $this->slug = SafeRenameHelper::slug($title);
         $this->description = $description;
         $this->figureGroup = $figureGroup;
+        $this->links = new ArrayCollection($links);
+        $this->images = new ArrayCollection($images);
     }
 
     /**
@@ -51,8 +68,11 @@ class Trick implements TrickInterface
     public function updateTrick(UpdateTrickDTOInterface $dto):void
     {
         $this->title = $dto->title;
+        $this->slug = SafeRenameHelper::slug($dto->title);
         $this->description = $dto->description;
         $this->figureGroup = $dto->figureGroup;
+        $this->links = new ArrayCollection($dto->links);
+        $this->images = new ArrayCollection($dto->images);
     }
 
     /**
@@ -88,9 +108,9 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @return string
+     * @return FigureGroupInterface
      */
-    public function getFigureGroup(): string
+    public function getFigureGroup(): FigureGroupInterface
     {
         return $this->figureGroup;
     }
@@ -106,8 +126,16 @@ class Trick implements TrickInterface
     /**
      * @return Media[]|Collection
      */
-    public function getMedias(): Collection
+    public function getLinks()
     {
-        return $this->medias;
+        return $this->links;
+    }
+
+    /**
+     * @return Media[]|Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }

@@ -8,26 +8,22 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use App\Domain\Models\TypeMedia;
 use Ramsey\Uuid\UuidInterface;
 
 interface MediaInterface
 {
     /**
      * Media constructor.
-     * @param string $name
      * @param string $link
+     * @param TypeMedia $typeMedia
      */
-    public function __construct(string $name, string $link = null);
+    public function __construct(string $link, TypeMedia $typeMedia);
 
     /**
      * @return UuidInterface
      */
     public function getId(): UuidInterface;
-
-    /**
-     * @return string
-     */
-    public function getName(): string;
 
     /**
      * @return string

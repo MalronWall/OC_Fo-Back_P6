@@ -10,7 +10,7 @@ namespace App\UI\Actions;
 
 use App\Application\Handlers\Forms\Interfaces\CreateTrickHandlerInterface;
 use App\Application\Handlers\Forms\Interfaces\UpdateTrickHandlerInterface;
-use App\Application\Helpers\Interfaces\HydrateDTOHelperInterface;
+use App\Application\Helpers\Interfaces\HydrateHelperInterface;
 use App\Domain\Models\Trick;
 use App\UI\Actions\Interfaces\TricksUpdateActionInterface;
 use App\UI\Forms\UpdateTrickType;
@@ -31,7 +31,7 @@ class TricksUpdateAction implements TricksUpdateActionInterface
     private $formHandler;
     /** @var EntityManagerInterface */
     private $entityManager;
-    /** @var HydrateDTOHelperInterface */
+    /** @var HydrateHelperInterface */
     private $hydrateDTOHelper;
 
     /**
@@ -40,14 +40,14 @@ class TricksUpdateAction implements TricksUpdateActionInterface
      * @param FormFactoryInterface $formFactory
      * @param UpdateTrickHandlerInterface $formHandler
      * @param EntityManagerInterface $entityManager
-     * @param HydrateDTOHelperInterface $hydrateDTOHelper
+     * @param HydrateHelperInterface $hydrateDTOHelper
      */
     public function __construct(
         TricksUpdateResponderInterface $responder,
         FormFactoryInterface $formFactory,
         UpdateTrickHandlerInterface $formHandler,
         EntityManagerInterface $entityManager,
-        HydrateDTOHelperInterface $hydrateDTOHelper
+        HydrateHelperInterface $hydrateDTOHelper
     ) {
         $this->responder = $responder;
         $this->formFactory = $formFactory;

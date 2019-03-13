@@ -19,8 +19,6 @@ class Media implements MediaInterface
     /** @var UuidInterface */
     private $id;
     /** @var string */
-    private $name;
-    /** @var string */
     private $link;
     /** @var UserInterface */
     private $user;
@@ -31,13 +29,13 @@ class Media implements MediaInterface
 
     /**
      * Media constructor.
-     * @param string $name
      * @param string $link
+     * @param TypeMedia $typeMedia
      */
-    public function __construct(string $name, string $link = null)
+    public function __construct(string $link, TypeMedia $typeMedia)
     {
-        $this->name = $name;
         $this->link = $link;
+        $this->typeMedia = $typeMedia;
     }
 
 
@@ -47,14 +45,6 @@ class Media implements MediaInterface
     public function getId(): UuidInterface
     {
         return $this->id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
     }
 
     /**

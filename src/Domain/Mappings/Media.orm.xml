@@ -9,7 +9,6 @@
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
-        <field name="name" type="string" unique="true" />
         <field name="link" type="string" nullable="true" />
         <!-- field = champ de Media concernant la cible -->
         <!-- target-entity = classe User où se trouve la clé étrangère -->

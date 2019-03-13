@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Validator\Constraints;
 
+use App\Application\Helpers\SafeRenameHelper;
 use App\Domain\Models\Trick;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
@@ -31,22 +32,22 @@ class UniqueTitleInDbValidator extends ConstraintValidator
 
     /**
      * Checks if the passed value is valid.
-     * @param $protocol
+     * @param $value
      * @param Constraint $constraint The constraint for the validation
-     * @throws \Doctrine\DBAL\DBALException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function validate($protocol, Constraint $constraint)
+    public function validate($value, Constraint $constraint)
     {
-        if (isset($protocol->id)) {
+        if (isset($value->id)) {
             $nbTrick =
                 $this->entityManager
                     ->getRepository(Trick::class)
-                    ->verifyUniqueTitle($protocol->title, $protocol->id);
+                    ->verifyUniqueTitle(SafeRenameHelper::slug($value->title), $value->id);
         } else {
             $nbTrick =
                 $this->entityManager
                     ->getRepository(Trick::class)
-                    ->verifyUniqueTitle($protocol->title);
+                    ->verifyUniqueTitle(SafeRenameHelper::slug($value->title));
         }
 
         if ($nbTrick) {

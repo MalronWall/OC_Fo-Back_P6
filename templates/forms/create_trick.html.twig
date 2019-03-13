@@ -4,10 +4,26 @@
         {{ form_row(form.title, { 'attr': {'class': 'form-control'} }) }}
     </div>
     <div class="my-md-form form-group">
-        {{ form_row(form.description, { 'attr': {'class': 'form-control ckeditor'} }) }}
+        {{ form_row(form.description, { 'attr': {'class': 'tinymce'} }) }}
     </div>
-    <div class="md-form form-group">
+    <div class="my-md-form form-group">
         {{ form_row(form.figureGroup, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="my-md-form form-row">
+        <div class="col-6">
+            <ul class="list-group links" data-prototype-links="{{ form_widget(form.links.vars.prototype)|e('html_attr') }}">
+                {% for link in form.links %}
+                    <li>{{ form_row(link.link) }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-6">
+            <ul class="list-group images" data-prototype-images="{{ form_widget(form.images.vars.prototype)|e('html_attr') }}">
+                {% for image in form.images %}
+                    <li>{{ form_row(image.image) }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
     <button type="submit" class="btn btn-success waves-effect waves-light mb-4">Create trick</button>
     <br/>

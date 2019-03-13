@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 px-0 mx-auto">
                 <button class="btn btn-outline-success position-absolute r-0 px-3 js-scrollTo" href="#tricks">
-                    <i class="fa fa-arrow-down"></i>
+                    <i class="fas fa-arrow-down"></i>
                 </button>
                 <div class="text-image">
                     <h1>Lorem ipsum dolor sit amet</h1>
@@ -17,9 +17,30 @@
         </div>
 
         <div class="row" id="tricks">
+            {% for trick in tricks %}
             <div class="card offset-xl-1 col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3">
                 <!--Card image-->
                 <div class="view overlay hm-white-slight">
+                    <img src="{{ asset('images/downloaded/tricks/'{{ trick.imageFirst }}) }}" class="img-fluid" alt="Responsive image">
+                    <a>
+                        <div class="mask waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card content-->
+                <div class="card-body">
+                    <!--Title-->
+                    <h4 class="card-title">{{ trick.title }}</h4>
+                    <!--Text-->
+                    <div class="card-text btn-group float-right">
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="LIEN DE SUPPRESSION" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3">
+                <!--Card image-->
+                <div class="view overlay hm-white-slight">
                     <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid" alt="Responsive image">
                     <a>
                         <div class="mask waves-effect waves-light"></div>
@@ -31,8 +52,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="LIEN DE SUPPRESSION" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -50,8 +71,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -69,8 +90,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -88,27 +109,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3">
-                <!--Card image-->
-                <div class="view overlay hm-white-slight">
-                    <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid" alt="Responsive image">
-                    <a>
-                        <div class="mask waves-effect waves-light"></div>
-                    </a>
-                </div>
-                <!--Card content-->
-                <div class="card-body">
-                    <!--Title-->
-                    <h4 class="card-title">Trick name</h4>
-                    <!--Text-->
-                    <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -127,8 +129,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -146,8 +148,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -165,8 +167,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -184,8 +186,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -203,8 +205,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -223,8 +225,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -242,8 +244,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -261,8 +263,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -280,8 +282,8 @@
                     <h4 class="card-title">Trick name</h4>
                     <!--Text-->
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -298,8 +300,8 @@
                     <!--Title-->
                     <h4 class="card-title">Trick name</h4>
                     <div class="card-text btn-group float-right">
-                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fa fa-pencil fa-lg"></i></a>&nbsp;
-                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fa fa-trash fa-lg"></i></a>
+                        <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                        <a href="" class="btn btn-outline-danger px-2 py-1" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -308,9 +310,9 @@
         <div class="row text-center">
             <div class="col-md-12">
                 <button class="btn btn-outline-success position-absolute r-0 px-3 js-scrollTo" href="#myNavbar">
-                    <i class="fa fa-arrow-up"></i>
+                    <i class="fas fa-arrow-up"></i>
                 </button>
-                <button type="button" class="btn btn-success waves-effect waves-light my-2 mb-0"><i class="fa fa-gear" aria-hidden="true"></i> Load more</button>
+                <button type="button" class="btn btn-success waves-effect waves-light my-2 mb-0"><i class="fas fa-cog" aria-hidden="true"></i> Load more</button>
             </div>
         </div>
 

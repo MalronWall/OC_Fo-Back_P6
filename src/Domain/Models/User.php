@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Application\Helpers\SafeRenameHelper;
 use App\Domain\Models\Interfaces\UserInterface;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface as UISymfony;
@@ -38,6 +39,7 @@ class User implements UserInterface, UISymfony
     public function __construct(string $username, string $email, string $password)
     {
         $this->username = $username;
+        $this->slug = SafeRenameHelper::slug($username);
         $this->email = $email;
         $this->password = $password;
         $this->roles[] = "ROLE_USER";

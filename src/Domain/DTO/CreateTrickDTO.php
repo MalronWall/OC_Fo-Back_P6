@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\Domain\DTO;
 
 use App\Domain\DTO\Interfaces\CreateTrickDTOInterface;
+use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Validator\Constraints\UniqueTitleInDb;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -33,27 +34,32 @@ class CreateTrickDTO implements CreateTrickDTOInterface
     public $title;
     /** @var string */
     public $description;
-    /** @var string
-    * @Assert\Length(
-    *     max="255",
-    *     maxMessage="Le groupe ne peut pas contenir plus de 255 caractères !"
-    * )
-    */
+    /** @var FigureGroupInterface */
     public $figureGroup;
+    /** @var array|null */
+    public $links;
+    /** @var array|null */
+    public $images;
 
     /**
      * CreateTrickDTO constructor.
      * @param null|string $title
      * @param null|string $description
-     * @param null|string $figureGroup
+     * @param FigureGroupInterface|null $figureGroup
+     * @param array|null $links
+     * @param array|null $images
      */
     public function __construct(
         ?string $title,
         ?string $description,
-        ?string $figureGroup
+        ?FigureGroupInterface $figureGroup,
+        ?array $links,
+        ?array $images
     ) {
         $this->title = $title;
         $this->description = $description;
         $this->figureGroup = $figureGroup;
+        $this->links = $links;
+        $this->images = $images;
     }
 }

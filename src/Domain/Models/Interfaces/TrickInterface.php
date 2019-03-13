@@ -10,6 +10,7 @@ namespace App\Domain\Models\Interfaces;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\Models\Media;
+use App\Domain\Models\User;
 use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
@@ -17,11 +18,21 @@ interface TrickInterface
 {
     /**
      * Trick constructor.
+     * @param User $user
      * @param string $title
      * @param string $description
-     * @param string $figureGroup
+     * @param FigureGroupInterface $figureGroup
+     * @param array $links
+     * @param array $images
      */
-    public function __construct(string $title, string $description, string $figureGroup);
+    public function __construct(
+        User $user,
+        string $title,
+        string $description,
+        FigureGroupInterface $figureGroup,
+        array $links = [],
+        array $images = []
+    );
 
     /**
      * @param UpdateTrickDTOInterface $dto
@@ -49,17 +60,22 @@ interface TrickInterface
     public function getDescription(): string;
 
     /**
-     * @return string
+     * @return FigureGroupInterface
      */
-    public function getFigureGroup(): string;
+    public function getFigureGroup(): FigureGroupInterface;
 
     /**
-     * @return UserInterface
+     * @return User
      */
-    public function getUser(): UserInterface;
+    public function getUser(): User;
 
     /**
      * @return Media[]|Collection
      */
-    public function getMedias(): Collection;
+    public function getLinks();
+
+    /**
+     * @return Media[]|Collection
+     */
+    public function getImages();
 }

@@ -9,8 +9,8 @@
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
-        <field name="username" type="string" unique="true" />
-        <field name="slug" type="string" nullable="true" />
+        <field name="username" type="string" />
+        <field name="slug" type="string" unique="true" />
         <field name="email" type="string" unique="true" />
         <field name="password" type="string" />
         <field name="roles" type="array" />
@@ -19,6 +19,9 @@
         <!-- mapped-by = champ de Media qui va contenir l'utilisateur (uniquement dans la classe PHP) -->
         <one-to-one field="media" target-entity="Media">
             <!-- NULL default -->
+            <cascade>
+                <cascade-remove />
+            </cascade>
             <join-column name="media_id" referenced-column-name="id" on-delete="CASCADE" />
         </one-to-one>
 

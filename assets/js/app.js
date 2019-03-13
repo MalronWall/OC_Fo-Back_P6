@@ -49,7 +49,7 @@ tinymce.init({
 
 // CKEDITOR
 // CDN <script src="//cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
-CKEDITOR.replace('ckeditor');
+// CKEDITOR.replace('ckeditor');
 
 // SHOW OR HIDE PASSWORD
 $(document).ready(function() {

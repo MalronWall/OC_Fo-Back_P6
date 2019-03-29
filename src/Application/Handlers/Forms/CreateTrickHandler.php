@@ -10,7 +10,6 @@ namespace App\Application\Handlers\Forms;
 
 use App\Application\Handlers\Forms\Interfaces\CreateTrickHandlerInterface;
 use App\Application\Helpers\SafeRenameHelper;
-use App\Domain\Models\FigureGroup;
 use App\Domain\Models\Media;
 use App\Domain\Models\Trick;
 use App\Domain\Models\TypeMedia;
@@ -18,7 +17,6 @@ use App\Domain\Models\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -50,6 +48,7 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
     /**
      * @param FormInterface $form
      * @return bool
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function handle(FormInterface $form): bool
     {
@@ -59,36 +58,30 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
             /** @var User $user */
             $user = $this->tokenStorage->getToken()->getUser();
 
-            $links = [];
-            foreach ($dto->links as $link) {
-                $typeMedia = $this->entityManager
-                    ->getRepository(TypeMedia::class)
-                    ->findOneBy(
-                        [
-                            "type" => "video"
-                        ]
-                    );
+            $trick = new Trick($user, $dto->title, $dto->description, $dto->figureGroup);
 
-                $links[] = new Media($link->link, $typeMedia);
+            // LINK
+            $typeMediaVideo = $this->entityManager
+                ->getRepository(TypeMedia::class)
+                ->getType("video");
+            foreach ($dto->links as $link) {
+                $trick->addLink(new Media($link->link, $typeMediaVideo));
             }
 
-            $images = [];
+            // IMAGE
+            $typeMediaImage = $this->entityManager
+                ->getRepository(TypeMedia::class)
+                ->getType("image");
             $first = true;
             foreach ($dto->images as $image) {
-                $typeMedia = $this->entityManager
-                    ->getRepository(TypeMedia::class)
-                    ->findOneBy(
-                        [
-                            "type" => "image"
-                        ]
-                    );
-
+                // UNIQUE FILENAME
                 $fileName = SafeRenameHelper::uniqueFilename().".".$image->image->guessExtension();
                 if ($first) {
                     $fileName = "first_".$fileName;
                     $first = false;
                 }
 
+                // SAVING IMAGE IN FOLDER
                 try {
                     $image->image->move(
                         "images/downloaded/tricks/",
@@ -100,11 +93,8 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
                         "Une erreur s'est produite lors de l'enregistrement d'image !"
                     );
                 }
-
-                $images[] = new Media($fileName, $typeMedia);
+                $trick->addImage(new Media($fileName, $typeMediaImage));
             }
-
-            $trick = new Trick($user, $dto->title, $dto->description, $dto->figureGroup, $links, $images);
 
             $this->entityManager->persist($trick);
             $this->entityManager->flush();

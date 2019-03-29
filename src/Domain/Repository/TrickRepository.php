@@ -28,12 +28,12 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
-    public function getTrick($id)
+    public function getTrick($slug)
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = :id')
+            ->where('t.slug = :slug')
 
-            ->setParameter('id', $id)
+            ->setParameter('slug', $slug)
 
             ->getQuery()
             ->getOneOrNullResult();

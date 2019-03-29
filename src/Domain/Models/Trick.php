@@ -12,7 +12,6 @@ use App\Application\Helpers\SafeRenameHelper;
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
@@ -29,7 +28,7 @@ class Trick implements TrickInterface
     private $description;
     /** @var FigureGroupInterface */
     private $figureGroup;
-    /** @var UserInterface */
+    /** @var User */
     private $user;
     /** @var Collection|Media[] */
     private $links;
@@ -38,28 +37,41 @@ class Trick implements TrickInterface
 
     /**
      * Trick constructor.
-     * @param UserInterface $user
+     * @param User $user
      * @param string $title
      * @param string $description
      * @param FigureGroupInterface $figureGroup
-     * @param array $links
-     * @param array $images
      */
     public function __construct(
-        UserInterface $user,
+        User $user,
         string $title,
         string $description,
-        FigureGroupInterface $figureGroup,
-        array $links = [],
-        array $images = []
+        FigureGroupInterface $figureGroup
     ) {
         $this->user = $user;
         $this->title = $title;
         $this->slug = SafeRenameHelper::slug($title);
         $this->description = $description;
         $this->figureGroup = $figureGroup;
-        $this->links = new ArrayCollection($links);
-        $this->images = new ArrayCollection($images);
+        $this->links = new ArrayCollection();
+        $this->images = new ArrayCollection();
+    }
+
+    /**
+     * @param Media $link
+     */
+    public function addLink(Media $link):void
+    {
+        $this->links->add($link);
+        $link->defineTrick($this);
+    }
+    /**
+     * @param Media $image
+     */
+    public function addImage(Media $image):void
+    {
+        $this->images->add($image);
+        $image->defineTrick($this);
     }
 
     /**
@@ -116,9 +128,9 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @return UserInterface
+     * @return User
      */
-    public function getUser(): UserInterface
+    public function getUser(): User
     {
         return $this->user;
     }

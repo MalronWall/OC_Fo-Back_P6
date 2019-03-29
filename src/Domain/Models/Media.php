@@ -11,7 +11,6 @@ namespace App\Domain\Models;
 use App\Domain\Models\Interfaces\MediaInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use App\Domain\Models\Interfaces\TypeMediaInterface;
-use App\Domain\Models\Interfaces\UserInterface;
 use Ramsey\Uuid\UuidInterface;
 
 class Media implements MediaInterface
@@ -20,7 +19,7 @@ class Media implements MediaInterface
     private $id;
     /** @var string */
     private $link;
-    /** @var UserInterface */
+    /** @var User */
     private $user;
     /** @var TypeMediaInterface */
     private $typeMedia;
@@ -38,6 +37,13 @@ class Media implements MediaInterface
         $this->typeMedia = $typeMedia;
     }
 
+    /**
+     * @param Trick $trick
+     */
+    public function defineTrick(Trick $trick): void
+    {
+        $this->trick = $trick;
+    }
 
     /**
      * @return UuidInterface
@@ -58,7 +64,7 @@ class Media implements MediaInterface
     /**
      * @return User
      */
-    public function getUser(): UserInterface
+    public function getUser(): User
     {
         return $this->user;
     }

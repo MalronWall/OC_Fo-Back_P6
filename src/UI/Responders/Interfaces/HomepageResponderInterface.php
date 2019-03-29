@@ -22,7 +22,8 @@ interface HomepageResponderInterface
     );
 
     /**
+     * @param array $tricks
      * @return Response
      */
-    public function response(): Response;
+    public function response(array $tricks): Response;
 }

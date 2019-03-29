@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Application\Helpers\Interfaces\HydrateHelperInterface;
 use App\Domain\Models\Trick;
 use App\UI\Actions\Interfaces\HomepageActionInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
@@ -22,23 +21,18 @@ class HomepageAction implements HomepageActionInterface
     private $responder;
     /** @var EntityManagerInterface */
     private $entityManager;
-    /** @var HydrateHelperInterface */
-    private $hydrateDTOHelper;
 
     /**
      * HomepageAction constructor.
      * @param HomepageResponderInterface $responder
      * @param EntityManagerInterface $entityManager
-     * @param HydrateHelperInterface $hydrateDTOHelper
      */
     public function __construct(
         HomepageResponderInterface $responder,
-        EntityManagerInterface $entityManager,
-        HydrateHelperInterface $hydrateDTOHelper
+        EntityManagerInterface $entityManager
     ) {
         $this->responder = $responder;
         $this->entityManager = $entityManager;
-        $this->hydrateDTOHelper = $hydrateDTOHelper;
     }
 
     /**
@@ -50,14 +44,11 @@ class HomepageAction implements HomepageActionInterface
             ->getRepository(Trick::class)
             ->getTricks();
 
-        dump($tricks);exit;
-
         $tricksWithImages = [];
         foreach ($tricks as $trick) {
-            $tricksWithImages[] = $this->hydrateDTOHelper->hydrateTrick($trick);
+            $tricksWithImages[] = $trick->getImages();
         }
-        dump($tricks);exit;
 
-        return $this->responder->response();
+        return $this->responder->response($tricksWithImages);
     }
 }

@@ -21,7 +21,12 @@ class HydrateHelper implements HydrateHelperInterface
      */
     public function hydrateUpdateTrickDTO(TrickInterface $trick):UpdateTrickDTO
     {
-        return new UpdateTrickDTO($trick->getTitle(), $trick->getDescription(), $trick->getGroup(), $trick->getId());
+        return new UpdateTrickDTO(
+            $trick->getTitle(),
+            $trick->getDescription(),
+            $trick->getFigureGroup(),
+            $trick->getId()
+        );
     }
 
     /**
@@ -35,8 +40,8 @@ class HydrateHelper implements HydrateHelperInterface
             $trick->getTitle(),
             $trick->getDescription(),
             $trick->getFigureGroup(),
-            $trick->getLinks(),
-            $trick->getImages()
+            $trick->getLinks()->toArray(),
+            $trick->getImages()->toArray()
         );
     }
 }

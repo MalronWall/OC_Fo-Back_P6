@@ -8,7 +8,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use App\Domain\Models\Trick;
 use App\Domain\Models\TypeMedia;
+use App\Domain\Models\User;
 use Ramsey\Uuid\UuidInterface;
 
 interface MediaInterface
@@ -21,6 +23,11 @@ interface MediaInterface
     public function __construct(string $link, TypeMedia $typeMedia);
 
     /**
+     * @param Trick $trick
+     */
+    public function defineTrick(Trick $trick): void;
+
+    /**
      * @return UuidInterface
      */
     public function getId(): UuidInterface;
@@ -31,9 +38,9 @@ interface MediaInterface
     public function getLink(): string;
 
     /**
-     * @return UserInterface
+     * @return User
      */
-    public function getUser(): UserInterface;
+    public function getUser(): User;
 
     /**
      * @return TypeMediaInterface

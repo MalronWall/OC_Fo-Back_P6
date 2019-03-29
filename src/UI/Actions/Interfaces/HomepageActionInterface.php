@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\UI\Actions\Interfaces;
 
-use App\Application\Helpers\Interfaces\HydrateHelperInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,12 +18,10 @@ interface HomepageActionInterface
      * HomepageActionInterface constructor.
      * @param HomepageResponderInterface $responder
      * @param EntityManagerInterface $entityManager
-     * @param HydrateHelperInterface $hydrateDTOHelper
      */
     public function __construct(
         HomepageResponderInterface $responder,
-        EntityManagerInterface $entityManager,
-        HydrateHelperInterface $hydrateDTOHelper
+        EntityManagerInterface $entityManager
     );
 
     /**

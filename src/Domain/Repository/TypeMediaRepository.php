@@ -13,5 +13,17 @@ use Doctrine\ORM\EntityRepository;
 
 class TypeMediaRepository extends EntityRepository implements TypeMediaRepositoryInterface
 {
+    /**
+     * @inheritdoc
+     */
+    public function getType($type)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.type = :type')
 
+            ->setParameter('type', $type)
+
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

@@ -22,17 +22,25 @@ interface TrickInterface
      * @param string $title
      * @param string $description
      * @param FigureGroupInterface $figureGroup
-     * @param array $links
-     * @param array $images
      */
     public function __construct(
         User $user,
         string $title,
         string $description,
-        FigureGroupInterface $figureGroup,
-        array $links = [],
-        array $images = []
+        FigureGroupInterface $figureGroup
     );
+
+    /**
+     * @param Media $link
+     * @return mixed
+     */
+    public function addLink(Media $link): void;
+
+    /**
+     * @param Media $image
+     * @return mixed
+     */
+    public function addImage(Media $image): void;
 
     /**
      * @param UpdateTrickDTOInterface $dto

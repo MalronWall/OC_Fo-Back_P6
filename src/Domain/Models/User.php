@@ -9,11 +9,10 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Application\Helpers\SafeRenameHelper;
-use App\Domain\Models\Interfaces\UserInterface;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface as UISymfony;
 
-class User implements UserInterface, UISymfony
+class User implements UISymfony
 {
     /** @var UuidInterface */
     private $id;

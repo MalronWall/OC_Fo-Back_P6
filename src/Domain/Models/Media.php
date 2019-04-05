@@ -33,7 +33,8 @@ class Media implements MediaInterface
      */
     public function __construct(string $link, TypeMedia $typeMedia)
     {
-        $this->link = $link;
+        $embedLink = $this->toEmbedLink($link);
+        $this->link = $embedLink;
         $this->typeMedia = $typeMedia;
     }
 
@@ -43,6 +44,21 @@ class Media implements MediaInterface
     public function defineTrick(Trick $trick): void
     {
         $this->trick = $trick;
+    }
+
+    /**
+     * @param string $link
+     * @return Media
+     */
+    public function toEmbedLink(string $link): string
+    {
+        if (preg_match('/www\.youtube\.com\//', $link)) {
+            $link = str_replace("watch?v=", "embed/", $link);
+            $link = preg_replace('/&list/', "?list", $link);
+            $link = preg_replace('/&index=./', "", $link);
+            $link = preg_replace('/&start_radio=./', "", $link);
+        }
+        return $link;
     }
 
     /**

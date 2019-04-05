@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use App\Domain\Models\Media;
 use App\Domain\Models\Trick;
 use App\Domain\Models\TypeMedia;
 use App\Domain\Models\User;
@@ -26,6 +27,12 @@ interface MediaInterface
      * @param Trick $trick
      */
     public function defineTrick(Trick $trick): void;
+
+    /**
+     * @param string $link
+     * @return Media
+     */
+    public function toEmbedLink(string $link): string;
 
     /**
      * @return UuidInterface

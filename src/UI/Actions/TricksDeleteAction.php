@@ -49,11 +49,17 @@ class TricksDeleteAction implements TricksDeleteActionInterface
      */
     public function action($slug):Response
     {
+        /** @var $trick Trick */
         $trick = $this->entityManager
             ->getRepository(Trick::class)
             ->getTrick($slug);
 
         if ($trick) {
+            foreach ($trick->getImages() as $image) {
+                echo $image->getLink();
+                /** var $image Image */
+                unlink("images/downloaded/tricks/".$image->getLink());
+            }
             $this->entityManager->remove($trick);
             $this->entityManager->flush();
 

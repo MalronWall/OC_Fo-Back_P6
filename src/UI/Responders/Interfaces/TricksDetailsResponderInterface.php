@@ -22,7 +22,8 @@ interface TricksDetailsResponderInterface
     );
 
     /**
+     * @param $trick
      * @return Response
      */
-    public function response(): Response;
+    public function response($trick): Response;
 }

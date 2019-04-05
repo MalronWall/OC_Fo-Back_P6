@@ -32,6 +32,7 @@
 /* ----------------------- Spécifique au projet ----------------------- */
 /*xs + sm*/
 @media (max-width:767px){
+  #mediasTrick{display: none!important;}
   #myNavbar{display: none!important;}
   #myPhoneNavbar{text-align:center!important;
     position: fixed!important;
@@ -57,6 +58,37 @@
 /*md + ld + xl*/
 @media (min-width:768px){
   #myPhoneNavbar{display:none!important;}}
+
+/* ----------------------------------- / --------------------------------- */
+@media (min-width:1200px) {
+  .col-xl-2-4 {
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+.card {
+  height: 100%;
+}
+
+.cards-img {
+  background-color: lightgray;
+  height: 200px;
+  width: 100%;
+}
+
+.img-cards {
+  top: 50%;
+  transform: translateY(-50%) scale(1.7);
+  width: 100%;
+}
+
+.float-bottom-right {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
 
 /* ----------------------- /tricks/details/[trick] ----------------------- */
 #bg-img-trick-details{

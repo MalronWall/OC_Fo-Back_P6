@@ -22,7 +22,7 @@ class CreateTrickDTO implements CreateTrickDTOInterface
 {
     /** @var string
      * @Assert\NotBlank(
-     *     message="Le titre est obligatoire !"
+     *     message="Un titre est obligatoire !"
      * )
      * @Assert\Length(
      *     min="3",
@@ -32,13 +32,29 @@ class CreateTrickDTO implements CreateTrickDTOInterface
      * )
      */
     public $title;
-    /** @var string */
+    /** @var string
+     * @Assert\NotBlank(
+     *     message="Une description est obligatoire !"
+     * )
+     * @Assert\Length(
+     *     min="10",
+     *     minMessage="Le titre doit contenir au moins 10 caractères !"
+     * )
+     */
     public $description;
     /** @var FigureGroupInterface */
     public $figureGroup;
-    /** @var array|null */
+    /**
+     * @var array|null
+     *
+     * @Assert\Valid()
+     */
     public $links;
-    /** @var array|null */
+    /**
+     * @var array|null
+     *
+     * @Assert\Valid()
+     */
     public $images;
 
     /**

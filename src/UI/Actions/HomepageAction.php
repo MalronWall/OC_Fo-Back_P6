@@ -44,11 +44,6 @@ class HomepageAction implements HomepageActionInterface
             ->getRepository(Trick::class)
             ->getTricks();
 
-        $tricksWithImages = [];
-        foreach ($tricks as $trick) {
-            $tricksWithImages[] = $trick->getImages();
-        }
-
-        return $this->responder->response($tricksWithImages);
+        return $this->responder->response($tricks);
     }
 }

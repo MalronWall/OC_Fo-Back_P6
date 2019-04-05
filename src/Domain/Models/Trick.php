@@ -26,10 +26,16 @@ class Trick implements TrickInterface
     private $slug;
     /** @var string */
     private $description;
+    /** @var \DateTime */
+    private $createdThe;
+    /** @var \DateTime */
+    private $updatedThe;
     /** @var FigureGroupInterface */
     private $figureGroup;
     /** @var User */
-    private $user;
+    private $userCreate;
+    /** @var User */
+    private $userUpdate;
     /** @var Collection|Media[] */
     private $links;
     /** @var Collection|Media[] */
@@ -48,10 +54,13 @@ class Trick implements TrickInterface
         string $description,
         FigureGroupInterface $figureGroup
     ) {
-        $this->user = $user;
+        $this->userCreate = $user;
+        $this->userUpdate = $user;
         $this->title = $title;
         $this->slug = SafeRenameHelper::slug($title);
         $this->description = $description;
+        $this->createdThe = new \DateTime();
+        $this->updatedThe = new \DateTime();
         $this->figureGroup = $figureGroup;
         $this->links = new ArrayCollection();
         $this->images = new ArrayCollection();
@@ -128,14 +137,6 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @return User
-     */
-    public function getUser(): User
-    {
-        return $this->user;
-    }
-
-    /**
      * @return Media[]|Collection
      */
     public function getLinks()
@@ -149,5 +150,37 @@ class Trick implements TrickInterface
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedThe(): \DateTime
+    {
+        return $this->createdThe;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedThe(): \DateTime
+    {
+        return $this->updatedThe;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUserCreate(): User
+    {
+        return $this->userCreate;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUserUpdate(): User
+    {
+        return $this->userUpdate;
     }
 }

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\UI\Actions\Interfaces;
 
 use App\UI\Responders\Interfaces\TricksDetailsResponderInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 interface TricksDetailsActionInterface
@@ -16,15 +17,16 @@ interface TricksDetailsActionInterface
     /**
      * TricksDetailsActionInterface constructor.
      * @param TricksDetailsResponderInterface $responder
+     * @param EntityManagerInterface $entityManager
      */
     public function __construct(
-        TricksDetailsResponderInterface $responder
+        TricksDetailsResponderInterface $responder,
+        EntityManagerInterface $entityManager
     );
 
     /**
      * @param $slug
-     * @param int $page
      * @return Response
      */
-    public function action($slug, $page = 1):Response;
+    public function action($slug):Response;
 }

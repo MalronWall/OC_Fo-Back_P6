@@ -9,10 +9,15 @@ declare(strict_types=1);
 namespace App\Domain\DTO;
 
 use App\Domain\DTO\Interfaces\NewLinkMediaDTOInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class NewLinkMediaDTO implements NewLinkMediaDTOInterface
 {
-    /** @var string */
+    /** @var string
+     * @Assert\NotBlank(
+     *      message="Entrez un lien ou supprimer cet emplacement !"
+     * )
+     */
     public $link;
 
     /**

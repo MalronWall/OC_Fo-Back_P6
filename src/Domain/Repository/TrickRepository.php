@@ -21,7 +21,9 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     {
         return $this->createQueryBuilder('t')
 
-            ->getQuery()
+        ->orderBy('t.createdThe', 'DESC')
+
+        ->getQuery()
             ->getResult();
     }
 

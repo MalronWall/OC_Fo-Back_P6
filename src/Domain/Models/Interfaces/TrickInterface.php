@@ -23,22 +23,15 @@ interface TrickInterface
      * @param string $description
      * @param FigureGroupInterface $figureGroup
      */
-    public function __construct(
-        User $user,
-        string $title,
-        string $description,
-        FigureGroupInterface $figureGroup
-    );
+    public function __construct(User $user, string $title, string $description, FigureGroupInterface $figureGroup);
 
     /**
      * @param Media $link
-     * @return mixed
      */
     public function addLink(Media $link): void;
 
     /**
      * @param Media $image
-     * @return mixed
      */
     public function addImage(Media $image): void;
 
@@ -73,11 +66,6 @@ interface TrickInterface
     public function getFigureGroup(): FigureGroupInterface;
 
     /**
-     * @return User
-     */
-    public function getUser(): User;
-
-    /**
      * @return Media[]|Collection
      */
     public function getLinks();
@@ -86,4 +74,24 @@ interface TrickInterface
      * @return Media[]|Collection
      */
     public function getImages();
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedThe(): \DateTime;
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedThe(): \DateTime;
+
+    /**
+     * @return User
+     */
+    public function getUserCreate(): User;
+
+    /**
+     * @return User
+     */
+    public function getUserUpdate(): User;
 }

@@ -133,3 +133,14 @@ $('.js-scrollTo').click(function() {
     const speed = 1250;
     $('html, body').animate( { scrollTop: $(page).offset().top }, speed );
 });
+
+// DISPLAY MEDIAS AND HIDE BUTTON
+$(document).ready(function () {
+    $("#seeMediasTrick").on('click', function (event) {
+        event.preventDefault();
+        const a = $('#seeMediasTrick');
+        const medias = $('#mediasTrick');
+        a.hide();
+        medias.removeAttr('id');
+    });
+});

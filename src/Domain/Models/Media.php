@@ -19,23 +19,31 @@ class Media implements MediaInterface
     private $id;
     /** @var string */
     private $link;
+    /** @var string */
+    private $alt;
     /** @var User */
     private $user;
     /** @var TypeMediaInterface */
     private $typeMedia;
     /** @var TrickInterface */
     private $trick;
+    /** @var bool */
+    private $first;
 
     /**
      * Media constructor.
      * @param string $link
+     * @param string $alt
      * @param TypeMedia $typeMedia
+     * @param bool $first
      */
-    public function __construct(string $link, TypeMedia $typeMedia)
+    public function __construct(string $link, string $alt, TypeMedia $typeMedia, bool $first = false)
     {
         $embedLink = $this->toEmbedLink($link);
         $this->link = $embedLink;
+        $this->alt = $alt;
         $this->typeMedia = $typeMedia;
+        $this->first = $first;
     }
 
     /**
@@ -75,6 +83,22 @@ class Media implements MediaInterface
     public function getLink(): string
     {
         return $this->link;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlt(): string
+    {
+        return $this->alt;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFirst(): bool
+    {
+        return $this->first;
     }
 
     /**

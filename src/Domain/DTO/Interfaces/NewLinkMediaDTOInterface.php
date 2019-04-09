@@ -13,6 +13,7 @@ interface NewLinkMediaDTOInterface
     /**
      * NewLinkMediaDTO constructor.
      * @param string $link
+     * @param null|string $alt
      */
-    public function __construct(?string $link);
+    public function __construct(?string $link, ?string $alt);
 }

@@ -19,9 +19,11 @@ interface MediaInterface
     /**
      * Media constructor.
      * @param string $link
+     * @param string $alt
      * @param TypeMedia $typeMedia
+     * @param bool $first
      */
-    public function __construct(string $link, TypeMedia $typeMedia);
+    public function __construct(string $link, string $alt, TypeMedia $typeMedia, bool $first = false);
 
     /**
      * @param Trick $trick
@@ -43,6 +45,11 @@ interface MediaInterface
      * @return string
      */
     public function getLink(): string;
+
+    /**
+     * @return string
+     */
+    public function getAlt(): string;
 
     /**
      * @return User

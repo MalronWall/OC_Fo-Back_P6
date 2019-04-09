@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 interface TricksDeleteActionInterface
 {
@@ -21,11 +22,13 @@ interface TricksDeleteActionInterface
      * @param EntityManagerInterface $entityManager
      * @param TricksDeleteResponderInterface $responder
      * @param SessionInterface $session
+     * @param Security $security
      */
     public function __construct(
         EntityManagerInterface $entityManager,
         TricksDeleteResponderInterface $responder,
-        SessionInterface $session
+        SessionInterface $session,
+        Security $security
     );
 
     /**

@@ -24,6 +24,10 @@ class NewLinkMediaType2 extends AbstractType
             ->add('link', TextType::class, [
                 'required' => false,
                 'label' => 'Lien youtube'
+            ])
+            ->add('alt', TextType::class, [
+                'required' => false,
+                'label' => 'Descriptif'
             ]);
     }
 
@@ -36,7 +40,8 @@ class NewLinkMediaType2 extends AbstractType
             'data_class' => NewLinkMediaDTOInterface::class,
             'empty_data' => function (FormInterface $form) {
                 return new NewLinkMediaDTO(
-                    $form->get('link')->getData()
+                    $form->get('link')->getData(),
+                    $form->get('alt')->getData()
                 );
             }
         ]);

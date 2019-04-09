@@ -15,6 +15,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Security;
 
 interface TricksUpdateActionInterface
 {
@@ -25,13 +27,17 @@ interface TricksUpdateActionInterface
      * @param UpdateTrickHandlerInterface $formHandler
      * @param EntityManagerInterface $entityManager
      * @param HydrateHelperInterface $hydrateDTOHelper
+     * @param Security $security
+     * @param SessionInterface $session
      */
     public function __construct(
         TricksUpdateResponderInterface $responder,
         FormFactoryInterface $formFactory,
         UpdateTrickHandlerInterface $formHandler,
         EntityManagerInterface $entityManager,
-        HydrateHelperInterface $hydrateDTOHelper
+        HydrateHelperInterface $hydrateDTOHelper,
+        Security $security,
+        SessionInterface $session
     );
 
     /**

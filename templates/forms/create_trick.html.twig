@@ -11,24 +11,32 @@
     </div>
     <div class="my-md-form form-row">
         <div class="col-6">
+            {{ form_label(form.links) }}
             <ul class="list-group links" data-prototype-links="{{ form_widget(form.links.vars.prototype)|e('html_attr') }}">
                 {% for link in form.links %}
-                    <li>{{ form_row(link.link) }}</li>
+                    <li>
+                        {{ form_row(link.link) }}
+                        {{ form_row(link.alt) }}
+                    </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-6">
+            {{ form_label(form.images) }}
             <ul class="list-group images" data-prototype-images="{{ form_widget(form.images.vars.prototype)|e('html_attr') }}">
                 {% for image in form.images %}
-                    <li>{{ form_row(image.image) }}</li>
+                    <li>
+                        {{ form_row(image.image) }}
+                        {{ form_row(image.alt) }}
+                        {{ form_row(image.first) }}
+                    </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
     <button type="submit" class="btn btn-success waves-effect waves-light mb-4">Create trick</button>
-    <br/>
-
-    {{ form_end(form) }}
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
 {% endblock %}
 
 {% block form_errors %}

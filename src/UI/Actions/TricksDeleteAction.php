@@ -15,6 +15,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class TricksDeleteAction implements TricksDeleteActionInterface
 {
@@ -24,21 +25,26 @@ class TricksDeleteAction implements TricksDeleteActionInterface
     private $responder;
     /** @var SessionInterface */
     private $session;
+    /** @var Security */
+    private $security;
 
     /**
      * TricksDeleteAction constructor.
      * @param EntityManagerInterface $entityManager
      * @param TricksDeleteResponderInterface $responder
      * @param SessionInterface $session
+     * @param Security $security
      */
     public function __construct(
         EntityManagerInterface $entityManager,
         TricksDeleteResponderInterface $responder,
-        SessionInterface $session
+        SessionInterface $session,
+        Security $security
     ) {
         $this->entityManager = $entityManager;
         $this->responder = $responder;
         $this->session = $session;
+        $this->security = $security;
     }
 
     /**
@@ -49,25 +55,37 @@ class TricksDeleteAction implements TricksDeleteActionInterface
      */
     public function action($slug):Response
     {
-        /** @var $trick Trick */
-        $trick = $this->entityManager
-            ->getRepository(Trick::class)
-            ->getTrick($slug);
+        if ($this->security->isGranted('ROLE_USER')) {
+            /** @var $trick Trick */
+            $trick = $this->entityManager
+                ->getRepository(Trick::class)
+                ->getTrick($slug);
 
-        if ($trick) {
-            foreach ($trick->getImages() as $image) {
-                echo $image->getLink();
-                /** var $image Image */
-                unlink("images/downloaded/tricks/".$image->getLink());
+            if ($trick) {
+                foreach ($trick->getImages() as $image) {
+                    echo $image->getLink();
+                    /** var $image Image */
+                    unlink("images/downloaded/tricks/" . $image->getLink());
+                }
+                $this->entityManager->remove($trick);
+                $this->entityManager->flush();
+
+                $this->session->getFlashBag()->add(
+                    "success",
+                    "Trick supprimé !"
+                );
+            } else {
+                $this->session->getFlashBag()->add(
+                    "danger",
+                    "Suppression impossible : ce trick n'existe pas !"
+                );
             }
-            $this->entityManager->remove($trick);
-            $this->entityManager->flush();
-
-            $this->session->getFlashBag()->add("success", "Trick supprimé !");
         } else {
-            $this->session->getFlashBag()->add("danger", "Suppression impossible : ce trick n'existe pas !");
+            $this->session->getFlashBag()->add(
+                "danger",
+                "Veuillez vous connecter avec d'effectuer cette action !"
+            );
         }
-
         return $this->responder->response();
     }
 }

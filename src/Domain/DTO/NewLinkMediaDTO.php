@@ -20,12 +20,21 @@ class NewLinkMediaDTO implements NewLinkMediaDTOInterface
      */
     public $link;
 
+    /** @var string
+     * @Assert\NotNull(
+     *      message="Renseignez un descriptif pour cette vidéo !"
+     * )
+     */
+    public $alt;
+
     /**
      * NewLinkMediaDTO constructor.
      * @param string $link
+     * @param null|string $alt
      */
-    public function __construct(?string $link)
+    public function __construct(?string $link, ?string $alt)
     {
         $this->link = $link;
+        $this->alt = $alt;
     }
 }

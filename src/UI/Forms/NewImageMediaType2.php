@@ -10,6 +10,8 @@ namespace App\UI\Forms;
 
 use App\Domain\DTO\Interfaces\NewImageMediaDTOInterface;
 use App\Domain\DTO\NewImageMediaDTO;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,6 +30,14 @@ class NewImageMediaType2 extends AbstractType
                     "class" => "upload",
                     "accept" => "image/jpg, image/jpeg, image/png"
                 ]
+            ])
+            ->add('alt', TextType::class, [
+                'required' => false,
+                'label' => 'Descriptif'
+            ])
+            ->add('first', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Mettre en 1ère position'
             ]);
     }
 
@@ -40,7 +50,9 @@ class NewImageMediaType2 extends AbstractType
             'data_class' => NewImageMediaDTOInterface::class,
             'empty_data' => function (FormInterface $form) {
                 return new NewImageMediaDTO(
-                    $form->get('image')->getData()
+                    $form->get('image')->getData(),
+                    $form->get('alt')->getData(),
+                    $form->get('first')->getData()
                 );
             }
         ]);

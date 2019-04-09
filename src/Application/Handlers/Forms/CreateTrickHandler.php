@@ -65,7 +65,7 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
                 ->getRepository(TypeMedia::class)
                 ->getType("video");
             foreach ($dto->links as $link) {
-                $trick->addLink(new Media($link->link, $typeMediaVideo));
+                $trick->addLink(new Media($link->link, $link->alt, $typeMediaVideo));
             }
 
             // IMAGE
@@ -76,10 +76,6 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
             foreach ($dto->images as $image) {
                 // UNIQUE FILENAME
                 $fileName = SafeRenameHelper::uniqueFilename().".".$image->image->guessExtension();
-                if ($first) {
-                    $fileName = "first_".$fileName;
-                    $first = false;
-                }
 
                 // SAVING IMAGE IN FOLDER
                 try {
@@ -93,7 +89,14 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
                         "Une erreur s'est produite lors de l'enregistrement d'image !"
                     );
                 }
-                $trick->addImage(new Media($fileName, $typeMediaImage));
+
+                // CHECK ONLY ONE FIRST ELSE FALSE
+                if ($image->first && $first) {
+                    $trick->addImage(new Media($fileName, $image->alt, $typeMediaImage, true));
+                    $first = false;
+                } else {
+                    $trick->addImage(new Media($fileName, $image->alt, $typeMediaImage));
+                }
             }
 
             $this->entityManager->persist($trick);

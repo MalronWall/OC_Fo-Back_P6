@@ -31,12 +31,26 @@ class NewImageMediaDTO implements NewImageMediaDTOInterface
      */
     public $image;
 
+    /** @var string
+     * @Assert\NotNull(
+     *      message="Renseignez un descriptif pour cette image !"
+     * )
+     */
+    public $alt;
+
+    /** @var bool|null */
+    public $first;
+
     /**
      * NewImageMediaDTO constructor.
      * @param null|UploadedFile $image
+     * @param null|string $alt
+     * @param bool|null $first
      */
-    public function __construct(?UploadedFile $image)
+    public function __construct(?UploadedFile $image, ?string $alt, ?bool $first)
     {
         $this->image = $image;
+        $this->alt = $alt;
+        $this->first = $first;
     }
 }

@@ -144,3 +144,17 @@ $(document).ready(function () {
         medias.removeAttr('id');
     });
 });
+
+// PROJET 6 (adapt on other project)
+$(".images").click(function(e) {
+    if ($(e.target).is(":checkbox")) {
+        let idTarget = $(e.target).attr('id');
+        let checkBoxS = $(":checkbox");
+
+        $.each(checkBoxS, function () {
+            if (idTarget !== $(this).attr('id')) {
+                $(this).prop('checked', false);
+            }
+        });
+    }
+});

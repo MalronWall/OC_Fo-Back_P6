@@ -37,21 +37,17 @@ class CreateTrickType extends AbstractType
                 'class' => FigureGroup::class
             ])
             ->add('links', CollectionType::class, [
+                'label' => 'Links',
                 'required' => false,
                 'entry_type' => NewLinkMediaType2::class,
-                'entry_options' => [
-                    'label' => false
-                ],
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false
             ])
             ->add('images', CollectionType::class, [
+                'label' => 'Images',
                 'required' => false,
                 'entry_type' => NewImageMediaType2::class,
-                'entry_options' => [
-                    'label' => false
-                ],
                 'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false

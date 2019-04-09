@@ -28,16 +28,20 @@ class TricksDetailsResponder implements TricksDetailsResponderInterface
     }
 
     /**
+     * @param $trick
      * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function response(): Response
+    public function response($trick): Response
     {
         return new Response(
             $this->templating->render(
-                'tricks_details.html.twig'
+                'tricks_details.html.twig',
+                [
+                    "trick" => $trick
+                ]
             )
         );
     }

@@ -8,23 +8,31 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
+use App\Domain\Models\Trick;
 use App\UI\Actions\Interfaces\HomepageActionInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomepageAction implements HomepageActionInterface
 {
+    /** @var HomepageResponderInterface */
     private $responder;
+    /** @var EntityManagerInterface */
+    private $entityManager;
 
     /**
      * HomepageAction constructor.
      * @param HomepageResponderInterface $responder
+     * @param EntityManagerInterface $entityManager
      */
     public function __construct(
-        HomepageResponderInterface $responder
+        HomepageResponderInterface $responder,
+        EntityManagerInterface $entityManager
     ) {
         $this->responder = $responder;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -32,6 +40,10 @@ class HomepageAction implements HomepageActionInterface
      */
     public function action(): Response
     {
-        return $this->responder->response();
+        $tricks = $this->entityManager
+            ->getRepository(Trick::class)
+            ->getTricks();
+
+        return $this->responder->response($tricks);
     }
 }

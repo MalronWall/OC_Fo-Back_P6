@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\Domain\DTO;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
+use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Validator\Constraints\UniqueTitleInDb;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -48,13 +49,13 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
      * UpdateTrickDTO constructor.
      * @param null|string $title
      * @param null|string $description
-     * @param null|string $figureGroup
+     * @param FigureGroupInterface $figureGroup
      * @param null|UuidInterface $id
      */
     public function __construct(
         ?string $title,
         ?string $description,
-        ?string $figureGroup,
+        ?FigureGroupInterface $figureGroup,
         ?UuidInterface $id = null
     ) {
         $this->title = $title;

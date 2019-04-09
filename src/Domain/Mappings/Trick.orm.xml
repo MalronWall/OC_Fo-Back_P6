@@ -9,9 +9,32 @@
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
-        <field name="title" type="string" unique="true" />
+        <field name="title" type="string" />
+        <field name="slug" type="string" unique="true" />
         <field name="description" type="text" />
-        <field name="figureGroup" type="string" />
+        <field name="createdThe" type="datetime" />
+        <field name="updatedThe" type="datetime" />
+        <many-to-one field="figureGroup" target-entity="FigureGroup">
+            <join-column name="figureGroup_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="userCreate" target-entity="User">
+            <join-column name="userCreate_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="userUpdate" target-entity="User">
+            <join-column name="userUpdate_id" referenced-column-name="id" />
+        </many-to-one>
+        <one-to-many field="links" target-entity="Media" mapped-by="trick">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
+        <one-to-many field="images" target-entity="Media" mapped-by="trick">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
     </entity>
 
 </doctrine-mapping>

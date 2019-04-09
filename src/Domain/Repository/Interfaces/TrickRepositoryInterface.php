@@ -20,7 +20,7 @@ interface TrickRepositoryInterface
     /**
      * @param $title
      * @return mixed
-     * @throws \Doctrine\DBAL\DBALException
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function verifyUniqueTitle($title);
 }

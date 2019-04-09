@@ -29,16 +29,20 @@ class HomepageResponder implements HomepageResponderInterface
     }
 
     /**
+     * @param array $tricks
      * @return Response
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function response(): Response
+    public function response(array $tricks): Response
     {
         return new Response(
             $this->templating->render(
-                'homepage.html.twig'
+                'homepage.html.twig',
+                [
+                    "tricks" => $tricks
+                ]
             )
         );
     }

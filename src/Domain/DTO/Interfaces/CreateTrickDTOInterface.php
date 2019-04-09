@@ -8,17 +8,29 @@ declare(strict_types=1);
 
 namespace App\Domain\DTO\Interfaces;
 
+use App\Domain\Models\Interfaces\FigureGroupInterface;
+use App\Validator\Constraints\UniqueTitleInDb;
+
+/**
+ * @UniqueTitleInDb(
+ *     message="Ce titre existe déjà !"
+ * )
+ */
 interface CreateTrickDTOInterface
 {
     /**
-     * CreateTrickDTOInterface constructor.
+     * CreateTrickDTO constructor.
      * @param null|string $title
      * @param null|string $description
-     * @param null|string $figureGroup
+     * @param FigureGroupInterface|null $figureGroup
+     * @param array|null $links
+     * @param array|null $images
      */
     public function __construct(
         ?string $title,
         ?string $description,
-        ?string $figureGroup
+        ?FigureGroupInterface $figureGroup,
+        ?array $links,
+        ?array $images
     );
 }

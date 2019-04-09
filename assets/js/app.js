@@ -49,7 +49,7 @@ tinymce.init({
 
 // CKEDITOR
 // CDN <script src="//cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
-CKEDITOR.replace('ckeditor');
+// CKEDITOR.replace('ckeditor');
 
 // SHOW OR HIDE PASSWORD
 $(document).ready(function() {
@@ -132,4 +132,29 @@ $('.js-scrollTo').click(function() {
     const page = $(this).attr('href');
     const speed = 1250;
     $('html, body').animate( { scrollTop: $(page).offset().top }, speed );
+});
+
+// DISPLAY MEDIAS AND HIDE BUTTON
+$(document).ready(function () {
+    $("#seeMediasTrick").on('click', function (event) {
+        event.preventDefault();
+        const a = $('#seeMediasTrick');
+        const medias = $('#mediasTrick');
+        a.hide();
+        medias.removeAttr('id');
+    });
+});
+
+// PROJET 6 (adapt on other project)
+$(".images").click(function(e) {
+    if ($(e.target).is(":checkbox")) {
+        let idTarget = $(e.target).attr('id');
+        let checkBoxS = $(":checkbox");
+
+        $.each(checkBoxS, function () {
+            if (idTarget !== $(this).attr('id')) {
+                $(this).prop('checked', false);
+            }
+        });
+    }
 });

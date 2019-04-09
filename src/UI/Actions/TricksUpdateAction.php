@@ -10,7 +10,7 @@ namespace App\UI\Actions;
 
 use App\Application\Handlers\Forms\Interfaces\CreateTrickHandlerInterface;
 use App\Application\Handlers\Forms\Interfaces\UpdateTrickHandlerInterface;
-use App\Application\Helpers\Interfaces\HydrateDTOHelperInterface;
+use App\Application\Helpers\Interfaces\HydrateHelperInterface;
 use App\Domain\Models\Trick;
 use App\UI\Actions\Interfaces\TricksUpdateActionInterface;
 use App\UI\Forms\UpdateTrickType;
@@ -19,7 +19,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class TricksUpdateAction implements TricksUpdateActionInterface
 {
@@ -31,8 +33,12 @@ class TricksUpdateAction implements TricksUpdateActionInterface
     private $formHandler;
     /** @var EntityManagerInterface */
     private $entityManager;
-    /** @var HydrateDTOHelperInterface */
+    /** @var HydrateHelperInterface */
     private $hydrateDTOHelper;
+    /** @var Security */
+    private $security;
+    /** @var SessionInterface */
+    private $session;
 
     /**
      * TricksAddAction constructor.
@@ -40,20 +46,26 @@ class TricksUpdateAction implements TricksUpdateActionInterface
      * @param FormFactoryInterface $formFactory
      * @param UpdateTrickHandlerInterface $formHandler
      * @param EntityManagerInterface $entityManager
-     * @param HydrateDTOHelperInterface $hydrateDTOHelper
+     * @param HydrateHelperInterface $hydrateDTOHelper
+     * @param Security $security
+     * @param SessionInterface $session
      */
     public function __construct(
         TricksUpdateResponderInterface $responder,
         FormFactoryInterface $formFactory,
         UpdateTrickHandlerInterface $formHandler,
         EntityManagerInterface $entityManager,
-        HydrateDTOHelperInterface $hydrateDTOHelper
+        HydrateHelperInterface $hydrateDTOHelper,
+        Security $security,
+        SessionInterface $session
     ) {
         $this->responder = $responder;
         $this->formFactory = $formFactory;
         $this->formHandler = $formHandler;
         $this->entityManager = $entityManager;
         $this->hydrateDTOHelper = $hydrateDTOHelper;
+        $this->security = $security;
+        $this->session = $session;
     }
 
     /**
@@ -65,20 +77,26 @@ class TricksUpdateAction implements TricksUpdateActionInterface
      */
     public function action(Request $request, $id):Response
     {
-        $trick = $this->entityManager
-            ->getRepository(Trick::class)
-            ->getTrick($id);
+        if ($this->security->isGranted('ROLE_USER')) {
+            $trick = $this->entityManager
+                ->getRepository(Trick::class)
+                ->getTrick($id);
 
-        $dto = $this->hydrateDTOHelper->hydrateUpdateTrickDTO($trick);
+            $dto = $this->hydrateDTOHelper->hydrateUpdateTrickDTO($trick);
 
-        $form = $this->formFactory
-            ->create(UpdateTrickType::class, $dto)
-            ->handleRequest($request);
+            $form = $this->formFactory
+                ->create(UpdateTrickType::class, $dto)
+                ->handleRequest($request);
 
-        if ($this->formHandler->handle($form, $trick)) {
-            return $this->responder->response(true);
+            if (!($this->formHandler->handle($form, $trick))) {
+                return $this->responder->response(false, $form);
+            }
+        } else {
+            $this->session->getFlashBag()->add(
+                "danger",
+                "Veuillez vous connecter avec d'effectuer cette action !"
+            );
         }
-
-        return $this->responder->response(false, $form);
+        return $this->responder->response(true);
     }
 }

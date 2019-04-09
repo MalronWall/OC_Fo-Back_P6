@@ -11,6 +11,7 @@ namespace App\Application\Handlers\Forms\Interfaces;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 interface CreateTrickHandlerInterface
 {
@@ -18,10 +19,12 @@ interface CreateTrickHandlerInterface
      * RegistrationHandlerInterface constructor.
      * @param EntityManagerInterface $entityManager
      * @param SessionInterface $session
+     * @param TokenStorageInterface $tokenStorage
      */
     public function __construct(
         EntityManagerInterface $entityManager,
-        SessionInterface $session
+        SessionInterface $session,
+        TokenStorageInterface $tokenStorage
     );
 
     /**

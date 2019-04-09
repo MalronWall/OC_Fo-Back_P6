@@ -8,8 +8,12 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Application\Helpers\SafeRenameHelper;
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
+use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
 class Trick implements TrickInterface
@@ -19,21 +23,64 @@ class Trick implements TrickInterface
     /** @var string */
     private $title;
     /** @var string */
-    private $description;
+    private $slug;
     /** @var string */
+    private $description;
+    /** @var \DateTime */
+    private $createdThe;
+    /** @var \DateTime */
+    private $updatedThe;
+    /** @var FigureGroupInterface */
     private $figureGroup;
+    /** @var User */
+    private $userCreate;
+    /** @var User */
+    private $userUpdate;
+    /** @var Collection|Media[] */
+    private $links;
+    /** @var Collection|Media[] */
+    private $images;
 
     /**
      * Trick constructor.
+     * @param User $user
      * @param string $title
      * @param string $description
-     * @param string $figureGroup
+     * @param FigureGroupInterface $figureGroup
      */
-    public function __construct(string $title, string $description, string $figureGroup)
-    {
+    public function __construct(
+        User $user,
+        string $title,
+        string $description,
+        FigureGroupInterface $figureGroup
+    ) {
+        $this->userCreate = $user;
+        $this->userUpdate = $user;
         $this->title = $title;
+        $this->slug = SafeRenameHelper::slug($title);
         $this->description = $description;
+        $this->createdThe = new \DateTime();
+        $this->updatedThe = new \DateTime();
         $this->figureGroup = $figureGroup;
+        $this->links = new ArrayCollection();
+        $this->images = new ArrayCollection();
+    }
+
+    /**
+     * @param Media $link
+     */
+    public function addLink(Media $link):void
+    {
+        $this->links->add($link);
+        $link->defineTrick($this);
+    }
+    /**
+     * @param Media $image
+     */
+    public function addImage(Media $image):void
+    {
+        $this->images->add($image);
+        $image->defineTrick($this);
     }
 
     /**
@@ -42,8 +89,11 @@ class Trick implements TrickInterface
     public function updateTrick(UpdateTrickDTOInterface $dto):void
     {
         $this->title = $dto->title;
+        $this->slug = SafeRenameHelper::slug($dto->title);
         $this->description = $dto->description;
         $this->figureGroup = $dto->figureGroup;
+        $this->links = new ArrayCollection($dto->links);
+        $this->images = new ArrayCollection($dto->images);
     }
 
     /**
@@ -65,16 +115,72 @@ class Trick implements TrickInterface
     /**
      * @return string
      */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
     /**
-     * @return string
+     * @return FigureGroupInterface
      */
-    public function getGroup(): string
+    public function getFigureGroup(): FigureGroupInterface
     {
         return $this->figureGroup;
+    }
+
+    /**
+     * @return Media[]|Collection
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    /**
+     * @return Media[]|Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedThe(): \DateTime
+    {
+        return $this->createdThe;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedThe(): \DateTime
+    {
+        return $this->updatedThe;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUserCreate(): User
+    {
+        return $this->userCreate;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUserUpdate(): User
+    {
+        return $this->userUpdate;
     }
 }

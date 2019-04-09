@@ -17,12 +17,25 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
-    public function getTrick($id)
+    public function getTricks()
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = :id')
 
-            ->setParameter('id', $id)
+        ->orderBy('t.createdThe', 'DESC')
+
+        ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTrick($slug)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.slug = :slug')
+
+            ->setParameter('slug', $slug)
 
             ->getQuery()
             ->getOneOrNullResult();
@@ -31,25 +44,18 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
-    public function verifyUniqueTitle($title, $id = null)
+    public function verifyUniqueTitle($slug, $id = null)
     {
-        if ($id) {
-            $sql = <<<SQL
-SELECT *
-FROM trick
-WHERE title = '$title' AND id <> '$id'
-SQL;
-        } else {
-            $sql = <<<SQL
-SELECT *
-FROM trick
-WHERE title = '$title'
-SQL;
+        $qb = $this->createQueryBuilder('t')
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        if (!is_null($id)) {
+            $qb->andWhere('t.id = :id')
+                ->setParameter('id', $id);
         }
 
-        $statement = $this->getEntityManager()->getConnection()->prepare($sql);
-        $statement->execute();
-
-        return $statement->fetch();
+        return $qb->getQuery()
+                  ->getOneOrNullResult();
     }
 }

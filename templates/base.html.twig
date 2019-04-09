@@ -7,7 +7,10 @@
 
         <title>{% block title %}Welcome !{% endblock %}</title>
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+              integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+              crossorigin="anonymous">
 
 
         <!-- Bootstrap core CSS -->
@@ -20,78 +23,55 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% set currentRoute = app.request.attributes.get('_route') %}
         <nav class="navbar navbar-expand-lg navbar-dark info-color" id="myNavbar">
             <a class="navbar-brand" href="{{ path('homepage') }}">
-                <i class="fa fa-snowflake-o" aria-hidden="true"></i> <strong>Snowtricks</strong> <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                <i class="far fa-snowflake" aria-hidden="true"></i> <strong>Snowtricks</strong> <i class="far fa-snowflake" aria-hidden="true"></i>
         </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navCollapse">
                 <ul class="navbar-nav ml-auto">
-                    {% if app.request.attributes.get('_route') == "homepage" %}
-                        <li class="nav-item active">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('homepage') }}">
-                                <i class="fa fa-home" aria-hidden="true"></i> Home
+                    <li class="nav-item {% if currentRoute == "homepage" %}active{%endif %}">
+                        <a class="nav-link waves-effect waves-light" href="{{ path('homepage') }}">
+                            <i class="fas fa-home" aria-hidden="true"></i> Home
+                            {% if currentRoute == "homepage" %}
                                 <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('homepage') }}">
-                                <i class="fa fa-home" aria-hidden="true"></i> Home
-                            </a>
-                        </li>
-                    {% endif %}
+                            {%endif %}
+                        </a>
+                    </li>
                     {% if app.user %}
-                        {% if app.request.attributes.get('_route') in ["tricks_details", "tricks_add", "tricks_update"] %}
-                            <li class="nav-item active">
-                                <a class="nav-link waves-effect waves-light" href="{{ path('tricks_add') }}">
-                                    <i class="fa fa-snowflake-o" aria-hidden="true"></i> New trick
+                        <li class="nav-item {% if currentRoute in ["tricks_details", "tricks_add", "tricks_update"] %}active{%endif %}">
+                            <a class="nav-link waves-effect waves-light" href="{{ path('tricks_add') }}">
+                                <i class="fas fa-plus-circle" aria-hidden="true"></i> New trick
+                                {% if currentRoute in ["tricks_details", "tricks_add", "tricks_update"] %}
                                     <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect waves-light" href="{{ path('tricks_add') }}">
-                                    <i class="fa fa-snowflake-o" aria-hidden="true"></i> New trick
-                                </a>
-                            </li>
-                        {% endif %}
+                                {%endif %}
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-light" href="{{ path('logout') }}">
-                                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign out
+                                <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Sign out
                             </a>
                         </li>
                     {% else %}
-                        {% if app.request.attributes.get('_route') in ["login", "forgot_password"] %}
-                            <li class="nav-item active">
-                                <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
-                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
+                        <li class="nav-item {% if currentRoute == "login" %}active{%endif %}">
+                            <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
+                                <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Sign in
+                                {% if currentRoute == "login" %}
                                     <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect waves-light" href="{{ path('login') }}">
-                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
-                                </a>
-                            </li>
-                        {% endif %}
-                        {% if app.request.attributes.get('_route') == "registration" %}
-                        <li class="nav-item active">
-                            <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
-                                <span class="sr-only">(current)</span>
+                                {%endif %}
                             </a>
                         </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
-                                </a>
-                            </li>
-                        {% endif %}
+                        <li class="nav-item {% if currentRoute == "registration" %}active{%endif %}">
+                            <a class="nav-link waves-effect waves-light" href="{{ path('registration') }}">
+                                <i class="far fa-edit" aria-hidden="true"></i> Sign up
+                                {% if currentRoute == "registration" %}
+                                    <span class="sr-only">(current)</span>
+                                {%endif %}
+                            </a>
+                        </li>
                     {% endif %}
                 </ul>
             </div>
@@ -171,21 +151,21 @@
         <nav class="container-fluid" id="myPhoneNavbar">
             <div class="row info-color" id="myPhoneNavbarA">
                 <div class="col-4">
-                    <a href="{{ path('homepage') }}"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a href="{{ path('homepage') }}"><i class="fas fa-home" aria-hidden="true"></i></a>
                 </div>
                 {% if app.user %}
                     <div class="col-4">
-                        <a href="{{ path('tricks_add') }}"><i class="fa fa-snowflake-o" aria-hidden="true"></i></a>
+                        <a href="{{ path('tricks_add') }}"><i class="fas fa-plus-circle" aria-hidden="true"></i></a>
                     </div>
                     <div class="col-4">
-                        <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
                     </div>
                 {% else %}
                     <div class="col-4">
-                        <a href="{{ path('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                        <a href="{{ path('login') }}"><i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
                     </div>
                     <div class="col-4">
-                        <a href="{{ path('registration') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="{{ path('registration') }}"><i class="far fa-edit" aria-hidden="true"></i></a>
                     </div>
                 {% endif %}
             </div>
@@ -201,7 +181,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/js/mdb.min.js"></script>
         <!-- TinyMCE -->
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=b4tpr3u5rzqh58sg99vmmi45zswzdicshnnsc2rv8oyop1fm"></script>
-        <script src="//cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
+        <!--script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script-->
         <!-- My JS file -->
         <script type="text/javascript" src="{{ asset('build/js/app.js') }}"></script>
         {% block javascripts %}{% endblock %}

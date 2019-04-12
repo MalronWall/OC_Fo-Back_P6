@@ -8,16 +8,15 @@ declare(strict_types=1);
 
 namespace App\UI\Responders;
 
-use App\Domain\Models\Trick;
-use App\UI\Responders\Interfaces\TricksDetailsResponderInterface;
-use App\UI\Responders\Interfaces\TricksUpdateResponderInterface;
+use App\Domain\Models\Media;
+use App\UI\Responders\Interfaces\MediasUpdateResponderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
-class TricksUpdateResponder implements TricksUpdateResponderInterface
+class MediasUpdateResponder implements MediasUpdateResponderInterface
 {
     /** @var Environment */
     private $templating;
@@ -39,25 +38,31 @@ class TricksUpdateResponder implements TricksUpdateResponderInterface
 
     /**
      * @param bool $isRedirect
+     * @param null $slug
      * @param FormInterface|null $form
-     * @param Trick|null $trick
+     * @param Media|null $media
      * @return Response
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function response(bool $isRedirect, FormInterface $form = null, Trick $trick = null): Response
+    public function response(bool $isRedirect, $slug = null, FormInterface $form = null, Media $media = null): Response
     {
         return $isRedirect ?
-            new RedirectResponse(
-                $this->urlGenerator->generate('homepage')
-            ):
+            !$slug ?
+                new RedirectResponse(
+                    $this->urlGenerator->generate('homepage')
+                ):
+                new RedirectResponse(
+                    $this->urlGenerator->generate('tricks_update', array('slug' => $slug))
+                )
+            :
             new Response(
                 $this->templating->render(
-                    'tricks_update.html.twig',
+                    'medias_update.html.twig',
                     [
                         'form' => $form->createView(),
-                        'trick' => $trick
+                        'media' => $media
                     ]
                 )
             );

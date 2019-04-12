@@ -69,18 +69,18 @@ class TricksUpdateAction implements TricksUpdateActionInterface
     }
 
     /**
-     * @Route("/tricks/update/{id}", name="tricks_update", requirements={"id":".+"})
+     * @Route("/tricks/update/{slug}", name="tricks_update", requirements={"slug":".+"})
      * @param Request $request
-     * @param $id
+     * @param $slug
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function action(Request $request, $id):Response
+    public function action(Request $request, $slug):Response
     {
         if ($this->security->isGranted('ROLE_USER')) {
             $trick = $this->entityManager
                 ->getRepository(Trick::class)
-                ->getTrick($id);
+                ->getTrick($slug);
 
             $dto = $this->hydrateDTOHelper->hydrateUpdateTrickDTO($trick);
 
@@ -89,7 +89,7 @@ class TricksUpdateAction implements TricksUpdateActionInterface
                 ->handleRequest($request);
 
             if (!($this->formHandler->handle($form, $trick))) {
-                return $this->responder->response(false, $form);
+                return $this->responder->response(false, $form, $trick);
             }
         } else {
             $this->session->getFlashBag()->add(

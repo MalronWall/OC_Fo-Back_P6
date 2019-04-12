@@ -145,7 +145,8 @@ $(document).ready(function () {
     });
 });
 
-// PROJET 6 (adapt on other project)
+// ************************************************** PROJET 6 ************************************************** //
+// uncheck checkbox checked
 $(".images").click(function(e) {
     if ($(e.target).is(":checkbox")) {
         let idTarget = $(e.target).attr('id');
@@ -158,3 +159,159 @@ $(".images").click(function(e) {
         });
     }
 });
+
+// manage collectionType & prototype
+/****************************************************************************************************/
+/************************************* COLLECTION OF LINKS ******************************************/
+/****************************************************************************************************/
+var collectionHolderLinks;
+
+// setup an "add a media" link
+var addLinksBtn =
+    $("<button type='button' class='btn btn-outline-danger waves-effect px-3 add_links_link'>" +
+        "<i class=\"fab fa-2x fa-youtube\"></i>" +
+        "</button>");
+
+// how could be the li with which class
+var myLiStyleLinks = "<li class='list-group-item'></li>";
+
+var newLinkLiLinks = $(myLiStyleLinks).append(addLinksBtn);
+
+jQuery(document).ready(function () {
+    // get the ul that holds the collection of tags
+    collectionHolderLinks = $("ul.links");
+
+    // add a delete link to all of the existing tag form li elements
+    collectionHolderLinks.find('li').each(function() {
+        addDeleteLinks($(this));
+    });
+
+    // add the "add a media" anchor and li to the medias ul
+    collectionHolderLinks.append(newLinkLiLinks);
+
+    // count the current form inputs we have, use that as the new index when inserting a new item
+    collectionHolderLinks.data("index", collectionHolderLinks.find(":input").length);
+
+    addLinksBtn.on("click", function (e) {
+        // add a new media form
+        addMediaFormLinks(collectionHolderLinks, newLinkLiLinks);
+    });
+
+    function addMediaFormLinks(collectionHolderLinks, newLinkLiLinks) {
+        // get the data prototype
+        var prototypeLinks = collectionHolderLinks.data("prototype-links");
+
+        // get the new index
+        var indexLinks = collectionHolderLinks.data("index");
+
+        var newFormLinks = prototypeLinks;
+
+        // you need this only if you didn't set "label" => false in your medias field in the type
+        // replace "__name__label__" in the prototype's html to instead be a number based on how many items we have
+        // => newForm = newForm.replace(/__name__label__/g, index);
+
+        // replace "__name__" in the prototype's html to instead be a number based on how many items we have
+        newFormLinks = newFormLinks.replace(/__name__/g, indexLinks);
+
+        // increase the index with one for the next item
+        collectionHolderLinks.data("index", indexLinks+1);
+
+        // display the form in the page in an li, before the "add a media" link li
+        var newFormLiLinks = $(myLiStyleLinks).append(newFormLinks);
+        newLinkLiLinks.before(newFormLiLinks);
+
+        // add a delete link to the new form
+        addDeleteLinks(newFormLiLinks);
+    }
+
+    function addDeleteLinks($liLinks) {
+        var $removeButtonLinks = $('<button type="button" class="btn btn-outline-warning py-0 px-1">' +
+            '   <i class="fas fa-times"></i>' +
+            '</button>');
+        $liLinks.prepend($removeButtonLinks);
+
+        $removeButtonLinks.on('click', function(e) {
+            // remove the li for the tag form
+            $liLinks.remove();
+        });
+    }
+});
+
+/****************************************************************************************************/
+/************************************ COLLECTION OF IMAGES ******************************************/
+/****************************************************************************************************/
+var collectionHolderImages;
+
+// setup an "add a media" link
+var addImagesBtn =
+    $("<button type='button' class='btn btn-outline-info waves-effect px-3 add_images_link'>" +
+        "<i class=\"far fa-2x fa-file-image\"></i>" +
+        "</button>");
+
+// how could be the li with which class
+var myLiStyleImages = "<li class='list-group-item'></li>";
+
+var newLinkLiImages = $(myLiStyleImages).append(addImagesBtn);
+
+jQuery(document).ready(function () {
+    // get the ul that holds the collection of tags
+    collectionHolderImages = $("ul.images");
+
+    // add a delete link to all of the existing tag form li elements
+    collectionHolderImages.find('li').each(function() {
+        addDeleteImages($(this));
+    });
+
+    // add the "add a media" anchor and li to the medias ul
+    collectionHolderImages.append(newLinkLiImages);
+
+    // count the current form inputs we have, use that as the new index when inserting a new item
+    collectionHolderImages.data("index", collectionHolderImages.find(":input").length);
+
+    addImagesBtn.on("click", function (e) {
+        // add a new media form
+        addMediaFormImages(collectionHolderImages, newLinkLiImages);
+    });
+
+    function addMediaFormImages(collectionHolderImages, newLinkLiImages) {
+        // get the data prototype
+        var prototypeImages = collectionHolderImages.data("prototype-images");
+
+        // get the new index
+        var indexImages = collectionHolderImages.data("index");
+
+        var newFormImages = prototypeImages;
+
+        // you need this only if you didn't set "label" => false in your medias field in the type
+        // replace "__name__label__" in the prototype's html to instead be a number based on how many items we have
+        // => newForm = newForm.replace(/__name__label__/g, index);
+
+        // replace "__name__" in the prototype's html to instead be a number based on how many items we have
+        newFormImages = newFormImages.replace(/__name__/g, indexImages);
+
+        // increase the index with one for the next item
+        collectionHolderImages.data("index", indexImages+1);
+
+        // display the form in the page in an li, before the "add a media" link li
+        var newFormLiImages = $(myLiStyleImages).append(newFormImages);
+
+        newLinkLiImages.before(newFormLiImages);
+
+        // add a delete link to the new form
+        addDeleteImages(newFormLiImages);
+    }
+
+    function addDeleteImages($liImages) {
+        var $removeButtonImages = $('<button type="button" class="btn btn-outline-warning py-0 px-1">' +
+            '   <i class="fas fa-times"></i>' +
+            '</button>');
+        $liImages.prepend($removeButtonImages);
+
+        $removeButtonImages.on('click', function(e) {
+            // remove the li for the tag form
+            $liImages.remove();
+        });
+    }
+});
+/****************************************************************************************************/
+/****************************************************************************************************/

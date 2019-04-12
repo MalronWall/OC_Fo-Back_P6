@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository;
 
-use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
 
@@ -28,8 +27,8 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     }
 
     /**
-     * @inheritdoc
-     */
+ * @inheritdoc
+ */
     public function getTrick($slug)
     {
         return $this->createQueryBuilder('t')
@@ -51,7 +50,7 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
             ->setParameter('slug', $slug);
 
         if (!is_null($id)) {
-            $qb->andWhere('t.id = :id')
+            $qb->andWhere('t.id != :id')
                 ->setParameter('id', $id);
         }
 

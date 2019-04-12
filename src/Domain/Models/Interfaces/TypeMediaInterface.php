@@ -14,14 +14,6 @@ use Ramsey\Uuid\UuidInterface;
 interface TypeMediaInterface
 {
     /**
-     * TypeMediaInterface constructor.
-     * @param string $type
-     */
-    public function __construct(
-        string $type
-    );
-
-    /**
      * @return UuidInterface
      */
     public function getId(): UuidInterface;

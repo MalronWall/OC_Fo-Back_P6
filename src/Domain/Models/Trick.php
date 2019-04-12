@@ -10,6 +10,7 @@ namespace App\Domain\Models;
 
 use App\Application\Helpers\SafeRenameHelper;
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Models\Interfaces\FigureGroupInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -84,16 +85,18 @@ class Trick implements TrickInterface
     }
 
     /**
+     * @param User $user
      * @param UpdateTrickDTOInterface $dto
      */
-    public function updateTrick(UpdateTrickDTOInterface $dto):void
+    public function updateTrick(User $user, UpdateTrickDTOInterface $dto):void
     {
+        /** @var UpdateTrickDTO $dto */
         $this->title = $dto->title;
         $this->slug = SafeRenameHelper::slug($dto->title);
         $this->description = $dto->description;
         $this->figureGroup = $dto->figureGroup;
-        $this->links = new ArrayCollection($dto->links);
-        $this->images = new ArrayCollection($dto->images);
+        $this->userUpdate = $user;
+        $this->updatedThe = new \DateTime();
     }
 
     /**

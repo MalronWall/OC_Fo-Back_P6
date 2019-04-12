@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace App\Application\Handlers\Forms\Interfaces;
 
-use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\MediaInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-interface UpdateTrickHandlerInterface
+interface UpdateMediaHandlerInterface
 {
     /**
-     * RegistrationHandlerInterface constructor.
+     * UpdateTrickHandler constructor.
      * @param EntityManagerInterface $entityManager
      * @param SessionInterface $session
      * @param TokenStorageInterface $tokenStorage
@@ -30,8 +30,9 @@ interface UpdateTrickHandlerInterface
 
     /**
      * @param FormInterface $form
-     * @param TrickInterface $trick
+     * @param MediaInterface $media
      * @return bool
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function handle(FormInterface $form, TrickInterface $trick): bool;
+    public function handle(FormInterface $form, MediaInterface $media): bool;
 }

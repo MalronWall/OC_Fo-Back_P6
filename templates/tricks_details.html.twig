@@ -11,7 +11,7 @@
                         <div class="col-md-12 px-0 mx-auto">
                             {% if app.user %}
                             <div class="btn-group position-absolute r-0 px-1 mt-1">
-                                <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                <a href="{{ path('tricks_update', {"slug": trick.slug}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
                                 <a href="{{ path('tricks_delete', {"slug": trick.slug}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                             </div>
                             {% endif %}
@@ -37,15 +37,12 @@
                     </div>
 
                     <div class="row" id="mediasTrick">
-                        {#
-                        {% for image in images.owner.images if not (image.link matches '/^first_.*/') %}
-                        #}
                         {% for image in trick.images %}
                         {% if image.typeMedia.type == "image" and not image.first %}
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mt-3 view overlay zoom">
                             <div class="my-vertical-align">
                                 <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
-                                <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded" alt="{{ image.alt }}">
+                                <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded my-img-horizontal-150" alt="{{ image.alt }}">
                                 <div class="mask flex-center waves-effect waves-light">
                                     <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
                                 </div>

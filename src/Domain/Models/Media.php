@@ -69,6 +69,43 @@ class Media implements MediaInterface
         return $link;
     }
 
+    public function unsetFirst()
+    {
+        $this->first = false;
+    }
+
+    /**
+     * @param $link
+     * @param $alt
+     */
+    public function updateMediaWithLink($link, $alt)
+    {
+        if (!is_null($alt)) {
+            $this->alt = $alt;
+        }
+        if (!is_null($link)) {
+            $this->link = $this->toEmbedLink($link);
+        }
+    }
+
+    /**
+     * @param $link
+     * @param $alt
+     * @param $first
+     */
+    public function updateMediaWithImage($link, $alt, $first)
+    {
+        if (!is_null($link)) {
+            $this->link = $link;
+        }
+        if (!is_null($alt)) {
+            $this->alt = $alt;
+        }
+        if (!is_null($first)) {
+            $this->first = $first;
+        }
+    }
+
     /**
      * @return UuidInterface
      */

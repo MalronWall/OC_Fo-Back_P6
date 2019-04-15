@@ -63,7 +63,6 @@ class TricksDeleteAction implements TricksDeleteActionInterface
 
             if ($trick) {
                 foreach ($trick->getImages() as $image) {
-                    echo $image->getLink();
                     /** var $image Image */
                     unlink("images/downloaded/tricks/" . $image->getLink());
                 }

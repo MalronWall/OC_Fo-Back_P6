@@ -1,0 +1,27 @@
+{% block form %}
+    {{ form_start(form) }}
+    <div class="row needs-validation text-center">
+        <div class="col-12">
+            <h2>{{ form_label(form.comment, "Leave a comment !") }}</h2>
+        </div>
+        <div class="col-8 col-md-9 col-lg-8 offset-lg-1 form-group mb-0">
+            <div class="my-md-form form-group">
+                {{ form_widget(form.comment, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="col-1 px-0">
+            <button type="submit" class="btn btn-primary" name="comment">Submit</button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            {% for error in errors %}
+                <small class="text-danger">{{ error.message }}</small>
+            {% endfor %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% block form %}
+    {{ form_start(form) }}
+    {% if form.link is defined %}
+        <div class="md-form form-group">
+            {{ form_row(form.link, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    {% endif %}
+    {% if form.image is defined %}
+        <div class="my-md-form form-group">
+            {{ form_row(form.image, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+    {% endif %}
+    <div class="md-form form-group">
+        {{ form_row(form.alt, { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    {% if form.first is defined %}
+        <div class="my-md-form form-check pl-0">
+            {{ form_row(form.first) }}
+        </div>
+    {% endif %}
+    <button type="submit" class="btn btn-success waves-effect waves-light mb-4">Update media</button>
+    <a href="{{ path('medias_delete', {"id": media.id}) }}"
+       class="btn btn-danger mb-4 js-confirm-modal"
+       data-toggle="modal"
+       data-target="#js-confirm-modal"
+       data-backdrop="true">
+        Delete media
+    </a>
+
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            {% for error in errors %}
+                <small class="text-danger">{{ error.message }}</small>
+            {% endfor %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

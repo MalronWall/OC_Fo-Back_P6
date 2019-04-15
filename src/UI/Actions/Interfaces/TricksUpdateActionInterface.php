@@ -42,8 +42,8 @@ interface TricksUpdateActionInterface
 
     /**
      * @param Request $request
-     * @param $id
+     * @param $slug
      * @return Response
      */
-    public function action(Request $request, $id):Response;
+    public function action(Request $request, $slug):Response;
 }

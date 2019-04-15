@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update trick{% endblock %}
+
+{% block body %}
+    <div class="container-fluid py-5" id="bg-img-trick-details">
+        <div class="row">
+            <div class="col-12">
+                <section class="container bg-white border border-dark" id="container-trick-add">
+                    <div class="row">
+                        <div class="col-md-12 px-0 mx-auto">
+                            <div class="text-image">
+                                <h1>Update media</h1>
+                            </div>
+                            {% if media.typeMedia.type == "image" %}
+                                {# IF ONE IMAGE AND IT IS THE FIRST #}
+                                <a href="{{ asset('images/downloaded/tricks/' ~ media.link) }}">
+                                    <img src="{{ asset('images/downloaded/tricks/' ~ media.link) }}" class="img-fluid" alt="{{ media.alt }}">
+                                </a>
+                            {% elseif media.typeMedia.type == "video" %}
+                                <div class="embed-responsive embed-responsive-16by9 full-height">
+                                    <iframe class="embed-responsive-item" src="{{ media.link }}" alt="{{ media.alt }}" allowfullscreen></iframe>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-md-12 px-5">
+                            {% form_theme form '/forms/update_media.html.twig' %}
+                            {{ form(form, {'media': media}) }}
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

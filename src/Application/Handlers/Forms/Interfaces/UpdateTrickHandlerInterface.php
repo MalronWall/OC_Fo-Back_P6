@@ -12,6 +12,7 @@ use App\Domain\Models\Interfaces\TrickInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 interface UpdateTrickHandlerInterface
 {
@@ -19,10 +20,12 @@ interface UpdateTrickHandlerInterface
      * RegistrationHandlerInterface constructor.
      * @param EntityManagerInterface $entityManager
      * @param SessionInterface $session
+     * @param TokenStorageInterface $tokenStorage
      */
     public function __construct(
         EntityManagerInterface $entityManager,
-        SessionInterface $session
+        SessionInterface $session,
+        TokenStorageInterface $tokenStorage
     );
 
     /**

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="App\Domain\Models\Comment" table="comment" repository-class="App\Domain\Repository\CommentRepository">
+        <id name="id" type="uuid" column="id">
+            <generator strategy="CUSTOM"/>
+            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
+        </id>
+        <field name="comment" type="text" />
+        <field name="createdThe" type="datetime" />
+        <many-to-one field="userCreate" target-entity="User">
+            <join-column name="userCreate_id" referenced-column-name="id" />
+        </many-to-one>
+        <many-to-one field="trick" target-entity="Trick" inversed-by="medias">
+            <join-column name="trick_id" referenced-column-name="id" on-delete="CASCADE" />
+        </many-to-one>
+    </entity>
+
+</doctrine-mapping>

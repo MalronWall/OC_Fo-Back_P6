@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\UI\Responders;
 
 use App\UI\Responders\Interfaces\TricksDetailsResponderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
@@ -29,18 +30,22 @@ class TricksDetailsResponder implements TricksDetailsResponderInterface
 
     /**
      * @param $trick
+     * @param $comments
+     * @param FormInterface|null $form
      * @return Response
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function response($trick): Response
+    public function response($trick, $comments, FormInterface $form = null): Response
     {
         return new Response(
             $this->templating->render(
                 'tricks_details.html.twig',
                 [
-                    "trick" => $trick
+                    "trick" => $trick,
+                    "comments" => $comments,
+                    "form" => $form->createView()
                 ]
             )
         );

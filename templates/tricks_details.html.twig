@@ -11,7 +11,7 @@
                         <div class="col-md-12 px-0 mx-auto">
                             {% if app.user %}
                             <div class="btn-group position-absolute r-0 px-1 mt-1">
-                                <a href="" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                <a href="{{ path('tricks_update', {"slug": trick.slug}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
                                 <a href="{{ path('tricks_delete', {"slug": trick.slug}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                             </div>
                             {% endif %}
@@ -37,15 +37,12 @@
                     </div>
 
                     <div class="row" id="mediasTrick">
-                        {#
-                        {% for image in images.owner.images if not (image.link matches '/^first_.*/') %}
-                        #}
                         {% for image in trick.images %}
                         {% if image.typeMedia.type == "image" and not image.first %}
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mt-3 view overlay zoom">
                             <div class="my-vertical-align">
                                 <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
-                                <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded" alt="{{ image.alt }}">
+                                <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded my-img-horizontal-150" alt="{{ image.alt }}">
                                 <div class="mask flex-center waves-effect waves-light">
                                     <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
                                 </div>
@@ -93,77 +90,30 @@
 
                     {% if app.user %}
                     <hr class="grey">
-                    <form class="row needs-validation text-center" method="post" action="{{ path('tricks_details', {'slug':'blabla'}) }}" novalidate>
-                        <div class="col-12">
-                            <label for="trick_comment"><strong>Leave a comment !</strong></label>
-                        </div>
-                        <div class="col-8 col-md-9 col-lg-8 offset-lg-1 form-group mb-0">
-                            <textarea class="form-control" id="trick_comment" name="trick_comment" rows="2"></textarea>
-                        </div>
-                        <div class="col-1 px-0">
-                            <button type="submit" class="btn btn-primary" name="comment">Submit</button>
-                        </div>
-                    </form>
+
+                    {% form_theme form '/forms/create_comment.html.twig' %}
+                    {{ form(form) }}
+
                     {% endif %}
 
+                    {% if comments %}
                     <hr class="grey">
-
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
+                    <h2 class="text-center">Comments</h2>
+                    {% for comment in comments %}
+                        <div class="row mt-3">
+                            <div class="col-2 col-lg-1 offset-lg-1 text-center">
+                                <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
+                            </div>
+                            <div class="col-10 col-lg-9 border border-dark">
+                                <p>
+                                    {{ comment.comment }}
+                                    <br/><br/>
+                                    <small class="float-right"><i>Créé le {{ comment.createdThe | date("d/m/Y à h\\hi") }} par </i><strong>{{ comment.userCreate.username }}</strong></small>
+                                </p>
+                            </div>
                         </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h04 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h03 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h02 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h01 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                        </div>
-                        <div class="col-10 col-lg-9 border border-dark">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis euismod magna. Aenean vel molestie ipsum. Sed urna enim, porta sed pretium vitae, varius ac ex. Cras vitae arcu vehicula, aliquam mauris vel, consectetur quam.<br/><br/>
-                                <small class="float-right"><i>Créé le 19/09/18 à 18h00 par </i><strong>Lorem Ipsum</strong></small>
-                            </p>
-                        </div>
-                    </div>
-
+                    {% endfor %}
+                    {% endif %}
 
                     <div class="row text-center">
                         <div class="col-md-12">

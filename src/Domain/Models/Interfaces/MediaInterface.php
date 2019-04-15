@@ -36,6 +36,21 @@ interface MediaInterface
      */
     public function toEmbedLink(string $link): string;
 
+    public function unsetFirst();
+
+    /**
+     * @param $link
+     * @param $alt
+     */
+    public function updateMediaWithLink($link, $alt);
+
+    /**
+     * @param $alt
+     * @param $link
+     * @param $first
+     */
+    public function updateMediaWithImage($alt, $link, $first);
+
     /**
      * @return UuidInterface
      */
@@ -52,17 +67,22 @@ interface MediaInterface
     public function getAlt(): string;
 
     /**
+     * @return bool
+     */
+    public function isFirst(): bool;
+
+    /**
      * @return User
      */
     public function getUser(): User;
 
     /**
-     * @return TypeMediaInterface
-     */
-    public function getTypeMedia(): TypeMediaInterface;
-
-    /**
      * @return TrickInterface
      */
     public function getTrick(): TrickInterface;
+
+    /**
+     * @return TypeMediaInterface
+     */
+    public function getTypeMedia(): TypeMediaInterface;
 }

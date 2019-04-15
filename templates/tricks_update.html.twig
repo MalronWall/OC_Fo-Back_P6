@@ -6,16 +6,81 @@
     <div class="container-fluid py-5" id="bg-img-trick-details">
         <div class="row">
             <div class="col-12">
-                <section class="container bg-white border border-dark pt-4" id="container-trick-add">
+                <section class="container bg-white border border-dark" id="container-trick-add">
+                    <div class="row">
+                        <div class="col-md-12 px-0 mx-auto">
+                            <div class="text-image">
+                                <h1>Update trick</h1>
+                            </div>
+                            {% set imageFound = false %}
+                            {# FOR IMAGES IF FIRST #}
+                            {% for image in trick.images %}
+                                {% if image.typeMedia.type == "image" and image.first %}
+                                    <div class="btn-group bg-white float-bottom-right rounded">
+                                        <a href="{{ path('medias_update', {"id": image.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                        <a href="{{ path('medias_delete', {"id": image.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                                    </div>
+                                    {# IF ONE IMAGE AND IT IS THE FIRST #}
+                                    <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
+                                        <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid" alt="{{ image.alt }}">
+                                    </a>
+                                    {% set imageFound = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {# IF NONE IMAGE #}
+                            {% if imageFound != true %}
+                                <img src="{{ asset('images/no_trick.jpg') }}" class="img-fluid" alt="Default image if no image">
+                            {% endif %}
+                        </div>
+                    </div>
 
-                    <h1 class="text-center">Update trick</h1>
+                    <div class="row" id="mediasTrick">
+                        {% for image in trick.images %}
+                            {% if image.typeMedia.type == "image" and not image.first %}
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mt-3 view overlay zoom">
+                                    <div class="my-vertical-align">
+                                        <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
+                                            <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded my-img-horizontal-150" alt="{{ image.alt }}">
+                                            <div class="mask flex-center waves-effect waves-light">
+                                                <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="btn-group bg-white float-bottom-right rounded">
+                                        <a href="{{ path('medias_update', {"id": image.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                        <a href="{{ path('medias_delete', {"id": image.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        {% for link in trick.links %}
+                            {% if link.typeMedia.type == "video" %}
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
+                                    <div class="embed-responsive embed-responsive-16by9 full-height">
+                                        <iframe class="embed-responsive-item" src="{{ link.link }}" alt="{{ link.alt }}" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="btn-group bg-white float-bottom-right rounded">
+                                        <a href="{{ path('medias_update', {"id": link.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                        <a href="{{ path('medias_delete', {"id": link.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% if trick.links|length > 0 %}
+                        <div class="row text-center d-md-none d-lg-none d-xl-none">
+                            <div class="col-md-12">
+                                <a class="btn btn-success waves-effect waves-light my-2" id="seeMediasTrick"><i class="fa fa-gear" aria-hidden="true"></i> See medias</a>
+                            </div>
+                        </div>
+                    {% endif %}
 
                     <br/>
 
                     <div class="row">
                         <div class="col-md-12 px-5">
                             {% form_theme form '/forms/update_trick.html.twig' %}
-                            {{ form(form) }}
+                            {{ form(form, {'trick': trick}) }}
                         </div>
                     </div>
 

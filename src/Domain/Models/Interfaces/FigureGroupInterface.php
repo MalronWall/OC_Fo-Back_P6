@@ -14,12 +14,6 @@ use Ramsey\Uuid\UuidInterface;
 interface FigureGroupInterface
 {
     /**
-     * TypeMedia constructor.
-     * @param string $title
-     */
-    public function __construct(string $title);
-
-    /**
      * @return UuidInterface
      */
     public function getId(): UuidInterface;

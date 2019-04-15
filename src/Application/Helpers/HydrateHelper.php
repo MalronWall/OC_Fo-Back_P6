@@ -9,9 +9,11 @@ declare(strict_types=1);
 namespace App\Application\Helpers;
 
 use App\Application\Helpers\Interfaces\HydrateHelperInterface;
+use App\Domain\DTO\UpdateImageMediaDTO;
+use App\Domain\DTO\UpdateLinkMediaDTO;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Interfaces\MediaInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Trick;
 
 class HydrateHelper implements HydrateHelperInterface
 {
@@ -22,26 +24,32 @@ class HydrateHelper implements HydrateHelperInterface
     public function hydrateUpdateTrickDTO(TrickInterface $trick):UpdateTrickDTO
     {
         return new UpdateTrickDTO(
+            $trick->getId(),
             $trick->getTitle(),
             $trick->getDescription(),
-            $trick->getFigureGroup(),
-            $trick->getId()
+            $trick->getFigureGroup()
         );
     }
 
     /**
-     * @param TrickInterface $trick
-     * @return Trick
+     * @param MediaInterface $media
+     * @return UpdateImageMediaDTO|UpdateLinkMediaDTO|null
      */
-    public function hydrateTrick(TrickInterface $trick):Trick
+    public function hydrateUpdateMediaDTO(MediaInterface $media)
     {
-        return new Trick(
-            $trick->getUser(),
-            $trick->getTitle(),
-            $trick->getDescription(),
-            $trick->getFigureGroup(),
-            $trick->getLinks()->toArray(),
-            $trick->getImages()->toArray()
-        );
+        switch ($media->getTypeMedia()->getType()) {
+            case "image":
+                return new UpdateImageMediaDTO(
+                    $media->getAlt(),
+                    $media->isFirst()
+                );
+            case "video":
+                return new UpdateLinkMediaDTO(
+                    $media->getLink(),
+                    $media->getAlt()
+                );
+            default:
+                return null;
+        }
     }
 }

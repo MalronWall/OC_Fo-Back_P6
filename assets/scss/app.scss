@@ -43,6 +43,12 @@
   transform: translateY(-50%);
 }
 
+/* HORIZONTAL ALIGN + MAX HEIGHT */
+.my-img-horizontal-150 {
+  max-height: 150px;
+  margin: auto;
+}
+
 /* ----------------------- Spécifique au projet ----------------------- */
 /*xs + sm*/
 @media (max-width:767px){
@@ -104,6 +110,7 @@
 
 .float-bottom-right {
   position: absolute;
+  z-index: 5;
   bottom: 2px;
   right: 2px;
 }

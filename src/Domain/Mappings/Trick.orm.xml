@@ -35,6 +35,12 @@
                 <cascade-remove/>
             </cascade>
         </one-to-many>
+        <one-to-many field="comments" target-entity="Comment" mapped-by="trick">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
     </entity>
 
 </doctrine-mapping>

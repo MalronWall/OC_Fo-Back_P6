@@ -41,6 +41,8 @@ class Trick implements TrickInterface
     private $links;
     /** @var Collection|Media[] */
     private $images;
+    /** @var Collection|Comment[] */
+    private $comments;
 
     /**
      * Trick constructor.
@@ -65,6 +67,7 @@ class Trick implements TrickInterface
         $this->figureGroup = $figureGroup;
         $this->links = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -82,6 +85,15 @@ class Trick implements TrickInterface
     {
         $this->images->add($image);
         $image->defineTrick($this);
+    }
+
+    /**
+     * @param Comment $comment
+     */
+    public function addComment(Comment $comment):void
+    {
+        $this->images->add($comment);
+        $comment->defineTrick($this);
     }
 
     /**
@@ -185,5 +197,13 @@ class Trick implements TrickInterface
     public function getUserUpdate(): User
     {
         return $this->userUpdate;
+    }
+
+    /**
+     * @return Comment[]|Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

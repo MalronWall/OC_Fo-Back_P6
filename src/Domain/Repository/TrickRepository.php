@@ -23,12 +23,12 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
         ->orderBy('t.createdThe', 'DESC')
 
         ->getQuery()
-            ->getResult();
+        ->getResult();
     }
 
     /**
- * @inheritdoc
- */
+     * @inheritdoc
+     */
     public function getTrick($slug)
     {
         return $this->createQueryBuilder('t')

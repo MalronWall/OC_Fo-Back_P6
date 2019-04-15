@@ -12,6 +12,9 @@
                             <div class="text-image">
                                 <h1>Update media</h1>
                             </div>
+                            <div class="btn-group position-absolute l-0 px-1 mt-1">
+                                <a href="{{ path('tricks_update', {"slug": media.trick.slug}) }}" class="btn btn-outline-warning px-2 py-1"><i class="fas fa-arrow-left fa-lg"></i></a>
+                            </div>
                             {% if media.typeMedia.type == "image" %}
                                 {# IF ONE IMAGE AND IT IS THE FIRST #}
                                 <a href="{{ asset('images/downloaded/tricks/' ~ media.link) }}">

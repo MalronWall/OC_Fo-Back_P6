@@ -32,5 +32,5 @@ interface TricksUpdateResponderInterface
      * @param Trick|null $trick
      * @return Response
      */
-    public function response(bool $isRedirect, FormInterface $form = null, Trick $trick = null): Response;
+    public function response(bool $isRedirect, Trick $trick = null, FormInterface $form = null): Response;
 }

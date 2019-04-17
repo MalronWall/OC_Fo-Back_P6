@@ -17,6 +17,7 @@ use App\UI\Forms\CreateCommentType;
 use App\UI\Responders\Interfaces\TricksDetailsResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -70,29 +71,22 @@ class TricksDetailsAction implements TricksDetailsActionInterface
             ->getRepository(Trick::class)
             ->getTrick($slug);
 
+        // Comments + the created one
+        $comments = $this->entityManager
+            ->getRepository(Comment::class)
+            ->getComments($trick);
+
         if ($this->security->isGranted('ROLE_USER')) {
             $form = $this->formFactory
                 ->create(CreateCommentType::class)
                 ->handleRequest($request);
 
-            $this->formHandler->handle($form, $trick);
-
-            $form = $this->formFactory
-                ->create(CreateCommentType::class);
-
-            // Comments + the created one
-            $comments = $this->entityManager
-                ->getRepository(Comment::class)
-                ->getComments($trick);
-
-            return $this->responder->response($trick, $comments, $form);
+            if ($this->formHandler->handle($form, $trick)) {
+                return $this->responder->response(true, $trick);
+            }
+            return $this->responder->response(false, $trick, $comments, $form);
         }
 
-        // Comments existing
-        $comments = $this->entityManager
-            ->getRepository(Comment::class)
-            ->getComments($trick);
-
-        return $this->responder->response($trick, $comments);
+        return $this->responder->response(false, $trick, $comments);
     }
 }

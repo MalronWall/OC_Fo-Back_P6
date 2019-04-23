@@ -14,8 +14,7 @@ use Doctrine\ORM\EntityRepository;
 class CommentRepository extends EntityRepository implements CommentRepositoryInterface
 {
     /**
-     * @param $trick
-     * @return mixed
+     * @inheritdoc
      */
     public function getComments($trick)
     {
@@ -28,5 +27,37 @@ class CommentRepository extends EntityRepository implements CommentRepositoryInt
 
             ->getQuery()
             ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCommentsFrom($trick, int $numPage = 1, int $nbToDisplay = 10)
+    {
+        $from = ($numPage - 1) * $nbToDisplay;
+
+        return $this->createQueryBuilder('c')
+
+            ->where('c.trick = :trick')
+            ->setParameter('trick', $trick)
+
+            ->setFirstResult($from)
+            ->setMaxResults($nbToDisplay)
+
+            ->orderBy('c.createdThe', 'DESC')
+
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function nbEntities()
+    {
+        return $this->createQueryBuilder('c')
+            ->select('COUNT(c)')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }

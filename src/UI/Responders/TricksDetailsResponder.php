@@ -38,29 +38,50 @@ class TricksDetailsResponder implements TricksDetailsResponderInterface
 
     /**
      * @param $isRedirect
-     * @param $trick
+     * @param Trick $trick
      * @param $comments
      * @param FormInterface|null $form
+     * @param $nbPagesTot
      * @return Response
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function response($isRedirect, Trick $trick, $comments = null, FormInterface $form = null): Response
-    {
+    public function response(
+        $isRedirect,
+        Trick $trick,
+        $comments = null,
+        FormInterface $form = null,
+        $nbPagesTot = null
+    ): Response {
+
         return $isRedirect ?
             new RedirectResponse(
-                $this->urlGenerator->generate('/tricks/details/'.$trick->getSlug())
+                $this->urlGenerator->generate("tricks_details", [
+                    "slug" => $trick->getSlug()
+                ])
             ):
-            new Response(
-                $this->templating->render(
-                    'tricks_details.html.twig',
-                    [
-                        "trick" => $trick,
-                        "comments" => $comments,
-                        "form" => $form->createView()
-                    ]
-                )
-            );
+            is_null($form) ?
+                new Response(
+                    $this->templating->render(
+                        'tricks_details.html.twig',
+                        [
+                            "trick" => $trick,
+                            "comments" => $comments,
+                            "nbPagesTot" => $nbPagesTot
+                        ]
+                    )
+                ):
+                new Response(
+                    $this->templating->render(
+                        'tricks_details.html.twig',
+                        [
+                            "trick" => $trick,
+                            "comments" => $comments,
+                            "form" => $form->createView(),
+                            "nbPagesTot" => $nbPagesTot
+                        ]
+                    )
+                );
     }
 }

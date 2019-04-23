@@ -79,6 +79,11 @@
                             {{ trick.description | raw }}
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 px-5">
+                            <strong>Groupe : </strong>{{ trick.figureGroup }}
+                        </div>
+                    </div>
 
                     <br/>
 
@@ -92,37 +97,29 @@
                     </div>
 
                     {% if app.user %}
-                    <hr class="grey">
-
-                    {% form_theme form '/forms/create_comment.html.twig' %}
-                    {{ form(form) }}
-
+                        <hr class="grey">
+                        {% if form is defined %}
+                            {% form_theme form '/forms/create_comment.html.twig' %}
+                            {{ form(form) }}
+                        {% endif %}
                     {% endif %}
 
                     {% if comments %}
                     <hr class="grey">
                     <h2 class="text-center">Comments</h2>
-                    {% for comment in comments %}
-                        <div class="row mt-3">
-                            <div class="col-2 col-lg-1 offset-lg-1 text-center">
-                                <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
-                            </div>
-                            <div class="col-10 col-lg-9 border border-dark">
-                                <p>
-                                    {{ comment.comment }}
-                                    <br/><br/>
-                                    <small class="float-right"><i>Créé le {{ comment.createdThe | date("d/m/Y à h\\hi") }} par </i><strong>{{ comment.userCreate.username }}</strong></small>
-                                </p>
-                            </div>
-                        </div>
-                    {% endfor %}
+                    <div id="comments">
+                        {% include "ajaxs/comments.html.twig" %}
+                    </div>
                     {% endif %}
 
-                    <div class="row text-center">
+                    <div class="row text-center my-2">
                         <div class="col-md-12">
-                            <button type="button" class="btn btn-success waves-effect waves-light my-2">
+                            {% if nbPagesTot > 1 %}
+                            <button type="button" class="btn btn-success waves-effect waves-light"
+                                    id="loadMoreComments" data-nbpagestot="{{ nbPagesTot }}">
                                 <i class="fa fa-gear" aria-hidden="true"></i> Load more
                             </button>
+                            {% endif %}
                         </div>
                     </div>
 

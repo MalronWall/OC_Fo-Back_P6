@@ -10,14 +10,14 @@ namespace App\UI\Actions;
 
 use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
 use App\Domain\Models\Trick;
-use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
-use App\UI\Actions\Interfaces\HomepageActionInterface;
+use App\UI\Actions\Interfaces\AjaxHomepageActionInterface;
+use App\UI\Responders\Interfaces\AjaxHomepageResponderInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomepageAction implements HomepageActionInterface
+class AjaxHomepageAction implements AjaxHomepageActionInterface
 {
     /** @var HomepageResponderInterface */
     private $responder;
@@ -28,12 +28,12 @@ class HomepageAction implements HomepageActionInterface
 
     /**
      * HomepageAction constructor.
-     * @param HomepageResponderInterface $responder
+     * @param AjaxHomepageResponderInterface $responder
      * @param EntityManagerInterface $entityManager
      * @param PaginatorHelperInterface $paginatorHelper
      */
     public function __construct(
-        HomepageResponderInterface $responder,
+        AjaxHomepageResponderInterface $responder,
         EntityManagerInterface $entityManager,
         PaginatorHelperInterface $paginatorHelper
     ) {
@@ -43,17 +43,23 @@ class HomepageAction implements HomepageActionInterface
     }
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/ajax-load-tricks/{numPage}", name="ajax-homepage", requirements={"numPage":"\d+"})
+     * @param int $numPage
+     * @return Response
      */
-    public function action(): Response
+    public function action(int $numPage): Response
     {
         $trickRepository = $this->entityManager
             ->getRepository(Trick::class);
 
-        $nbPagesTot = $this->paginatorHelper->nbPagesTot($trickRepository);
+        $nbPagesTot = $this->paginatorHelper->nbPagesTot($trickRepository, $numPage);
 
-        $tricks = $trickRepository->getTricksFrom();
+        if (is_null($nbPagesTot)) {
+            return $this->responder->response();
+        }
 
-        return $this->responder->response($tricks, $nbPagesTot);
+        $tricks = $trickRepository->getTricksFrom($numPage);
+
+        return $this->responder->response($tricks);
     }
 }

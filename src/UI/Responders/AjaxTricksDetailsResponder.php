@@ -8,12 +8,11 @@ declare(strict_types=1);
 
 namespace App\UI\Responders;
 
-use App\UI\Responders\Interfaces\HomepageResponderInterface;
-use Doctrine\ORM\Mapping as ORM;
+use App\UI\Responders\Interfaces\AjaxTricksDetailsResponderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-class HomepageResponder implements HomepageResponderInterface
+class AjaxTricksDetailsResponder implements AjaxTricksDetailsResponderInterface
 {
     /** @var Environment */
     private $templating;
@@ -29,23 +28,23 @@ class HomepageResponder implements HomepageResponderInterface
     }
 
     /**
-     * @param array $tricks
-     * @param int $nbPagesTot
+     * @param array $comments
      * @return Response
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function response(array $tricks, int $nbPagesTot = 1): Response
+    public function response(array $comments = []): Response
     {
-        return new Response(
-            $this->templating->render(
-                'homepage.html.twig',
-                [
-                    "tricks" => $tricks,
-                    "nbPagesTot" => $nbPagesTot
-                ]
-            )
-        );
+        return (!empty($comments)) ?
+            new Response(
+                $this->templating->render(
+                    'ajaxs/comments.html.twig',
+                    [
+                        "comments" => $comments
+                    ]
+                )
+            ):
+            new Response('', Response::HTTP_NOT_FOUND);
     }
 }

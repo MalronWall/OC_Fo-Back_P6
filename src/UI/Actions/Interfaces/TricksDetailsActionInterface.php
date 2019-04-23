@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\UI\Actions\Interfaces;
 
 use App\Application\Handlers\Forms\Interfaces\CreateCommentHandlerInterface;
+use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
 use App\UI\Responders\Interfaces\TricksDetailsResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -26,13 +27,15 @@ interface TricksDetailsActionInterface
      * @param Security $security
      * @param FormFactoryInterface $formFactory
      * @param CreateCommentHandlerInterface $formHandler
+     * @param PaginatorHelperInterface $paginatorHelper
      */
     public function __construct(
         TricksDetailsResponderInterface $responder,
         EntityManagerInterface $entityManager,
         Security $security,
         FormFactoryInterface $formFactory,
-        CreateCommentHandlerInterface $formHandler
+        CreateCommentHandlerInterface $formHandler,
+        PaginatorHelperInterface $paginatorHelper
     );
 
     /**

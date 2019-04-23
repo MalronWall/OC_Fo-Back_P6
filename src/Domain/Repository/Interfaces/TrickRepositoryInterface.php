@@ -11,6 +11,24 @@ namespace App\Domain\Repository\Interfaces;
 interface TrickRepositoryInterface
 {
     /**
+     * @return mixed
+     */
+    public function getTricks();
+
+    /**
+     * @param int $numPage
+     * @param int $nbToDisplay
+     * @return mixed
+     */
+    public function getTricksFrom(int $numPage = 1, int $nbToDisplay = 10);
+
+    /**
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function nbEntities();
+
+    /**
      * @param $slug
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException

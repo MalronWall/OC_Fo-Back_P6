@@ -28,10 +28,17 @@ interface TricksDetailsResponderInterface
 
     /**
      * @param $isRedirect
-     * @param $trick
+     * @param Trick $trick
      * @param $comments
      * @param FormInterface|null $form
+     * @param $nbPagesTot
      * @return Response
      */
-    public function response($isRedirect, Trick $trick, $comments = null, FormInterface $form = null): Response;
+    public function response(
+        $isRedirect,
+        Trick $trick,
+        $comments = null,
+        FormInterface $form = null,
+        $nbPagesTot = null
+    ): Response;
 }

@@ -9,15 +9,17 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
+use App\Domain\Models\Comment;
 use App\Domain\Models\Trick;
-use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
-use App\UI\Actions\Interfaces\HomepageActionInterface;
+use App\UI\Actions\Interfaces\AjaxHomepageActionInterface;
+use App\UI\Responders\Interfaces\AjaxHomepageResponderInterface;
+use App\UI\Responders\Interfaces\AjaxTricksDetailsResponderInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomepageAction implements HomepageActionInterface
+class AjaxTricksDetailsAction
 {
     /** @var HomepageResponderInterface */
     private $responder;
@@ -28,12 +30,12 @@ class HomepageAction implements HomepageActionInterface
 
     /**
      * HomepageAction constructor.
-     * @param HomepageResponderInterface $responder
+     * @param AjaxTricksDetailsResponderInterface $responder
      * @param EntityManagerInterface $entityManager
      * @param PaginatorHelperInterface $paginatorHelper
      */
     public function __construct(
-        HomepageResponderInterface $responder,
+        AjaxTricksDetailsResponderInterface $responder,
         EntityManagerInterface $entityManager,
         PaginatorHelperInterface $paginatorHelper
     ) {
@@ -43,17 +45,23 @@ class HomepageAction implements HomepageActionInterface
     }
 
     /**
-     * @Route("/", name="homepage")
+     * @Route("/ajax-load-comments/{numPage}", name="ajax-tricks-details", requirements={"numPage":"\d+"})
+     * @param int $numPage
+     * @return Response
      */
-    public function action(): Response
+    public function action(int $numPage): Response
     {
-        $trickRepository = $this->entityManager
-            ->getRepository(Trick::class);
+        $commentRepository = $this->entityManager
+            ->getRepository(Comment::class);
 
-        $nbPagesTot = $this->paginatorHelper->nbPagesTot($trickRepository);
+        $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository, $numPage);
 
-        $tricks = $trickRepository->getTricksFrom();
+        if (is_null($nbPagesTot)) {
+            return $this->responder->response();
+        }
 
-        return $this->responder->response($tricks, $nbPagesTot);
+        $tricks = $commentRepository->getCommentsFrom($numPage);
+
+        return $this->responder->response($tricks);
     }
 }

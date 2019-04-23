@@ -11,20 +11,20 @@ namespace App\UI\Responders\Interfaces;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
-interface HomepageResponderInterface
+interface AjaxHomepageResponderInterface
 {
     /**
-     * HomepageResponderInterface constructor.
+     * HomepageResponder constructor.
      * @param Environment $templating
      */
-    public function __construct(
-        Environment $templating
-    );
+    public function __construct(Environment $templating);
 
     /**
      * @param array $tricks
-     * @param int $nbPageTot
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function response(array $tricks, int $nbPageTot = 1): Response;
+    public function response(array $tricks = []): Response;
 }

@@ -29,6 +29,32 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
+    public function getTricksFrom(int $numPage = 1, int $nbToDisplay = 10)
+    {
+        $from = ($numPage - 1) * $nbToDisplay;
+
+        return $this->createQueryBuilder('t')
+            ->setFirstResult($from)
+            ->setMaxResults($nbToDisplay)
+            ->orderBy('t.createdThe', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function nbEntities()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('COUNT(t)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getTrick($slug)
     {
         return $this->createQueryBuilder('t')

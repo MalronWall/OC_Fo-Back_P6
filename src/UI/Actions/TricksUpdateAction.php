@@ -73,7 +73,6 @@ class TricksUpdateAction implements TricksUpdateActionInterface
      * @param Request $request
      * @param $slug
      * @return mixed
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function action(Request $request, $slug):Response
     {

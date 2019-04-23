@@ -24,6 +24,10 @@ class User implements UISymfony
     private $email;
     /** @var string */
     private $password;
+    /** @var string */
+    private $tokenForgotPwd;
+    /** @var \DateTime */
+    private $tokenDateForgotPwd;
     /** @var array */
     private $roles;
     /** @var Media */
@@ -42,6 +46,26 @@ class User implements UISymfony
         $this->email = $email;
         $this->password = $password;
         $this->roles[] = "ROLE_USER";
+    }
+
+    /**
+     * @param $token
+     * @throws \Exception
+     */
+    public function createTokenForgotPwdInformations($token)
+    {
+        $this->tokenForgotPwd = $token;
+        $this->tokenDateForgotPwd = (new \DateTime())->add(new \DateInterval('P1D'));
+    }
+
+    /**
+     * @param $encodedPwd
+     */
+    public function resetPwd($encodedPwd)
+    {
+        $this->password = $encodedPwd;
+        $this->tokenForgotPwd = null;
+        $this->tokenDateForgotPwd = null;
     }
 
     /**
@@ -85,6 +109,22 @@ class User implements UISymfony
     }
 
     /**
+     * @return string
+     */
+    public function getTokenForgotPwd(): string
+    {
+        return $this->tokenForgotPwd;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTokenDateForgotPwd(): \DateTime
+    {
+        return $this->tokenDateForgotPwd;
+    }
+
+    /**
      * @return Media
      */
     public function getMedia(): Media
@@ -106,7 +146,7 @@ class User implements UISymfony
      * and populated in any number of different ways when the user object
      * is created.
      *
-     * @return (Role|string)[] The user roles
+     * @return array (Role|string)[] The user roles
      */
     public function getRoles()
     {

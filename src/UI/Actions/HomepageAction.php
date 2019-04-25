@@ -10,7 +10,6 @@ namespace App\UI\Actions;
 
 use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
 use App\Domain\Models\Trick;
-use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Actions\Interfaces\HomepageActionInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;

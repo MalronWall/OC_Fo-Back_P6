@@ -32,14 +32,16 @@ class CommentRepository extends EntityRepository implements CommentRepositoryInt
     /**
      * @inheritdoc
      */
-    public function getCommentsFrom($trick, int $numPage = 1, int $nbToDisplay = 10)
+    public function getCommentsFrom($slug, int $numPage = 1, int $nbToDisplay = 10)
     {
         $from = ($numPage - 1) * $nbToDisplay;
 
-        return $this->createQueryBuilder('c')
+        $result = $this->createQueryBuilder('c')
 
-            ->where('c.trick = :trick')
-            ->setParameter('trick', $trick)
+            ->join('c.trick', 't')
+
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug)
 
             ->setFirstResult($from)
             ->setMaxResults($nbToDisplay)
@@ -48,15 +50,22 @@ class CommentRepository extends EntityRepository implements CommentRepositoryInt
 
             ->getQuery()
             ->getResult();
+
+        return $result;
     }
 
     /**
      * @inheritdoc
      */
-    public function nbEntities()
+    public function nbEntities($slug)
     {
         return $this->createQueryBuilder('c')
             ->select('COUNT(c)')
+            ->join('c.trick', 't')
+
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug)
+
             ->getQuery()
             ->getSingleScalarResult();
     }

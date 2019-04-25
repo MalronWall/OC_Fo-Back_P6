@@ -25,8 +25,9 @@ interface CommentRepositoryInterface
     public function getCommentsFrom($trick, int $numPage = 1, int $nbToDisplay = 10);
 
     /**
+     * @param null $slug
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function nbEntities();
+    public function nbEntities($slug);
 }

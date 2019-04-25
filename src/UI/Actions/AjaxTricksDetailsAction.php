@@ -10,9 +10,6 @@ namespace App\UI\Actions;
 
 use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
 use App\Domain\Models\Comment;
-use App\Domain\Models\Trick;
-use App\UI\Actions\Interfaces\AjaxHomepageActionInterface;
-use App\UI\Responders\Interfaces\AjaxHomepageResponderInterface;
 use App\UI\Responders\Interfaces\AjaxTricksDetailsResponderInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,11 +42,15 @@ class AjaxTricksDetailsAction
     }
 
     /**
-     * @Route("/ajax-load-comments/{numPage}", name="ajax-tricks-details", requirements={"numPage":"\d+"})
+     * @Route(
+     *     "/ajax-load-comments/{slug}/{numPage}",
+     *     name="ajax-tricks-details",
+     *     requirements={"numPage":"\d+","slug":".+"})
+     * @param string $slug
      * @param int $numPage
      * @return Response
      */
-    public function action(int $numPage): Response
+    public function action(string $slug, int $numPage): Response
     {
         $commentRepository = $this->entityManager
             ->getRepository(Comment::class);
@@ -60,7 +61,7 @@ class AjaxTricksDetailsAction
             return $this->responder->response();
         }
 
-        $tricks = $commentRepository->getCommentsFrom($numPage);
+        $tricks = $commentRepository->getCommentsFrom($slug, $numPage);
 
         return $this->responder->response($tricks);
     }

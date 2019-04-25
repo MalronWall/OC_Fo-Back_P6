@@ -54,34 +54,25 @@ class TricksDetailsResponder implements TricksDetailsResponderInterface
         FormInterface $form = null,
         $nbPagesTot = null
     ): Response {
-
-        return $isRedirect ?
+        $response = $isRedirect ?
             new RedirectResponse(
                 $this->urlGenerator->generate("tricks_details", [
                     "slug" => $trick->getSlug()
                 ])
-            ):
-            is_null($form) ?
+            )
+        :
                 new Response(
                     $this->templating->render(
                         'tricks_details.html.twig',
                         [
                             "trick" => $trick,
                             "comments" => $comments,
-                            "nbPagesTot" => $nbPagesTot
-                        ]
-                    )
-                ):
-                new Response(
-                    $this->templating->render(
-                        'tricks_details.html.twig',
-                        [
-                            "trick" => $trick,
-                            "comments" => $comments,
-                            "form" => $form->createView(),
+                            "form" => !is_null($form) ? $form->createView() : null,
                             "nbPagesTot" => $nbPagesTot
                         ]
                     )
                 );
+
+        return $response;
     }
 }

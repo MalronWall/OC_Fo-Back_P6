@@ -80,10 +80,10 @@ class TricksDetailsAction implements TricksDetailsActionInterface
         $commentRepository = $this->entityManager
             ->getRepository(Comment::class);
 
-        $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository);
+        $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository, $trick->getSlug());
 
         // Comments + the created one
-        $comments = $commentRepository->getCommentsFrom($trick);
+        $comments = $commentRepository->getCommentsFrom($trick->getSlug());
         if ($this->security->isGranted('ROLE_USER')) {
             $form = $this->formFactory
                 ->create(CreateCommentType::class)

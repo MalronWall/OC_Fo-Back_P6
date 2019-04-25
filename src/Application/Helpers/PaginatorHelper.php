@@ -12,10 +12,17 @@ use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
 
 class PaginatorHelper implements PaginatorHelperInterface
 {
-    public function nbPagesTot($repository, $numPage = 1, $nbToDisplay = 10)
+    /**
+     * @param $repository
+     * @param null $join
+     * @param int $numPage
+     * @param int $nbToDisplay
+     * @return int|mixed|null
+     */
+    public function nbPagesTot($repository, $join = null, $numPage = 1, $nbToDisplay = 10)
     {
         // NB of entities of "repository" type in db
-        $nbEntities = $repository->nbEntities();
+        $nbEntities = $repository->nbEntities($join);
         // NB of pages in total to display
         $nbPagesTot = (int)ceil($nbEntities / $nbToDisplay);
 

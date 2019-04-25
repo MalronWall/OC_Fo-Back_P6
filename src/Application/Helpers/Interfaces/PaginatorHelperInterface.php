@@ -12,9 +12,10 @@ interface PaginatorHelperInterface
 {
     /**
      * @param $repository
-     * @param $numPage
+     * @param null $join
+     * @param int $numPage
      * @param int $nbToDisplay
      * @return mixed
      */
-    public function nbPagesTot($repository, $numPage = 1, $nbToDisplay = 10);
+    public function nbPagesTot($repository, $join = null, $numPage = 1, $nbToDisplay = 10);
 }

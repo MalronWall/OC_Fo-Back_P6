@@ -182,7 +182,7 @@ btnLoadMoreComments.click(function(e) {
         }
     };
 
-    xmlHttp.open("GET", "/ajax-load-comments/" + numPageComments);
+    xmlHttp.open("GET", "/ajax-load-comments/" + btnLoadMoreComments.data("slug") + "/" + numPageComments);
     xmlHttp.send();
 
     numPageComments += 1;

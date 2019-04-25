@@ -12,6 +12,21 @@ use Doctrine\ORM\NonUniqueResultException;
 
 interface UserRepositoryInterface
 {
+
+    /**
+     * @param $token
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function checkTokenForgotPwd($token);
+
+    /**
+     * @param $token
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function checkTokenDateForgotPwd($token);
+
     /**
      * @param $pseudo
      * @return mixed

@@ -13,6 +13,8 @@ use App\UI\Responders\Interfaces\TricksAddResponderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Security;
 
 interface TricksAddActionInterface
 {
@@ -21,11 +23,15 @@ interface TricksAddActionInterface
      * @param TricksAddResponderInterface $responder
      * @param FormFactoryInterface $formFactory
      * @param CreateTrickHandlerInterface $formInterface
+     * @param Security $security
+     * @param SessionInterface $session
      */
     public function __construct(
         TricksAddResponderInterface $responder,
         FormFactoryInterface $formFactory,
-        CreateTrickHandlerInterface $formInterface
+        CreateTrickHandlerInterface $formInterface,
+        Security $security,
+        SessionInterface $session
     );
 
     /**

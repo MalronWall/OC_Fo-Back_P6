@@ -29,16 +29,22 @@ class HomepageResponder implements HomepageResponderInterface
     }
 
     /**
+     * @param array $tricks
+     * @param int $nbPagesTot
      * @return Response
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function response(): Response
+    public function response(array $tricks, int $nbPagesTot = 1): Response
     {
         return new Response(
             $this->templating->render(
-                'homepage.html.twig'
+                'homepage.html.twig',
+                [
+                    "tricks" => $tricks,
+                    "nbPagesTot" => $nbPagesTot
+                ]
             )
         );
     }

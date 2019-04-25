@@ -39,9 +39,9 @@ class TricksAddResponder implements TricksAddResponderInterface
      * @param bool $isRedirect
      * @param FormInterface|null $form
      * @return Response
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function response(bool $isRedirect, FormInterface $form = null): Response
     {

@@ -8,7 +8,9 @@ declare(strict_types=1);
 
 namespace App\UI\Responders\Interfaces;
 
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 interface ResetPasswordResponderInterface
@@ -16,13 +18,17 @@ interface ResetPasswordResponderInterface
     /**
      * ResetPasswordResponderInterface constructor.
      * @param Environment $templating
+     * @param UrlGeneratorInterface $urlGenerator
      */
     public function __construct(
-        Environment $templating
+        Environment $templating,
+        UrlGeneratorInterface $urlGenerator
     );
 
     /**
+     * @param bool $isRedirect
+     * @param FormInterface|null $form
      * @return Response
      */
-    public function response(): Response;
+    public function response(bool $isRedirect, FormInterface $form = null): Response;
 }

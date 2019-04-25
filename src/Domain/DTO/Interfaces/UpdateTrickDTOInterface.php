@@ -8,21 +8,22 @@ declare(strict_types=1);
 
 namespace App\Domain\DTO\Interfaces;
 
+use App\Domain\Models\Interfaces\FigureGroupInterface;
 use Ramsey\Uuid\UuidInterface;
 
 interface UpdateTrickDTOInterface
 {
     /**
      * UpdateTrickDTOInterface constructor.
+     * @param null|UuidInterface $id
      * @param null|string $title
      * @param null|string $description
-     * @param null|string $figureGroup
-     * @param null|UuidInterface $id
+     * @param FigureGroupInterface $figureGroup
      */
     public function __construct(
+        ?UuidInterface $id,
         ?string $title,
         ?string $description,
-        ?string $figureGroup,
-        ?UuidInterface $id = null
+        ?FigureGroupInterface $figureGroup
     );
 }

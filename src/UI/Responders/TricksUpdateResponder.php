@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\UI\Responders;
 
+use App\Domain\Models\Trick;
 use App\UI\Responders\Interfaces\TricksDetailsResponderInterface;
 use App\UI\Responders\Interfaces\TricksUpdateResponderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -39,22 +40,29 @@ class TricksUpdateResponder implements TricksUpdateResponderInterface
     /**
      * @param bool $isRedirect
      * @param FormInterface|null $form
+     * @param Trick|null $trick
      * @return Response
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function response(bool $isRedirect, FormInterface $form = null): Response
+    public function response(bool $isRedirect, Trick $trick = null, FormInterface $form = null): Response
     {
         return $isRedirect ?
-            new RedirectResponse(
-                $this->urlGenerator->generate('homepage')
-            ):
+            !$trick ?
+                new RedirectResponse(
+                    $this->urlGenerator->generate('homepage')
+                ):
+                new RedirectResponse(
+                    $this->urlGenerator->generate('tricks_details', array('slug' => $trick->getSlug()))
+                )
+            :
             new Response(
                 $this->templating->render(
                     'tricks_update.html.twig',
                     [
-                        'form' => $form->createView()
+                        'form' => $form->createView(),
+                        'trick' => $trick
                     ]
                 )
             );

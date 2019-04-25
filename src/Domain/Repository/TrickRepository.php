@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository;
 
-use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
 
@@ -17,12 +16,51 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
-    public function getTrick($id)
+    public function getTricks()
     {
         return $this->createQueryBuilder('t')
-            ->where('t.id = :id')
 
-            ->setParameter('id', $id)
+        ->orderBy('t.createdThe', 'DESC')
+
+        ->getQuery()
+        ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTricksFrom(int $numPage = 1, int $nbToDisplay = 10)
+    {
+        $from = ($numPage - 1) * $nbToDisplay;
+
+        return $this->createQueryBuilder('t')
+            ->setFirstResult($from)
+            ->setMaxResults($nbToDisplay)
+            ->orderBy('t.createdThe', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function nbEntities()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('COUNT(t)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTrick($slug)
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.slug = :slug')
+
+            ->setParameter('slug', $slug)
 
             ->getQuery()
             ->getOneOrNullResult();
@@ -31,25 +69,18 @@ class TrickRepository extends EntityRepository implements TrickRepositoryInterfa
     /**
      * @inheritdoc
      */
-    public function verifyUniqueTitle($title, $id = null)
+    public function verifyUniqueTitle($slug, $id = null)
     {
-        if ($id) {
-            $sql = <<<SQL
-SELECT *
-FROM trick
-WHERE title = '$title' AND id <> '$id'
-SQL;
-        } else {
-            $sql = <<<SQL
-SELECT *
-FROM trick
-WHERE title = '$title'
-SQL;
+        $qb = $this->createQueryBuilder('t')
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        if (!is_null($id)) {
+            $qb->andWhere('t.id != :id')
+                ->setParameter('id', $id);
         }
 
-        $statement = $this->getEntityManager()->getConnection()->prepare($sql);
-        $statement->execute();
-
-        return $statement->fetch();
+        return $qb->getQuery()
+                  ->getOneOrNullResult();
     }
 }

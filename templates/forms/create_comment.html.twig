@@ -6,6 +6,7 @@
         </div>
         <div class="col-8 col-md-9 col-lg-8 offset-lg-1 form-group mb-0">
             <div class="my-md-form form-group">
+                {{ form_errors(form.comment) }}
                 {{ form_widget(form.comment, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>

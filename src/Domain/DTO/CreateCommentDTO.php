@@ -17,10 +17,6 @@ class CreateCommentDTO implements CreateCommentDTOInterface
      * @Assert\NotBlank(
      *     message="Du texte est obligatoire !"
      * )
-     * @Assert\Length(
-     *     min="2",
-     *     minMessage="Le commentaire doit contenir au moins 2 caractères !"
-     * )
      */
     public $comment;
 

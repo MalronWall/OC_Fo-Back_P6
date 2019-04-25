@@ -1,0 +1,14 @@
+{% for comment in comments %}
+    <div class="row mt-3">
+        <div class="col-2 col-lg-1 offset-lg-1 text-center">
+            <img src="{{ asset('images/no_picture.svg') }}" class="img-fluid">
+        </div>
+        <div class="col-10 col-lg-9 border border-dark">
+            <p>
+                {{ comment.comment }}
+                <br/><br/>
+                <small class="float-right"><i>Créé le {{ comment.createdThe | date("d/m/Y à h\\hi") }} par </i><strong>{{ comment.userCreate.username }}</strong></small>
+            </p>
+        </div>
+    </div>
+{% endfor %}

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
+use App\Application\Helpers\Interfaces\PaginatorHelperInterface;
 use App\Domain\Models\Trick;
 use App\UI\Actions\Interfaces\HomepageActionInterface;
 use App\UI\Responders\Interfaces\HomepageResponderInterface;
@@ -21,18 +22,23 @@ class HomepageAction implements HomepageActionInterface
     private $responder;
     /** @var EntityManagerInterface */
     private $entityManager;
+    /** @var PaginatorHelperInterface */
+    private $paginatorHelper;
 
     /**
      * HomepageAction constructor.
      * @param HomepageResponderInterface $responder
      * @param EntityManagerInterface $entityManager
+     * @param PaginatorHelperInterface $paginatorHelper
      */
     public function __construct(
         HomepageResponderInterface $responder,
-        EntityManagerInterface $entityManager
+        EntityManagerInterface $entityManager,
+        PaginatorHelperInterface $paginatorHelper
     ) {
         $this->responder = $responder;
         $this->entityManager = $entityManager;
+        $this->paginatorHelper = $paginatorHelper;
     }
 
     /**
@@ -40,10 +46,13 @@ class HomepageAction implements HomepageActionInterface
      */
     public function action(): Response
     {
-        $tricks = $this->entityManager
-            ->getRepository(Trick::class)
-            ->getTricks();
+        $trickRepository = $this->entityManager
+            ->getRepository(Trick::class);
 
-        return $this->responder->response($tricks);
+        $nbPagesTot = $this->paginatorHelper->nbPagesTot($trickRepository);
+
+        $tricks = $trickRepository->getTricksFrom();
+
+        return $this->responder->response($tricks, $nbPagesTot);
     }
 }

@@ -46,12 +46,17 @@ class TricksUpdateResponder implements TricksUpdateResponderInterface
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function response(bool $isRedirect, FormInterface $form = null, Trick $trick = null): Response
+    public function response(bool $isRedirect, Trick $trick = null, FormInterface $form = null): Response
     {
         return $isRedirect ?
-            new RedirectResponse(
-                $this->urlGenerator->generate('homepage')
-            ):
+            !$trick ?
+                new RedirectResponse(
+                    $this->urlGenerator->generate('homepage')
+                ):
+                new RedirectResponse(
+                    $this->urlGenerator->generate('tricks_details', array('slug' => $trick->getSlug()))
+                )
+            :
             new Response(
                 $this->templating->render(
                     'tricks_update.html.twig',

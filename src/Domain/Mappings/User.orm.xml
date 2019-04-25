@@ -13,6 +13,8 @@
         <field name="slug" type="string" unique="true" />
         <field name="email" type="string" unique="true" />
         <field name="password" type="string" />
+        <field name="tokenForgotPwd" type="string" nullable="true" />
+        <field name="tokenDateForgotPwd" type="datetime" nullable="true" />
         <field name="roles" type="array" />
         <!-- field = champ de User qui est la clé étrangère -->
         <!-- target-entity = classe Media là où la clé étrangère va pointer -->

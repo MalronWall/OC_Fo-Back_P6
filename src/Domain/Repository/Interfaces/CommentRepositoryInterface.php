@@ -15,4 +15,19 @@ interface CommentRepositoryInterface
      * @return mixed
      */
     public function getComments($trick);
+
+    /**
+     * @param $trick
+     * @param int $numPage
+     * @param int $nbToDisplay
+     * @return mixed
+     */
+    public function getCommentsFrom($trick, int $numPage = 1, int $nbToDisplay = 10);
+
+    /**
+     * @param null $slug
+     * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function nbEntities($slug);
 }

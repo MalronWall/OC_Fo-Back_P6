@@ -23,7 +23,8 @@ interface HomepageResponderInterface
 
     /**
      * @param array $tricks
+     * @param int $nbPageTot
      * @return Response
      */
-    public function response(array $tricks): Response;
+    public function response(array $tricks, int $nbPageTot = 1): Response;
 }

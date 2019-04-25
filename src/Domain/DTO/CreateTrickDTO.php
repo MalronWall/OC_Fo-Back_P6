@@ -27,8 +27,8 @@ class CreateTrickDTO implements CreateTrickDTOInterface
      * @Assert\Length(
      *     min="3",
      *     minMessage="Le titre doit contenir au moins 3 caractères !",
-     *     max="255",
-     *     maxMessage="Le titre ne peut pas contenir plus de 255 caractères !"
+     *     max="25",
+     *     maxMessage="Le titre ne peut pas contenir plus de 25 caractères !"
      * )
      */
     public $title;

@@ -146,7 +146,53 @@ $(document).ready(function () {
 });
 
 // ************************************************** PROJET 6 ************************************************** //
-// uncheck checkbox checked
+// LOAD MORE TRICKS HOMEPAGE
+let btnLoadMoreTricks = $("#loadMoreTricks");
+let numPageTricks = 2;
+btnLoadMoreTricks.click(function(e) {
+    e.preventDefault();
+
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            $("#tricks").append(this.responseText);
+        }
+    };
+
+    xmlHttp.open("GET", "/ajax-load-tricks/" + numPageTricks);
+    xmlHttp.send();
+
+    numPageTricks += 1;
+
+    if (numPageTricks > btnLoadMoreTricks.data("nbpagestot")) {
+        btnLoadMoreTricks.prop("disabled", true);
+    }
+});
+
+// LOAD MORE COMMENTS TRICKS DETAILS
+let btnLoadMoreComments = $("#loadMoreComments");
+let numPageComments = 2;
+btnLoadMoreComments.click(function(e) {
+    e.preventDefault();
+
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            $("#comments").append(this.responseText);
+        }
+    };
+
+    xmlHttp.open("GET", "/ajax-load-comments/" + btnLoadMoreComments.data("slug") + "/" + numPageComments);
+    xmlHttp.send();
+
+    numPageComments += 1;
+
+    if (numPageComments > btnLoadMoreComments.data("nbpagestot")) {
+        btnLoadMoreComments.prop("disabled", true);
+    }
+});
+
+// UNCHECK CHECKBOX CHECKED
 $(".images").click(function(e) {
     if ($(e.target).is(":checkbox")) {
         let idTarget = $(e.target).attr('id');
@@ -160,7 +206,7 @@ $(".images").click(function(e) {
     }
 });
 
-// manage collectionType & prototype
+// MANAGE COLLECTIONTYPES & PROTOTYPES
 /****************************************************************************************************/
 /************************************* COLLECTION OF LINKS ******************************************/
 /****************************************************************************************************/

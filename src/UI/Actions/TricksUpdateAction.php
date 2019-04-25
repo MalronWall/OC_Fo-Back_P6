@@ -73,7 +73,6 @@ class TricksUpdateAction implements TricksUpdateActionInterface
      * @param Request $request
      * @param $slug
      * @return mixed
-     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function action(Request $request, $slug):Response
     {
@@ -89,13 +88,11 @@ class TricksUpdateAction implements TricksUpdateActionInterface
                 ->handleRequest($request);
 
             if (!($this->formHandler->handle($form, $trick))) {
-                return $this->responder->response(false, $form, $trick);
+                return $this->responder->response(false, $trick, $form);
             }
+            return $this->responder->response(true, $trick);
         } else {
-            $this->session->getFlashBag()->add(
-                "danger",
-                "Veuillez vous connecter avec d'effectuer cette action !"
-            );
+            $this->session->getFlashBag()->add("danger", "Veuillez vous connecter avec d'effectuer cette action !");
         }
         return $this->responder->response(true);
     }

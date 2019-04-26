@@ -48,9 +48,17 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
     public $description;
     /** @var FigureGroupInterface */
     public $figureGroup;
-    /** @var ArrayCollection */
+    /**
+     * @var array|null
+     *
+     * @Assert\Valid()
+     */
     public $links;
-    /** @var ArrayCollection */
+    /**
+     * @var array|null
+     *
+     * @Assert\Valid()
+     */
     public $images;
 
     /**

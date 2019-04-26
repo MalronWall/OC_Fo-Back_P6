@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\Models\Trick;
+use App\Domain\Models\TypeMedia;
 use App\UI\Actions\Interfaces\TricksDeleteActionInterface;
 use App\UI\Responders\Interfaces\TricksDeleteResponderInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -62,28 +63,27 @@ class TricksDeleteAction implements TricksDeleteActionInterface
                 ->getTrick($slug);
 
             if ($trick) {
+                $typeMediaImage = $this->entityManager
+                    ->getRepository(TypeMedia::class)
+                    ->getType("image");
+                $path = "images/downloaded/tricks/";
                 foreach ($trick->getImages() as $image) {
-                    /** var $image Image */
-                    unlink("images/downloaded/tricks/" . $image->getLink());
+                    if ($image->getTypeMedia() == $typeMediaImage) {
+                        /** var $image Image */
+                        if (file_exists($path . $image->getLink())) {
+                            unlink($path . $image->getLink());
+                        }
+                    }
                 }
                 $this->entityManager->remove($trick);
                 $this->entityManager->flush();
 
-                $this->session->getFlashBag()->add(
-                    "success",
-                    "Trick supprimé !"
-                );
+                $this->session->getFlashBag()->add("success", "Trick supprimé !");
             } else {
-                $this->session->getFlashBag()->add(
-                    "danger",
-                    "Suppression impossible : ce trick n'existe pas !"
-                );
+                $this->session->getFlashBag()->add("danger", "Suppression impossible : ce trick n'existe pas !");
             }
         } else {
-            $this->session->getFlashBag()->add(
-                "danger",
-                "Veuillez vous connecter avec d'effectuer cette action !"
-            );
+            $this->session->getFlashBag()->add("danger", "Veuillez vous connecter avec d'effectuer cette action !");
         }
         return $this->responder->response();
     }

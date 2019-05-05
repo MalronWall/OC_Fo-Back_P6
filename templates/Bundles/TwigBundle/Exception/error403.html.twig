@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Page forbidden</h1>
+
+    <p>
+        The requested page couldn't be opened : you do not have rights. But you can <a href="{{ path('homepage') }}">return to the homepage</a>.
+    </p>
+{% endblock %}

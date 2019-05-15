@@ -15,6 +15,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
@@ -28,6 +29,7 @@ interface TricksDetailsActionInterface
      * @param FormFactoryInterface $formFactory
      * @param CreateCommentHandlerInterface $formHandler
      * @param PaginatorHelperInterface $paginatorHelper
+     * @param SessionInterface $session
      */
     public function __construct(
         TricksDetailsResponderInterface $responder,
@@ -35,7 +37,8 @@ interface TricksDetailsActionInterface
         Security $security,
         FormFactoryInterface $formFactory,
         CreateCommentHandlerInterface $formHandler,
-        PaginatorHelperInterface $paginatorHelper
+        PaginatorHelperInterface $paginatorHelper,
+        SessionInterface $session
     );
 
     /**

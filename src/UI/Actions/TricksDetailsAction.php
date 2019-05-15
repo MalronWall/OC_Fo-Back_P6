@@ -21,6 +21,7 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
 
@@ -38,6 +39,8 @@ class TricksDetailsAction implements TricksDetailsActionInterface
     private $formHandler;
     /** @var PaginatorHelperInterface */
     private $paginatorHelper;
+    /** @var SessionInterface */
+    private $session;
 
     /**
      * TricksDetailsAction constructor.
@@ -47,6 +50,7 @@ class TricksDetailsAction implements TricksDetailsActionInterface
      * @param FormFactoryInterface $formFactory
      * @param CreateCommentHandlerInterface $formHandler
      * @param PaginatorHelperInterface $paginatorHelper
+     * @param SessionInterface $session
      */
     public function __construct(
         TricksDetailsResponderInterface $responder,
@@ -54,7 +58,8 @@ class TricksDetailsAction implements TricksDetailsActionInterface
         Security $security,
         FormFactoryInterface $formFactory,
         CreateCommentHandlerInterface $formHandler,
-        PaginatorHelperInterface $paginatorHelper
+        PaginatorHelperInterface $paginatorHelper,
+        SessionInterface $session
     ) {
         $this->responder = $responder;
         $this->entityManager = $entityManager;
@@ -62,6 +67,7 @@ class TricksDetailsAction implements TricksDetailsActionInterface
         $this->formFactory = $formFactory;
         $this->formHandler = $formHandler;
         $this->paginatorHelper = $paginatorHelper;
+        $this->session = $session;
     }
 
     /**
@@ -69,6 +75,7 @@ class TricksDetailsAction implements TricksDetailsActionInterface
      * @param Request $request
      * @param $slug
      * @return mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function action(Request $request, $slug):Response
     {
@@ -77,24 +84,31 @@ class TricksDetailsAction implements TricksDetailsActionInterface
             ->getRepository(Trick::class)
             ->getTrick($slug);
 
-        $commentRepository = $this->entityManager
-            ->getRepository(Comment::class);
+        if (!is_null($trick)) {
+            $commentRepository = $this->entityManager
+                ->getRepository(Comment::class);
 
-        $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository, $trick->getSlug());
+            $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository, $trick->getSlug());
 
-        // Comments + the created one
-        $comments = $commentRepository->getCommentsFrom($trick->getSlug());
-        if ($this->security->isGranted('ROLE_USER')) {
-            $form = $this->formFactory
-                ->create(CreateCommentType::class)
-                ->handleRequest($request);
+            // Comments + the created one
+            $comments = $commentRepository->getCommentsFrom($trick->getSlug());
+            if ($this->security->isGranted('ROLE_USER')) {
+                $form = $this->formFactory
+                    ->create(CreateCommentType::class)
+                    ->handleRequest($request);
 
-            if ($this->formHandler->handle($form, $trick)) {
-                return $this->responder->response(true, $trick);
+                if ($this->formHandler->handle($form, $trick)) {
+                    return $this->responder->response(true, $trick);
+                }
+                return $this->responder->response(false, $trick, $comments, $form, $nbPagesTot);
             }
-            return $this->responder->response(false, $trick, $comments, $form, $nbPagesTot);
+            return $this->responder->response(false, $trick, $comments, null, $nbPagesTot);
         }
+        $this->session->getFlashBag()->add(
+            "danger",
+            "Aucun trick ne possède cette url : \"".$slug."\" !"
+        );
 
-        return $this->responder->response(false, $trick, $comments, null, $nbPagesTot);
+        return $this->responder->response(true);
     }
 }

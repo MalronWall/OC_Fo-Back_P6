@@ -38,7 +38,7 @@ class TricksDetailsResponder implements TricksDetailsResponderInterface
 
     /**
      * @param $isRedirect
-     * @param Trick $trick
+     * @param Trick|null $trick
      * @param $comments
      * @param FormInterface|null $form
      * @param $nbPagesTot
@@ -49,17 +49,22 @@ class TricksDetailsResponder implements TricksDetailsResponderInterface
      */
     public function response(
         $isRedirect,
-        Trick $trick,
+        Trick $trick = null,
         $comments = null,
         FormInterface $form = null,
         $nbPagesTot = null
     ): Response {
         $response = $isRedirect ?
-            new RedirectResponse(
-                $this->urlGenerator->generate("tricks_details", [
-                    "slug" => $trick->getSlug()
-                ])
-            )
+            !is_null($trick) ?
+                new RedirectResponse(
+                    $this->urlGenerator->generate("tricks_details", [
+                        "slug" => $trick->getSlug()
+                    ])
+                )
+            :
+                new RedirectResponse(
+                    $this->urlGenerator->generate("homepage")
+                )
         :
                 new Response(
                     $this->templating->render(

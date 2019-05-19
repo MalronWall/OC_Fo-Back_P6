@@ -28,12 +28,16 @@ class MediasTricksDeleteResponder implements MediasTricksDeleteResponderInterfac
     }
 
     /**
-     * @param $slug
+     * @param null $slug
      * @return Response
      */
-    public function response($slug): Response
+    public function response($slug = null): Response
     {
-        return
+        return is_null($slug) ?
+            new RedirectResponse(
+                $this->urlGenerator->generate('homepage')
+            )
+            :
             new RedirectResponse(
                 $this->urlGenerator->generate(
                     'tricks_update',

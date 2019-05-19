@@ -71,6 +71,8 @@ class MediasTricksDeleteAction implements MediasTricksDeleteActionInterface
                     "success",
                     "Média supprimé !"
                 );
+
+                return $this->responder->response($media->getTrick()->getSlug());
             } else {
                 $this->session->getFlashBag()->add(
                     "danger",
@@ -83,6 +85,6 @@ class MediasTricksDeleteAction implements MediasTricksDeleteActionInterface
                 "Veuillez vous connecter avec d'effectuer cette action !"
             );
         }
-        return $this->responder->response($media->getTrick()->getSlug());
+        return $this->responder->response();
     }
 }

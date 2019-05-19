@@ -19,8 +19,8 @@ interface MediasTricksDeleteResponderInterface
     public function __construct(UrlGeneratorInterface $urlGenerator);
 
     /**
-     * @param $slug
+     * @param null $slug
      * @return Response
      */
-    public function response($slug): Response;
+    public function response($slug = null): Response;
 }

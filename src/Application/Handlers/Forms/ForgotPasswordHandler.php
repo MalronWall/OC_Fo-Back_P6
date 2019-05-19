@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace App\Application\Handlers\Forms;
 
 use App\Application\Handlers\Forms\Interfaces\ForgotPasswordHandlerInterface;
+use App\Application\Helpers\Interfaces\MailerHelperInterface;
+use App\Application\Helpers\MailerHelper;
 use App\Domain\DTO\ForgotPasswordDTO;
 use App\Domain\Models\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,21 +26,26 @@ class ForgotPasswordHandler implements ForgotPasswordHandlerInterface
     private $session;
     /** @var TokenGeneratorInterface */
     private $tokenGenerator;
+    /** @var MailerHelperInterface */
+    private $mailerHelper;
 
     /**
      * UpdateTrickHandler constructor.
      * @param EntityManagerInterface $entityManager
      * @param SessionInterface $session
      * @param TokenGeneratorInterface $tokenGenerator
+     * @param MailerHelperInterface $mailerHelper
      */
     public function __construct(
         EntityManagerInterface $entityManager,
         SessionInterface $session,
-        TokenGeneratorInterface $tokenGenerator
+        TokenGeneratorInterface $tokenGenerator,
+        MailerHelperInterface $mailerHelper
     ) {
         $this->entityManager = $entityManager;
         $this->session = $session;
         $this->tokenGenerator = $tokenGenerator;
+        $this->mailerHelper = $mailerHelper;
     }
 
     /**
@@ -64,6 +71,12 @@ class ForgotPasswordHandler implements ForgotPasswordHandlerInterface
                 $this->entityManager->flush();
 
                 //TODO MAIL TO SEND
+                $this->mailerHelper->sendEmail(
+                    "Forgot password",
+                    "thibaut.tourte17@gmail.com",
+                    $user->getEmail(),
+                    $user
+                );
             }
 
             $this->session->getFlashBag()->add(

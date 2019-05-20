@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="container">
+        <div class="row">
+            <div class="col-md-12 px-0 mx-auto">
+                <div class="text-image">
+                    <h1>500 Internal server error</h1>
+                </div>
+                <img src="{{ asset('images/exceptions/error.jpg') }}" class="img-fluid" alt="Responsive image">
+                <div class="jumbotron text-center">
+                    The server has encountered an internal error, or a configuration is missing,
+                    and is therefore unable to access this request !<br/>
+                    If you see this message, report it to us by sending an email on the website
+                    <a href="http://thibaut-tourte.com">http://thibaut-tourte.com</a>.<br/>
+                    Thank you in advance !<br/><br/>
+                    You can try to <a href="{{ path('homepage') }}">return to the homepage</a>.
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

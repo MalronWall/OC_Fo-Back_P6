@@ -76,7 +76,7 @@ class Trick implements TrickInterface
     public function addLink(Media $link):void
     {
         $this->links->add($link);
-        $link->defineTrick($this);
+        $link->defineTrickLink($this);
     }
     /**
      * @param Media $image
@@ -84,7 +84,7 @@ class Trick implements TrickInterface
     public function addImage(Media $image):void
     {
         $this->images->add($image);
-        $image->defineTrick($this);
+        $image->defineTrickImage($this);
     }
 
     /**

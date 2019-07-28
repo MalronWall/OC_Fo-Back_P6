@@ -26,7 +26,9 @@ class Media implements MediaInterface
     /** @var TypeMediaInterface */
     private $typeMedia;
     /** @var TrickInterface */
-    private $trick;
+    private $trickImage;
+    /** @var TrickInterface */
+    private $trickLink;
     /** @var bool */
     private $first;
 
@@ -49,9 +51,17 @@ class Media implements MediaInterface
     /**
      * @param Trick $trick
      */
-    public function defineTrick(Trick $trick): void
+    public function defineTrickImage(Trick $trick): void
     {
-        $this->trick = $trick;
+        $this->trickImage = $trick;
+    }
+
+    /**
+     * @param Trick $trick
+     */
+    public function defineTrickLink(Trick $trick): void
+    {
+        $this->trickLink = $trick;
     }
 
     /**
@@ -152,6 +162,22 @@ class Media implements MediaInterface
     public function getTrick(): TrickInterface
     {
         return $this->trick;
+    }
+
+    /**
+     * @return TrickInterface
+     */
+    public function getTrickImage(): TrickInterface
+    {
+        return $this->trickImage;
+    }
+
+    /**
+     * @return TrickInterface
+     */
+    public function getTrickLink(): TrickInterface
+    {
+        return $this->trickLink;
     }
 
     /**

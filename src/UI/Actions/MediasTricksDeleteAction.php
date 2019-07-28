@@ -85,6 +85,11 @@ class MediasTricksDeleteAction implements MediasTricksDeleteActionInterface
                 "Veuillez vous connecter avec d'effectuer cette action !"
             );
         }
+<<<<<<< HEAD
         return $this->responder->response();
+=======
+        $trickMedia = $media->getTypeMedia() == "image" ? $media->getTrickImage() : $media->getTrickLink();
+        return $this->responder->response($trickMedia->getSlug());
+>>>>>>> [UPD] mapping errors fix with trickImage, trickLink and comments / new config mail to test on the server
     }
 }

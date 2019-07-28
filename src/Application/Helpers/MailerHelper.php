@@ -44,7 +44,10 @@ class MailerHelper implements MailerHelperInterface
      */
     public function sendEmail($subject, $from, $to, $user)
     {
-        $message = (new \Swift_Message($subject))
+        /** @var \Swift_Message $message */
+        $message = $this->mailer->createMessage();
+        $message
+            ->setSubject($subject)
             ->setFrom($from)
             ->setTo($to)
             ->setBody(

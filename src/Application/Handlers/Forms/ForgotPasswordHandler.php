@@ -70,10 +70,10 @@ class ForgotPasswordHandler implements ForgotPasswordHandlerInterface
 
                 $this->entityManager->flush();
 
-                //TODO MAIL TO SEND
+                //TODO MAIL DOES NOT WORK
                 $this->mailerHelper->sendEmail(
                     "Forgot password",
-                    "thibaut.tourte17@gmail.com",
+                    "tests.prod.tourtet@gmail.com",
                     $user->getEmail(),
                     $user
                 );

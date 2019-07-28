@@ -28,7 +28,12 @@ interface MediaInterface
     /**
      * @param Trick $trick
      */
-    public function defineTrick(Trick $trick): void;
+    public function defineTrickImage(Trick $trick): void;
+
+    /**
+     * @param Trick $trick
+     */
+    public function defineTrickLink(Trick $trick): void;
 
     /**
      * @param string $link
@@ -36,6 +41,9 @@ interface MediaInterface
      */
     public function toEmbedLink(string $link): string;
 
+    /**
+     * @return mixed
+     */
     public function unsetFirst();
 
     /**

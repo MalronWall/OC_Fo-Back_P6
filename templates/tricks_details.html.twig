@@ -26,7 +26,7 @@
                             {% for image in trick.images %}
                             {% if image.typeMedia.type == "image" and image.first %}
                                 {# IF ONE IMAGE AND IT IS THE FIRST #}
-                                <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
+                                <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}" target="_blank">
                                     <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid" alt="{{ image.alt }}">
                                 </a>
                                 {% set imageFound = true %}
@@ -44,7 +44,7 @@
                         {% if image.typeMedia.type == "image" and not image.first %}
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mt-3 view overlay zoom">
                             <div class="my-vertical-align">
-                                <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
+                                <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}" target="_blank">
                                 <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded my-img-horizontal-150" alt="{{ image.alt }}">
                                 <div class="mask flex-center waves-effect waves-light">
                                     <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>

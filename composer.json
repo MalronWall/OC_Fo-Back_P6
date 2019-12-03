@@ -9,7 +9,11 @@
         "ramsey/uuid-doctrine": "^1.5",
         "symfony/asset": "^4.1",
         "symfony/console": "^4.1",
+<<<<<<< HEAD
         "symfony/dotenv": "^4.1",
+=======
+        "symfony/dotenv": "4.4.*",
+>>>>>>> [UPD] To prod
         "symfony/flex": "^1.0",
         "symfony/form": "^4.1",
         "symfony/framework-bundle": "^4.1",
@@ -25,9 +29,12 @@
         "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "^4.1"
     },
+<<<<<<< HEAD
     "require-dev": {
         "symfony/web-server-bundle": "^4.1"
     },
+=======
+>>>>>>> [UPD] To prod
     "config": {
         "preferred-install": {
             "*": "dist"

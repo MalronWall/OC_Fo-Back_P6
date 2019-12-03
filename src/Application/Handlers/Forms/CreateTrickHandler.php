@@ -65,7 +65,7 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
                 ->getRepository(TypeMedia::class)
                 ->getType("video");
             foreach ($dto->links as $link) {
-                $trick->addLink(new Media($link->link, $link->alt, $typeMediaVideo));
+                $trick->addMedia(new Media($link->link, $link->alt, $typeMediaVideo));
             }
 
             // IMAGE
@@ -92,10 +92,10 @@ class CreateTrickHandler implements CreateTrickHandlerInterface
 
                 // CHECK ONLY ONE FIRST ELSE FALSE
                 if ($image->first && $first) {
-                    $trick->addImage(new Media($fileName, $image->alt, $typeMediaImage, true));
+                    $trick->addMedia(new Media($fileName, $image->alt, $typeMediaImage, true));
                     $first = false;
                 } else {
-                    $trick->addImage(new Media($fileName, $image->alt, $typeMediaImage));
+                    $trick->addMedia(new Media($fileName, $image->alt, $typeMediaImage));
                 }
             }
 

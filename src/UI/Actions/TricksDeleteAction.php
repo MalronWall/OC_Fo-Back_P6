@@ -67,7 +67,7 @@ class TricksDeleteAction implements TricksDeleteActionInterface
                     ->getRepository(TypeMedia::class)
                     ->getType("image");
                 $path = "images/downloaded/tricks/";
-                foreach ($trick->getImages() as $image) {
+                foreach ($trick->getMedias() as $image) {
                     if ($image->getTypeMedia() == $typeMediaImage) {
                         /** var $image Image */
                         if (file_exists($path . $image->getLink())) {

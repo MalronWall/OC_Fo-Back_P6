@@ -26,14 +26,9 @@ interface MediaInterface
     public function __construct(string $link, string $alt, TypeMedia $typeMedia, bool $first = false);
 
     /**
-     * @param Trick $trick
+     * @param TrickInterface $trick
      */
-    public function defineTrickImage(Trick $trick): void;
-
-    /**
-     * @param Trick $trick
-     */
-    public function defineTrickLink(Trick $trick): void;
+    public function defineTrick(TrickInterface $trick): void;
 
     /**
      * @param string $link

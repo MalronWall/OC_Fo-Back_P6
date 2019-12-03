@@ -18,19 +18,9 @@ use Ramsey\Uuid\UuidInterface;
 interface TrickInterface
 {
     /**
-     * @param Media $link
+     * @param Media $media
      */
-    public function addLink(Media $link): void;
-
-    /**
-     * @param Media $image
-     */
-    public function addImage(Media $image): void;
-
-    /**
-     * @param Comment $comment
-     */
-    public function addComment(Comment $comment): void;
+    public function addMedia(Media $media): void;
 
     /**
      * @param User $user
@@ -66,12 +56,7 @@ interface TrickInterface
     /**
      * @return Media[]|Collection
      */
-    public function getLinks();
-
-    /**
-     * @return Media[]|Collection
-     */
-    public function getImages();
+    public function getMedias();
 
     /**
      * @return \DateTime

@@ -26,7 +26,7 @@ class PaginatorHelper implements PaginatorHelperInterface
         // NB of pages in total to display
         $nbPagesTot = (int)ceil($nbEntities / $nbToDisplay);
 
-        if ($nbPagesTot !== 0 && ($numPage < 1 || $numPage > $nbPagesTot)) {
+        if ($nbPagesTot === 0 || $numPage < 1 || $numPage > $nbPagesTot) {
             return null;
         }
         return $nbPagesTot;

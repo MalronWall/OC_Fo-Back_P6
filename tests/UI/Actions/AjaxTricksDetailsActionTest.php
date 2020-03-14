@@ -22,8 +22,6 @@ class AjaxTricksDetailsActionTest extends TestCase
 {
     /** @var AjaxTricksDetailsAction */
     private $action;
-    /** @var CommentRepository|MockObject */
-    private $repository;
     /** @var PaginatorHelper|MockObject */
     private $paginatorHelper;
 
@@ -36,12 +34,12 @@ class AjaxTricksDetailsActionTest extends TestCase
         $responder = new AjaxTricksDetailsResponder($templating);
 
         /** @var CommentRepository|MockObject $repository */
-        $this->repository = $this->createMock(CommentRepository::class);
-        $this->repository->method("getCommentsFrom")->willReturn(["Some Comments"]);
+        $repository = $this->createMock(CommentRepository::class);
+        $repository->method("getCommentsFrom")->willReturn(["Some Comments"]);
 
         /** @var EntityManager|MockObject $entityManager */
         $entityManager = $this->createMock(EntityManager::class);
-        $entityManager->method("getRepository")->willReturn($this->repository);
+        $entityManager->method("getRepository")->willReturn($repository);
 
         $this->paginatorHelper = $this->createMock(PaginatorHelper::class);
 

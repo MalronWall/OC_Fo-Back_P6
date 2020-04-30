@@ -39,7 +39,7 @@ Projet_6
 
 1. Assets install
 
-    Run the command `php app/console assets:install --symlink --relative` to copy assets in your web/ folder.
+    Run the command `yarn install` and `yarn encore production` for assets.
 
 1. Database creation
 

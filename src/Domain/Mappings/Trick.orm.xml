@@ -23,13 +23,7 @@
         <many-to-one field="userUpdate" target-entity="User">
             <join-column name="userUpdate_id" referenced-column-name="id" />
         </many-to-one>
-        <one-to-many field="links" target-entity="Media" mapped-by="trickLink">
-            <cascade>
-                <cascade-persist/>
-                <cascade-remove/>
-            </cascade>
-        </one-to-many>
-        <one-to-many field="images" target-entity="Media" mapped-by="trickImage">
+        <one-to-many field="medias" target-entity="Media" mapped-by="trick">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>

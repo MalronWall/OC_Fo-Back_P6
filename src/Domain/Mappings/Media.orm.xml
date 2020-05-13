@@ -22,10 +22,7 @@
         <many-to-one field="typeMedia" target-entity="TypeMedia">
             <join-column name="typeMedia_id" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="trickImage" target-entity="Trick" inversed-by="images">
-            <join-column name="trick_id" referenced-column-name="id" on-delete="CASCADE" />
-        </many-to-one>
-        <many-to-one field="trickLink" target-entity="Trick" inversed-by="links">
+        <many-to-one field="trick" target-entity="Trick" inversed-by="medias">
             <join-column name="trick_id" referenced-column-name="id" on-delete="CASCADE" />
         </many-to-one>
 

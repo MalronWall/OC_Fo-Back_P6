@@ -17,15 +17,15 @@
                             </div>
                             {% set imageFound = false %}
                             {# FOR IMAGES IF FIRST #}
-                            {% for image in trick.images %}
-                                {% if image.typeMedia.type == "image" and image.first %}
+                            {% for media in trick.medias %}
+                                {% if media.typeMedia.type == "image" and media.first %}
                                     <div class="btn-group bg-white float-bottom-right rounded">
-                                        <a href="{{ path('medias_update', {"id": image.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
-                                        <a href="{{ path('medias_delete', {"id": image.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                                        <a href="{{ path('medias_update', {"id": media.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                        <a href="{{ path('medias_delete', {"id": media.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                                     </div>
                                     {# IF ONE IMAGE AND IT IS THE FIRST #}
-                                    <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
-                                        <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid" alt="{{ image.alt }}">
+                                    <a href="{{ asset('images/downloaded/tricks/' ~ media.link) }}" target="_blank">
+                                        <img src="{{ asset('images/downloaded/tricks/' ~ media.link) }}" class="img-fluid" alt="{{ media.alt }}">
                                     </a>
                                     {% set imageFound = true %}
                                 {% endif %}
@@ -38,39 +38,39 @@
                     </div>
 
                     <div class="row" id="mediasTrick">
-                        {% for image in trick.images %}
-                            {% if image.typeMedia.type == "image" and not image.first %}
+                        {% for media in trick.medias %}
+                            {% if media.typeMedia.type == "image" and not media.first %}
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mt-3 view overlay zoom">
                                     <div class="my-vertical-align">
-                                        <a href="{{ asset('images/downloaded/tricks/' ~ image.link) }}">
-                                            <img src="{{ asset('images/downloaded/tricks/' ~ image.link) }}" class="img-fluid rounded my-img-horizontal-150" alt="{{ image.alt }}">
+                                        <a href="{{ asset('images/downloaded/tricks/' ~ media.link) }}" target="_blank">
+                                            <img src="{{ asset('images/downloaded/tricks/' ~ media.link) }}" class="img-fluid rounded my-img-horizontal-150" alt="{{ media.alt }}">
                                             <div class="mask flex-center waves-effect waves-light">
                                                 <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="btn-group bg-white float-bottom-right rounded">
-                                        <a href="{{ path('medias_update', {"id": image.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
-                                        <a href="{{ path('medias_delete', {"id": image.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                                        <a href="{{ path('medias_update', {"id": media.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                        <a href="{{ path('medias_delete', {"id": media.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                                     </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        {% for link in trick.links %}
-                            {% if link.typeMedia.type == "video" %}
+                        {% for media in trick.medias %}
+                            {% if media.typeMedia.type == "video" %}
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
                                     <div class="embed-responsive embed-responsive-16by9 full-height">
-                                        <iframe class="embed-responsive-item" src="{{ link.link }}" alt="{{ link.alt }}" allowfullscreen></iframe>
+                                        <iframe class="embed-responsive-item" src="{{ media.link }}" alt="{{ media.alt }}" allowfullscreen></iframe>
                                     </div>
                                     <div class="btn-group bg-white float-bottom-right rounded">
-                                        <a href="{{ path('medias_update', {"id": link.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
-                                        <a href="{{ path('medias_delete', {"id": link.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
+                                        <a href="{{ path('medias_update', {"id": media.id}) }}" class="btn btn-outline-info px-2 py-1"><i class="fas fa-pencil-alt fa-lg"></i></a>&nbsp;
+                                        <a href="{{ path('medias_delete', {"id": media.id}) }}" class="btn btn-outline-danger px-2 py-1 js-confirm-modal" data-toggle="modal" data-target="#js-confirm-modal" data-backdrop="true"><i class="fas fa-trash-alt fa-lg"></i></a>
                                     </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
                     </div>
-                    {% if trick.links|length > 0 %}
+                    {% if trick.medias|length > 0 %}
                         <div class="row text-center d-md-none d-lg-none d-xl-none">
                             <div class="col-md-12">
                                 <a class="btn btn-success waves-effect waves-light my-2" id="seeMediasTrick"><i class="fa fa-gear" aria-hidden="true"></i> See medias</a>

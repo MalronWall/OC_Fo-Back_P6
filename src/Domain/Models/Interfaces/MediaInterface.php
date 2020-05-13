@@ -26,9 +26,9 @@ interface MediaInterface
     public function __construct(string $link, string $alt, TypeMedia $typeMedia, bool $first = false);
 
     /**
-     * @param Trick $trick
+     * @param TrickInterface $trick
      */
-    public function defineTrick(Trick $trick): void;
+    public function defineTrick(TrickInterface $trick): void;
 
     /**
      * @param string $link
@@ -36,6 +36,9 @@ interface MediaInterface
      */
     public function toEmbedLink(string $link): string;
 
+    /**
+     * @return mixed
+     */
     public function unsetFirst();
 
     /**

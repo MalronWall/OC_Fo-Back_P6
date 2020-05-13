@@ -14,7 +14,7 @@
         <many-to-one field="userCreate" target-entity="User">
             <join-column name="userCreate_id" referenced-column-name="id" />
         </many-to-one>
-        <many-to-one field="trick" target-entity="Trick" inversed-by="medias">
+        <many-to-one field="trick" target-entity="Trick" inversed-by="comments">
             <join-column name="trick_id" referenced-column-name="id" on-delete="CASCADE" />
         </many-to-one>
     </entity>

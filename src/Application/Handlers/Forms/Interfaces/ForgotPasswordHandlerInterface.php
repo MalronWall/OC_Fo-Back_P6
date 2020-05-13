@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace App\Application\Handlers\Forms\Interfaces;
 
+use App\Application\Helpers\Interfaces\MailerHelperInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -20,11 +21,13 @@ interface ForgotPasswordHandlerInterface
      * @param EntityManagerInterface $entityManager
      * @param SessionInterface $session
      * @param TokenGeneratorInterface $tokenGenerator
+     * @param MailerHelperInterface $mailerHelper
      */
     public function __construct(
         EntityManagerInterface $entityManager,
         SessionInterface $session,
-        TokenGeneratorInterface $tokenGenerator
+        TokenGeneratorInterface $tokenGenerator,
+        MailerHelperInterface $mailerHelper
     );
 
     /**

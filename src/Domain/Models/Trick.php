@@ -38,9 +38,7 @@ class Trick implements TrickInterface
     /** @var User */
     private $userUpdate;
     /** @var Collection|Media[] */
-    private $links;
-    /** @var Collection|Media[] */
-    private $images;
+    private $medias;
     /** @var Collection|Comment[] */
     private $comments;
 
@@ -65,35 +63,17 @@ class Trick implements TrickInterface
         $this->createdThe = new \DateTime();
         $this->updatedThe = new \DateTime();
         $this->figureGroup = $figureGroup;
-        $this->links = new ArrayCollection();
-        $this->images = new ArrayCollection();
+        $this->medias = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
     /**
-     * @param Media $link
+     * @param Media $media
      */
-    public function addLink(Media $link):void
+    public function addMedia(Media $media):void
     {
-        $this->links->add($link);
-        $link->defineTrick($this);
-    }
-    /**
-     * @param Media $image
-     */
-    public function addImage(Media $image):void
-    {
-        $this->images->add($image);
-        $image->defineTrick($this);
-    }
-
-    /**
-     * @param Comment $comment
-     */
-    public function addComment(Comment $comment):void
-    {
-        $this->images->add($comment);
-        $comment->defineTrick($this);
+        $this->medias->add($media);
+        $media->defineTrick($this);
     }
 
     /**
@@ -154,17 +134,9 @@ class Trick implements TrickInterface
     /**
      * @return Media[]|Collection
      */
-    public function getLinks()
+    public function getMedias()
     {
-        return $this->links;
-    }
-
-    /**
-     * @return Media[]|Collection
-     */
-    public function getImages()
-    {
-        return $this->images;
+        return $this->medias;
     }
 
     /**

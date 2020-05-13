@@ -54,13 +54,13 @@
                 <hr class="my-4 rgba-white-light">
                 <div class="pt-2">
                     {% if app.user %}
-                        <button type="button" class="btn btn-outline-white" href="{{ path('tricks_add') }}">
+                        <a class="btn btn-outline-white" href="{{ path('tricks_add') }}">
                             <i class="fas fa-plus-circle" aria-hidden="true"></i> New trick
-                        </button>
+                        </a>
                     {% else %}
-                        <button type="button" class="btn btn-outline-white" href="{{ path('login') }}">
+                        <a class="btn btn-outline-white" href="{{ path('login') }}">
                             <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Sign in
-                        </button>
+                        </a>
                     {% endif %}
                 </div>
             </div>

@@ -35,9 +35,9 @@ class Media implements MediaInterface
      * @param string $link
      * @param string $alt
      * @param TypeMedia $typeMedia
-     * @param bool $first
+     * @param bool|null $first
      */
-    public function __construct(string $link, string $alt, TypeMedia $typeMedia, bool $first = false)
+    public function __construct(string $link, string $alt, TypeMedia $typeMedia, ?bool $first = false)
     {
         $embedLink = $this->toEmbedLink($link);
         $this->link = $embedLink;
@@ -47,9 +47,9 @@ class Media implements MediaInterface
     }
 
     /**
-     * @param Trick $trick
+     * @param TrickInterface $trick
      */
-    public function defineTrick(Trick $trick): void
+    public function defineTrick(TrickInterface $trick): void
     {
         $this->trick = $trick;
     }

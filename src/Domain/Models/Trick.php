@@ -68,7 +68,24 @@ class Trick implements TrickInterface
     }
 
     /**
-     * @param Media $media
+     * @param Media $link
+     */
+    public function addLink(Media $link):void
+    {
+        $this->links->add($link);
+        $link->defineTrickLink($this);
+    }
+    /**
+     * @param Media $image
+     */
+    public function addImage(Media $image):void
+    {
+        $this->images->add($image);
+        $image->defineTrickImage($this);
+    }
+
+    /**
+     * @param Comment $comment
      */
     public function addMedia(Media $media):void
     {

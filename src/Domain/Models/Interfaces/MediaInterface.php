@@ -28,7 +28,12 @@ interface MediaInterface
     /**
      * @param TrickInterface $trick
      */
-    public function defineTrick(TrickInterface $trick): void;
+    public function defineTrickImage(Trick $trick): void;
+
+    /**
+     * @param Trick $trick
+     */
+    public function defineTrickLink(Trick $trick): void;
 
     /**
      * @param string $link

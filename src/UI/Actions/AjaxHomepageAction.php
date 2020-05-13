@@ -50,9 +50,9 @@ class AjaxHomepageAction implements AjaxHomepageActionInterface
     public function action(int $numPage): Response
     {
         $trickRepository = $this->entityManager
-            ->getRepository(Trick::class);
+                                ->getRepository(Trick::class);
 
-        $nbPagesTot = $this->paginatorHelper->nbPagesTot($trickRepository, $numPage);
+        $nbPagesTot = $this->paginatorHelper->nbPagesTot($trickRepository, null, $numPage);
 
         if (is_null($nbPagesTot)) {
             return $this->responder->response();

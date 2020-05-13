@@ -42,7 +42,7 @@ class MediasTricksDeleteResponder implements MediasTricksDeleteResponderInterfac
                 $this->urlGenerator->generate(
                     'tricks_update',
                     [
-                        $slug
+                        "slug" => $slug
                     ]
                 )
             );

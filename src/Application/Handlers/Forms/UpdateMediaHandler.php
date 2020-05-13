@@ -71,6 +71,7 @@ class UpdateMediaHandler implements UpdateMediaHandlerInterface
                                 "images/downloaded/tricks/",
                                 $fileName
                             );
+                            unlink("images/downloaded/tricks/" . $media->getLink());
                         } catch (FileException $e) {
                             $this->session->getFlashBag()->add(
                                 "danger",
@@ -82,7 +83,7 @@ class UpdateMediaHandler implements UpdateMediaHandlerInterface
                     // IF NEW = FIRST => UNFIRST OTHERS
                     if ($dto->first) {
                         $this->entityManager->getRepository(Media::class)
-                            ->unsetFirstDb($media->getTrickImage());
+                            ->unsetFirstDb($media->getTrick());
                     }
 
                     $media->updateMediaWithImage($fileName, $dto->alt, $dto->first);

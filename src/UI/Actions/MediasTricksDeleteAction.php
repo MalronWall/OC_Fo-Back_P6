@@ -62,7 +62,9 @@ class MediasTricksDeleteAction implements MediasTricksDeleteActionInterface
                 ->getMedia($id);
 
             if ($media) {
-                unlink("images/downloaded/tricks/" . $media->getLink());
+                if ($media->getTypeMedia()->getType() === "image") {
+                    unlink("images/downloaded/tricks/" . $media->getLink());
+                }
 
                 $this->entityManager->remove($media);
                 $this->entityManager->flush();

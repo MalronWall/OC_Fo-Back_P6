@@ -12,6 +12,7 @@ use App\Domain\Models\Interfaces\MediaInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use App\Domain\Models\Interfaces\TypeMediaInterface;
 use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Media implements MediaInterface
 {
@@ -60,13 +61,24 @@ class Media implements MediaInterface
      */
     public function toEmbedLink(string $link): string
     {
-        if (preg_match('/www\.youtube\.com\//', $link)) {
-            $link = str_replace("watch?v=", "embed/", $link);
-            $link = preg_replace('/&list/', "?list", $link);
-            $link = preg_replace('/&index=./', "", $link);
-            $link = preg_replace('/&start_radio=./', "", $link);
+        // Get id video
+        parse_str(parse_url($link, PHP_URL_QUERY), $params);
+        $idVideo=$link;
+        if (array_key_exists('v', $params)) {
+            $idVideo = $params['v'];
         }
-        return $link;
+
+        // Check if the video exists
+        $checkURL = "http://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=$idVideo&format=json";
+        $headers = get_headers($checkURL);
+        $existsURL = (substr($headers[0], 9, 3) !== "404" && substr($headers[0], 9, 3) !== "401");
+
+        $url = "error";
+        if ($existsURL) {
+            $url = $idVideo;
+        }
+
+        return $url;
     }
 
     public function unsetFirst()

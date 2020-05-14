@@ -56,11 +56,24 @@
                         {% endfor %}
                         {% for media in trick.medias %}
                         {% if media.typeMedia.type == "video" %}
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
-                            <div class="embed-responsive embed-responsive-16by9 full-height">
-                                <iframe class="embed-responsive-item" src="{{ media.link }}" alt="{{ media.alt }}" allowfullscreen></iframe>
+                            {% if media.link != "error" %}
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mt-3 px-1">
+                                <div class="embed-responsive embed-responsive-16by9 full-height">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ media.link }}" alt="{{ media.alt }}" allowfullscreen></iframe>
+                                </div>
                             </div>
-                        </div>
+                            {% else %}
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 px-1 mt-3 view overlay zoom">
+                                    <div class="my-vertical-align">
+                                        <a href="{{ asset('images/error_video.png') }}" target="_blank">
+                                            <img src="{{ asset('images/error_video.png') }}" class="img-fluid rounded my-img-horizontal-150" alt="Error link video">
+                                            <div class="mask flex-center waves-effect waves-light">
+                                                <p class="black-text"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
                         {% endfor %}
                     </div>

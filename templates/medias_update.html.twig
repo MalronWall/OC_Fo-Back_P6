@@ -21,9 +21,15 @@
                                     <img src="{{ asset('images/downloaded/tricks/' ~ media.link) }}" class="img-fluid" alt="{{ media.alt }}">
                                 </a>
                             {% elseif media.typeMedia.type == "video" %}
-                                <div class="embed-responsive embed-responsive-16by9 full-height">
-                                    <iframe class="embed-responsive-item" src="{{ media.link }}" alt="{{ media.alt }}" allowfullscreen></iframe>
-                                </div>
+                                {% if media.link != "error" %}
+                                    <div class="embed-responsive embed-responsive-16by9 full-height">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ media.link }}" alt="{{ media.alt }}" allowfullscreen></iframe>
+                                    </div>
+                                {% else %}
+                                    <a href="{{ asset('images/error_video.png') }}">
+                                        <img src="{{ asset('images/error_video.png') }}" class="img-fluid" alt="{{ media.alt }}">
+                                    </a>
+                                {% endif %}
                             {% endif %}
                         </div>
                     </div>

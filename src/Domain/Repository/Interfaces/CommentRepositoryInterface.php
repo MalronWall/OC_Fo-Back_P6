@@ -28,6 +28,7 @@ interface CommentRepositoryInterface
      * @param null $slug
      * @return mixed
      * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws \Doctrine\ORM\NoResultException
      */
     public function nbEntities($slug);
 }

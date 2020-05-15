@@ -21,7 +21,7 @@ class PaginatorHelper implements PaginatorHelperInterface
      */
     public function nbPagesTot($repository, $join = null, $numPage = 1, $nbToDisplay = 10)
     {
-        // NB of entities of "repository" type in db
+        // NB of entities of "repository" type in db where [parameter to set in repository] = $join
         $nbEntities = $repository->nbEntities($join);
         // NB of pages in total to display
         $nbPagesTot = (int)ceil($nbEntities / $nbToDisplay);

@@ -55,7 +55,7 @@ class AjaxTricksDetailsAction
         $commentRepository = $this->entityManager
             ->getRepository(Comment::class);
 
-        $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository, null, $numPage);
+        $nbPagesTot = $this->paginatorHelper->nbPagesTot($commentRepository, $slug, $numPage);
 
         if (is_null($nbPagesTot)) {
             return $this->responder->response();

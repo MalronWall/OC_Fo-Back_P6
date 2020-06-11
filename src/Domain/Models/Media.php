@@ -40,8 +40,7 @@ class Media implements MediaInterface
      */
     public function __construct(string $link, string $alt, TypeMedia $typeMedia, ?bool $first = false)
     {
-        $embedLink = $this->toEmbedLink($link);
-        $this->link = $embedLink;
+        $this->link = $typeMedia === "video" ? $this->toEmbedLink($link) : $link;
         $this->alt = $alt;
         $this->typeMedia = $typeMedia;
         $this->first = $first;
@@ -73,12 +72,12 @@ class Media implements MediaInterface
         $headers = get_headers($checkURL);
         $existsURL = (substr($headers[0], 9, 3) !== "404" && substr($headers[0], 9, 3) !== "401");
 
-        $url = "error";
+        $link = "error";
         if ($existsURL) {
-            $url = $idVideo;
+            $link = $idVideo;
         }
 
-        return $url;
+        return $link;
     }
 
     public function unsetFirst()

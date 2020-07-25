@@ -165,7 +165,7 @@ btnLoadMoreTricks.click(function(e) {
     numPageTricks += 1;
 
     if (numPageTricks > btnLoadMoreTricks.data("nbpagestot")) {
-        btnLoadMoreTricks.prop("disabled", true);
+        btnLoadMoreTricks.prop("hidden", true);
     }
 });
 
@@ -188,7 +188,7 @@ btnLoadMoreComments.click(function(e) {
     numPageComments += 1;
 
     if (numPageComments > btnLoadMoreComments.data("nbpagestot")) {
-        btnLoadMoreComments.prop("disabled", true);
+        btnLoadMoreComments.prop("hidden", true);
     }
 });
 

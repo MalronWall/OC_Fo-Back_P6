@@ -36,6 +36,8 @@ class ForgotPasswordActionTest extends TestCase
     private $repository;
     /** @var Form|MockObject */
     private $form;
+    /** @var Request|MockObject */
+    private $request;
 
     public function setUp()
     {
@@ -55,8 +57,8 @@ class ForgotPasswordActionTest extends TestCase
         $this->form = $this->createMock(ForgotPasswordType::class);
         $formFactory->method("create")->willReturn($this->form);
 
-        $request = $this->createMock(Request::class);
-        $this->form->method("handleRequest")->willReturn($request);
+        $this->request = $this->createMock(Request::class);
+        $this->form->method("handleRequest")->willReturn($this->request);
 
         /** @var UserRepository|MockObject repository */
         $this->repository = $this->createMock(UserRepository::class);
@@ -85,7 +87,7 @@ class ForgotPasswordActionTest extends TestCase
     {
         $this->form->method("isSubmitted")->willReturn(false);
 
-        $response = $this->action->action(new Request());
+        $response = $this->action->action($this->request);
 
         self::assertInstanceOf(Response::class, $response);
         self::assertEquals(Response::HTTP_OK, $response->getStatusCode());

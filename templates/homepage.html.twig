@@ -18,7 +18,7 @@
         </div>
 
         {% if tricks %}
-            <div class="row" id="tricks">
+            <div class="row mb-3" id="tricks">
                 {% include "ajaxs/tricks.html.twig" %}
             </div>
             <div class="row text-center">
@@ -27,7 +27,7 @@
                         <i class="fas fa-arrow-up"></i>
                     </button>
                     {% if nbPagesTot > 1 %}
-                    <button type="button" class="btn btn-success waves-effect waves-light my-2 mb-0"
+                    <button type="button" class="btn btn-success waves-effect waves-light mb-3 mb-0"
                             id="loadMoreTricks" data-nbpagestot="{{ nbPagesTot }}">
                         <i class="fas fa-cog" aria-hidden="true"></i> Load more
                     </button>

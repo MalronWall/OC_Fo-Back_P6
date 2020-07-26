@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for D:\Logiciels\wamp\www\mes_projets\OC_thibaut-tourte\OC\Formation_Backend\Projet_6\src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=".css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">D:\Logiciels\wamp\www\mes_projets\OC_thibaut-tourte\OC\Formation_Backend\Projet_6\src</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Application/Handlers/Forms/CreateCommentHandler.php.html#20">App\Application\Handlers\Forms\CreateCommentHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateTrickType.php.html#22">App\UI\Forms\CreateTrickType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ResetPasswordType.php.html#21">App\UI\Forms\ResetPasswordType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/RegistrationType.php.html#22">App\UI\Forms\RegistrationType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewLinkMediaType2.php.html#19">App\UI\Forms\NewLinkMediaType2</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewImageMediaType2.php.html#21">App\UI\Forms\NewImageMediaType2</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/LoginType.php.html#20">App\UI\Forms\LoginType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ForgotPasswordType.php.html#18">App\UI\Forms\ForgotPasswordType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateCommentType.php.html#18">App\UI\Forms\CreateCommentType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateLinkMediaType.php.html#17">App\UI\Forms\UpdateLinkMediaType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksUpdateAction.php.html#26">App\UI\Actions\TricksUpdateAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksDetailsAction.php.html#28">App\UI\Actions\TricksDetailsAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksDeleteAction.php.html#21">App\UI\Actions\TricksDeleteAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksAddAction.php.html#22">App\UI\Actions\TricksAddAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/ResetPasswordAction.php.html#23">App\UI\Actions\ResetPasswordAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/RegistrationAction.php.html#21">App\UI\Actions\RegistrationAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateImageMediaType.php.html#19">App\UI\Forms\UpdateImageMediaType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateTrickType.php.html#20">App\UI\Forms\UpdateTrickType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksDeleteAction.php.html#20">App\UI\Actions\MediasTricksDeleteAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksDetailsResponder.php.html#19">App\UI\Responders\TricksDetailsResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDb.php.html#16">App\Validator\Constraints\UniqueUsernameInDb</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDbValidator.php.html#17">App\Validator\Constraints\UniqueTitleInDbValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDb.php.html#16">App\Validator\Constraints\UniqueTitleInDb</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDbValidator.php.html#16">App\Validator\Constraints\UniqueEmailInDbValidator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDb.php.html#16">App\Validator\Constraints\UniqueEmailInDb</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksUpdateResponder.php.html#20">App\UI\Responders\TricksUpdateResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksDeleteResponder.php.html#16">App\UI\Responders\TricksDeleteResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/ForgotPasswordResponder.php.html#18">App\UI\Responders\ForgotPasswordResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksAddResponder.php.html#18">App\UI\Responders\TricksAddResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/ResetPasswordResponder.php.html#18">App\UI\Responders\ResetPasswordResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/RegistrationResponder.php.html#18">App\UI\Responders\RegistrationResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/MediasUpdateResponder.php.html#19">App\UI\Responders\MediasUpdateResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/MediasTricksDeleteResponder.php.html#16">App\UI\Responders\MediasTricksDeleteResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/LoginResponder.php.html#19">App\UI\Responders\LoginResponder</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksUpdateAction.php.html#28">App\UI\Actions\MediasTricksUpdateAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/LoginAction.php.html#21">App\UI\Actions\LoginAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateTrickHandler.php.html#23">App\Application\Handlers\Forms\CreateTrickHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/MailerHelper.php.html#15">App\Application\Helpers\MailerHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/UniqueFilenameCommand.php.html#23">App\Commands\UniqueFilenameCommand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/SlugCommand.php.html#23">App\Commands\SlugCommand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/InsertDbCommand.php.html#22">App\Commands\InsertDbCommand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/WhichMediaHelper.php.html#16">App\Application\Helpers\WhichMediaHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/SafeRenameHelper.php.html#11">App\Application\Helpers\SafeRenameHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/ManageTokenHelper.php.html#17">App\Application\Helpers\ManageTokenHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/HydrateHelper.php.html#18">App\Application\Helpers\HydrateHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/CreateCommentDTO.php.html#14">App\Domain\DTO\CreateCommentDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateTrickHandler.php.html#23">App\Application\Handlers\Forms\UpdateTrickHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateMediaHandler.php.html#25">App\Application\Handlers\Forms\UpdateMediaHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ResetPasswordHandler.php.html#22">App\Application\Handlers\Forms\ResetPasswordHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/RegistrationHandler.php.html#18">App\Application\Handlers\Forms\RegistrationHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/LoginHandler.php.html#16">App\Application\Handlers\Forms\LoginHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ForgotPasswordHandler.php.html#21">App\Application\Handlers\Forms\ForgotPasswordHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixture.php.html#20">App\DataFixtures\AppFixture</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/CreateTrickDTO.php.html#21">App\Domain\DTO\CreateTrickDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/ForgotPasswordAction.php.html#20">App\UI\Actions\ForgotPasswordAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#14">App\Domain\Models\Comment</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#29">App\Security\LoginFormAuthenticator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#15">App\Domain\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/TypeMedia.php.html#14">App\Domain\Models\TypeMedia</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#20">App\Domain\Models\Trick</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#17">App\Domain\Models\Media</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/FigureGroup.php.html#15">App\Domain\Models\FigureGroup</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateTrickDTO.php.html#23">App\Domain\DTO\UpdateTrickDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/ForgotPasswordDTO.php.html#14">App\Domain\DTO\ForgotPasswordDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateLinkMediaDTO.php.html#14">App\Domain\DTO\UpdateLinkMediaDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateImageMediaDTO.php.html#15">App\Domain\DTO\UpdateImageMediaDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/ResetPasswordDTO.php.html#14">App\Domain\DTO\ResetPasswordDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/RegistrationDTO.php.html#24">App\Domain\DTO\RegistrationDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/NewLinkMediaDTO.php.html#14">App\Domain\DTO\NewLinkMediaDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/NewImageMediaDTO.php.html#16">App\Domain\DTO\NewImageMediaDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/LoginDTO.php.html#14">App\Domain\DTO\LoginDTO</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDbValidator.php.html#16">App\Validator\Constraints\UniqueUsernameInDbValidator</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Domain/Models/Media.php.html#17">App\Domain\Models\Media</a></td><td class="text-right">552</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#29">App\Security\LoginFormAuthenticator</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateTrickHandler.php.html#23">App\Application\Handlers\Forms\UpdateTrickHandler</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateMediaHandler.php.html#25">App\Application\Handlers\Forms\UpdateMediaHandler</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateTrickHandler.php.html#23">App\Application\Handlers\Forms\CreateTrickHandler</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Commands/InsertDbCommand.php.html#22">App\Commands\InsertDbCommand</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="UI/Actions/TricksDeleteAction.php.html#21">App\UI\Actions\TricksDeleteAction</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Domain/DTO/CreateTrickDTO.php.html#21">App\Domain\DTO\CreateTrickDTO</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ResetPasswordHandler.php.html#22">App\Application\Handlers\Forms\ResetPasswordHandler</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="UI/Responders/TricksDetailsResponder.php.html#19">App\UI\Responders\TricksDetailsResponder</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateTrickDTO.php.html#23">App\Domain\DTO\UpdateTrickDTO</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="UI/Actions/TricksDetailsAction.php.html#28">App\UI\Actions\TricksDetailsAction</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksDeleteAction.php.html#20">App\UI\Actions\MediasTricksDeleteAction</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ForgotPasswordHandler.php.html#21">App\Application\Handlers\Forms\ForgotPasswordHandler</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="UI/Responders/TricksUpdateResponder.php.html#20">App\UI\Responders\TricksUpdateResponder</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDbValidator.php.html#17">App\Validator\Constraints\UniqueTitleInDbValidator</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Responders/MediasUpdateResponder.php.html#19">App\UI\Responders\MediasUpdateResponder</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/TricksAddAction.php.html#22">App\UI\Actions\TricksAddAction</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/ResetPasswordAction.php.html#23">App\UI\Actions\ResetPasswordAction</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksUpdateAction.php.html#28">App\UI\Actions\MediasTricksUpdateAction</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/TricksUpdateAction.php.html#26">App\UI\Actions\TricksUpdateAction</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateCommentHandler.php.html#20">App\Application\Handlers\Forms\CreateCommentHandler</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/LoginHandler.php.html#16">App\Application\Handlers\Forms\LoginHandler</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/DTO/RegistrationDTO.php.html#24">App\Domain\DTO\RegistrationDTO</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/RegistrationHandler.php.html#18">App\Application\Handlers\Forms\RegistrationHandler</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Helpers/HydrateHelper.php.html#18">App\Application\Helpers\HydrateHelper</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/DTO/NewImageMediaDTO.php.html#16">App\Domain\DTO\NewImageMediaDTO</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Helpers/ManageTokenHelper.php.html#17">App\Application\Helpers\ManageTokenHelper</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateLinkMediaDTO.php.html#14">App\Domain\DTO\UpdateLinkMediaDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/MediasTricksDeleteResponder.php.html#16">App\UI\Responders\MediasTricksDeleteResponder</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDbValidator.php.html#16">App\Validator\Constraints\UniqueEmailInDbValidator</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/TricksAddResponder.php.html#18">App\UI\Responders\TricksAddResponder</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/ResetPasswordResponder.php.html#18">App\UI\Responders\ResetPasswordResponder</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/RegistrationResponder.php.html#18">App\UI\Responders\RegistrationResponder</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/ForgotPasswordResponder.php.html#18">App\UI\Responders\ForgotPasswordResponder</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/LoginResponder.php.html#19">App\UI\Responders\LoginResponder</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateImageMediaDTO.php.html#15">App\Domain\DTO\UpdateImageMediaDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/LoginDTO.php.html#14">App\Domain\DTO\LoginDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Actions/RegistrationAction.php.html#21">App\UI\Actions\RegistrationAction</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/NewLinkMediaDTO.php.html#14">App\Domain\DTO\NewLinkMediaDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Actions/ForgotPasswordAction.php.html#20">App\UI\Actions\ForgotPasswordAction</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/ResetPasswordDTO.php.html#14">App\Domain\DTO\ResetPasswordDTO</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDbValidator.php.html#16">App\Validator\Constraints\UniqueUsernameInDbValidator</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Application/Helpers/WhichMediaHelper.php.html#16">App\Application\Helpers\WhichMediaHelper</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/DTO/CreateCommentDTO.php.html#14">App\Domain\DTO\CreateCommentDTO</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/DTO/ForgotPasswordDTO.php.html#14">App\Domain\DTO\ForgotPasswordDTO</a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Application/Handlers/Forms/CreateCommentHandler.php.html#29"><abbr title="App\Application\Handlers\Forms\CreateCommentHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateCommentType.php.html#20"><abbr title="App\UI\Forms\CreateCommentType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksAddAction.php.html#43"><abbr title="App\UI\Actions\TricksAddAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksAddAction.php.html#65"><abbr title="App\UI\Actions\TricksAddAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksDeleteAction.php.html#39"><abbr title="App\UI\Actions\TricksDeleteAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksDeleteAction.php.html#57"><abbr title="App\UI\Actions\TricksDeleteAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksDetailsAction.php.html#55"><abbr title="App\UI\Actions\TricksDetailsAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksDetailsAction.php.html#80"><abbr title="App\UI\Actions\TricksDetailsAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksUpdateAction.php.html#53"><abbr title="App\UI\Actions\TricksUpdateAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/TricksUpdateAction.php.html#77"><abbr title="App\UI\Actions\TricksUpdateAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateCommentType.php.html#32"><abbr title="App\UI\Forms\CreateCommentType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/ResetPasswordAction.php.html#41"><abbr title="App\UI\Actions\ResetPasswordAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateCommentType.php.html#36"><abbr title="App\UI\Forms\CreateCommentType::anonymousFunction:36#202">anonymousFunction:36#202</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateTrickType.php.html#24"><abbr title="App\UI\Forms\CreateTrickType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateTrickType.php.html#60"><abbr title="App\UI\Forms\CreateTrickType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/CreateTrickType.php.html#64"><abbr title="App\UI\Forms\CreateTrickType::anonymousFunction:64#441">anonymousFunction:64#441</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ForgotPasswordType.php.html#20"><abbr title="App\UI\Forms\ForgotPasswordType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ForgotPasswordType.php.html#32"><abbr title="App\UI\Forms\ForgotPasswordType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ForgotPasswordType.php.html#36"><abbr title="App\UI\Forms\ForgotPasswordType::anonymousFunction:36#202">anonymousFunction:36#202</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/LoginType.php.html#22"><abbr title="App\UI\Forms\LoginType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/LoginType.php.html#38"><abbr title="App\UI\Forms\LoginType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/ResetPasswordAction.php.html#59"><abbr title="App\UI\Actions\ResetPasswordAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/RegistrationAction.php.html#51"><abbr title="App\UI\Actions\RegistrationAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewImageMediaType2.php.html#23"><abbr title="App\UI\Forms\NewImageMediaType2::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#153"><abbr title="App\Security\LoginFormAuthenticator::checkCredentials">checkCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#130"><abbr title="App\Domain\Models\User::getMedia">getMedia</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#151"><abbr title="App\Domain\Models\User::getRoles">getRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#163"><abbr title="App\Domain\Models\User::getSalt">getSalt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#174"><abbr title="App\Domain\Models\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#50"><abbr title="App\Security\LoginFormAuthenticator::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#73"><abbr title="App\Security\LoginFormAuthenticator::supports">supports</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#102"><abbr title="App\Security\LoginFormAuthenticator::getCredentials">getCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#128"><abbr title="App\Security\LoginFormAuthenticator::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#177"><abbr title="App\Security\LoginFormAuthenticator::onAuthenticationSuccess">onAuthenticationSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/RegistrationAction.php.html#36"><abbr title="App\UI\Actions\RegistrationAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#188"><abbr title="App\Security\LoginFormAuthenticator::getLoginUrl">getLoginUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/ForgotPasswordAction.php.html#35"><abbr title="App\UI\Actions\ForgotPasswordAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/ForgotPasswordAction.php.html#50"><abbr title="App\UI\Actions\ForgotPasswordAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/LoginAction.php.html#36"><abbr title="App\UI\Actions\LoginAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/LoginAction.php.html#51"><abbr title="App\UI\Actions\LoginAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksDeleteAction.php.html#38"><abbr title="App\UI\Actions\MediasTricksDeleteAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksDeleteAction.php.html#56"><abbr title="App\UI\Actions\MediasTricksDeleteAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksUpdateAction.php.html#58"><abbr title="App\UI\Actions\MediasTricksUpdateAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksUpdateAction.php.html#85"><abbr title="App\UI\Actions\MediasTricksUpdateAction::action">action</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/LoginType.php.html#42"><abbr title="App\UI\Forms\LoginType::anonymousFunction:42#248">anonymousFunction:42#248</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewImageMediaType2.php.html#47"><abbr title="App\UI\Forms\NewImageMediaType2::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#114"><abbr title="App\Domain\Models\User::getTokenForgotPwd">getTokenForgotPwd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksDetailsResponder.php.html#50"><abbr title="App\UI\Responders\TricksDetailsResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/RegistrationResponder.php.html#46"><abbr title="App\UI\Responders\RegistrationResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/ResetPasswordResponder.php.html#30"><abbr title="App\UI\Responders\ResetPasswordResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/ResetPasswordResponder.php.html#46"><abbr title="App\UI\Responders\ResetPasswordResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksAddResponder.php.html#30"><abbr title="App\UI\Responders\TricksAddResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksAddResponder.php.html#46"><abbr title="App\UI\Responders\TricksAddResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksDeleteResponder.php.html#24"><abbr title="App\UI\Responders\TricksDeleteResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksDeleteResponder.php.html#33"><abbr title="App\UI\Responders\TricksDeleteResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksDetailsResponder.php.html#31"><abbr title="App\UI\Responders\TricksDetailsResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksUpdateResponder.php.html#32"><abbr title="App\UI\Responders\TricksUpdateResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/MediasUpdateResponder.php.html#49"><abbr title="App\UI\Responders\MediasUpdateResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/TricksUpdateResponder.php.html#49"><abbr title="App\UI\Responders\TricksUpdateResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDb.php.html#20"><abbr title="App\Validator\Constraints\UniqueEmailInDb::getTargets">getTargets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDbValidator.php.html#26"><abbr title="App\Validator\Constraints\UniqueEmailInDbValidator::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDbValidator.php.html#38"><abbr title="App\Validator\Constraints\UniqueEmailInDbValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDb.php.html#20"><abbr title="App\Validator\Constraints\UniqueTitleInDb::getTargets">getTargets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDbValidator.php.html#27"><abbr title="App\Validator\Constraints\UniqueTitleInDbValidator::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDbValidator.php.html#39"><abbr title="App\Validator\Constraints\UniqueTitleInDbValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDb.php.html#20"><abbr title="App\Validator\Constraints\UniqueUsernameInDb::getTargets">getTargets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDbValidator.php.html#26"><abbr title="App\Validator\Constraints\UniqueUsernameInDbValidator::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/RegistrationResponder.php.html#30"><abbr title="App\UI\Responders\RegistrationResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/MediasUpdateResponder.php.html#31"><abbr title="App\UI\Responders\MediasUpdateResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewImageMediaType2.php.html#51"><abbr title="App\UI\Forms\NewImageMediaType2::anonymousFunction:51#316">anonymousFunction:51#316</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateImageMediaType.php.html#21"><abbr title="App\UI\Forms\UpdateImageMediaType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewLinkMediaType2.php.html#21"><abbr title="App\UI\Forms\NewLinkMediaType2::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewLinkMediaType2.php.html#37"><abbr title="App\UI\Forms\NewLinkMediaType2::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/NewLinkMediaType2.php.html#41"><abbr title="App\UI\Forms\NewLinkMediaType2::anonymousFunction:41#231">anonymousFunction:41#231</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/RegistrationType.php.html#24"><abbr title="App\UI\Forms\RegistrationType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/RegistrationType.php.html#50"><abbr title="App\UI\Forms\RegistrationType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/RegistrationType.php.html#54"><abbr title="App\UI\Forms\RegistrationType::anonymousFunction:54#341">anonymousFunction:54#341</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ResetPasswordType.php.html#23"><abbr title="App\UI\Forms\ResetPasswordType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ResetPasswordType.php.html#45"><abbr title="App\UI\Forms\ResetPasswordType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/ResetPasswordType.php.html#49"><abbr title="App\UI\Forms\ResetPasswordType::anonymousFunction:49#295">anonymousFunction:49#295</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateImageMediaType.php.html#45"><abbr title="App\UI\Forms\UpdateImageMediaType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/MediasTricksDeleteResponder.php.html#34"><abbr title="App\UI\Responders\MediasTricksDeleteResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateLinkMediaType.php.html#19"><abbr title="App\UI\Forms\UpdateLinkMediaType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateLinkMediaType.php.html#35"><abbr title="App\UI\Forms\UpdateLinkMediaType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateTrickType.php.html#22"><abbr title="App\UI\Forms\UpdateTrickType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Forms/UpdateTrickType.php.html#58"><abbr title="App\UI\Forms\UpdateTrickType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/ForgotPasswordResponder.php.html#30"><abbr title="App\UI\Responders\ForgotPasswordResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/ForgotPasswordResponder.php.html#46"><abbr title="App\UI\Responders\ForgotPasswordResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/LoginResponder.php.html#31"><abbr title="App\UI\Responders\LoginResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/LoginResponder.php.html#48"><abbr title="App\UI\Responders\LoginResponder::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="UI/Responders/MediasTricksDeleteResponder.php.html#24"><abbr title="App\UI\Responders\MediasTricksDeleteResponder::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#122"><abbr title="App\Domain\Models\User::getTokenDateForgotPwd">getTokenDateForgotPwd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#106"><abbr title="App\Domain\Models\User::getPassword">getPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateCommentHandler.php.html#39"><abbr title="App\Application\Handlers\Forms\CreateCommentHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/CreateCommentDTO.php.html#27"><abbr title="App\Domain\DTO\CreateCommentDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/InsertDbCommand.php.html#48"><abbr title="App\Commands\InsertDbCommand::configure">configure</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/InsertDbCommand.php.html#72"><abbr title="App\Commands\InsertDbCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/SlugCommand.php.html#31"><abbr title="App\Commands\SlugCommand::configure">configure</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/SlugCommand.php.html#52"><abbr title="App\Commands\SlugCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/UniqueFilenameCommand.php.html#31"><abbr title="App\Commands\UniqueFilenameCommand::configure">configure</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/UniqueFilenameCommand.php.html#46"><abbr title="App\Commands\UniqueFilenameCommand::execute">execute</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixture.php.html#31"><abbr title="App\DataFixtures\AppFixture::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixture.php.html#39"><abbr title="App\DataFixtures\AppFixture::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/CreateTrickDTO.php.html#68"><abbr title="App\Domain\DTO\CreateTrickDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/WhichMediaHelper.php.html#22"><abbr title="App\Application\Helpers\WhichMediaHelper::getMediaType">getMediaType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/ForgotPasswordDTO.php.html#30"><abbr title="App\Domain\DTO\ForgotPasswordDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/LoginDTO.php.html#38"><abbr title="App\Domain\DTO\LoginDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/NewImageMediaDTO.php.html#50"><abbr title="App\Domain\DTO\NewImageMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/NewLinkMediaDTO.php.html#35"><abbr title="App\Domain\DTO\NewLinkMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/RegistrationDTO.php.html#64"><abbr title="App\Domain\DTO\RegistrationDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/ResetPasswordDTO.php.html#41"><abbr title="App\Domain\DTO\ResetPasswordDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateImageMediaDTO.php.html#43"><abbr title="App\Domain\DTO\UpdateImageMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateLinkMediaDTO.php.html#35"><abbr title="App\Domain\DTO\UpdateLinkMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateTrickDTO.php.html#71"><abbr title="App\Domain\DTO\UpdateTrickDTO::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/InsertDbCommand.php.html#39"><abbr title="App\Commands\InsertDbCommand::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/SafeRenameHelper.php.html#47"><abbr title="App\Application\Helpers\SafeRenameHelper::uniqueFilename">uniqueFilename</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#44"><abbr title="App\Domain\Models\Comment::defineTrick">defineTrick</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ResetPasswordHandler.php.html#57"><abbr title="App\Application\Handlers\Forms\ResetPasswordHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateTrickHandler.php.html#38"><abbr title="App\Application\Handlers\Forms\CreateTrickHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateTrickHandler.php.html#53"><abbr title="App\Application\Handlers\Forms\CreateTrickHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ForgotPasswordHandler.php.html#39"><abbr title="App\Application\Handlers\Forms\ForgotPasswordHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ForgotPasswordHandler.php.html#57"><abbr title="App\Application\Handlers\Forms\ForgotPasswordHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/LoginHandler.php.html#25"><abbr title="App\Application\Handlers\Forms\LoginHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/LoginHandler.php.html#36"><abbr title="App\Application\Handlers\Forms\LoginHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/RegistrationHandler.php.html#33"><abbr title="App\Application\Handlers\Forms\RegistrationHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/RegistrationHandler.php.html#47"><abbr title="App\Application\Handlers\Forms\RegistrationHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ResetPasswordHandler.php.html#40"><abbr title="App\Application\Handlers\Forms\ResetPasswordHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateMediaHandler.php.html#40"><abbr title="App\Application\Handlers\Forms\UpdateMediaHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/SafeRenameHelper.php.html#17"><abbr title="App\Application\Helpers\SafeRenameHelper::slug">slug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateMediaHandler.php.html#56"><abbr title="App\Application\Handlers\Forms\UpdateMediaHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateTrickHandler.php.html#38"><abbr title="App\Application\Handlers\Forms\UpdateTrickHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateTrickHandler.php.html#54"><abbr title="App\Application\Handlers\Forms\UpdateTrickHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/HydrateHelper.php.html#24"><abbr title="App\Application\Helpers\HydrateHelper::hydrateUpdateTrickDTO">hydrateUpdateTrickDTO</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/HydrateHelper.php.html#38"><abbr title="App\Application\Helpers\HydrateHelper::hydrateUpdateMediaDTO">hydrateUpdateMediaDTO</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/MailerHelper.php.html#27"><abbr title="App\Application\Helpers\MailerHelper::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/MailerHelper.php.html#45"><abbr title="App\Application\Helpers\MailerHelper::sendEmail">sendEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/ManageTokenHelper.php.html#29"><abbr title="App\Application\Helpers\ManageTokenHelper::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Application/Helpers/ManageTokenHelper.php.html#40"><abbr title="App\Application\Helpers\ManageTokenHelper::checkTokenIsValid">checkTokenIsValid</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#33"><abbr title="App\Domain\Models\Comment::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#52"><abbr title="App\Domain\Models\Comment::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#98"><abbr title="App\Domain\Models\User::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#169"><abbr title="App\Domain\Models\Trick::getUserUpdate">getUserUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#105"><abbr title="App\Domain\Models\Trick::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#113"><abbr title="App\Domain\Models\Trick::getSlug">getSlug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#121"><abbr title="App\Domain\Models\Trick::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#129"><abbr title="App\Domain\Models\Trick::getFigureGroup">getFigureGroup</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#137"><abbr title="App\Domain\Models\Trick::getMedias">getMedias</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#145"><abbr title="App\Domain\Models\Trick::getCreatedThe">getCreatedThe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#153"><abbr title="App\Domain\Models\Trick::getUpdatedThe">getUpdatedThe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#161"><abbr title="App\Domain\Models\Trick::getUserCreate">getUserCreate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#177"><abbr title="App\Domain\Models\Trick::getComments">getComments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#83"><abbr title="App\Domain\Models\Trick::updateTrick">updateTrick</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/TypeMedia.php.html#25"><abbr title="App\Domain\Models\TypeMedia::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/TypeMedia.php.html#33"><abbr title="App\Domain\Models\TypeMedia::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/TypeMedia.php.html#41"><abbr title="App\Domain\Models\TypeMedia::getType">getType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#42"><abbr title="App\Domain\Models\User::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#55"><abbr title="App\Domain\Models\User::createTokenForgotPwdInformations">createTokenForgotPwdInformations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#64"><abbr title="App\Domain\Models\User::resetPwd">resetPwd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#74"><abbr title="App\Domain\Models\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#82"><abbr title="App\Domain\Models\User::getUsername">getUsername</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/User.php.html#90"><abbr title="App\Domain\Models\User::getSlug">getSlug</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#97"><abbr title="App\Domain\Models\Trick::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#73"><abbr title="App\Domain\Models\Trick::addMedia">addMedia</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#60"><abbr title="App\Domain\Models\Comment::getComment">getComment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#61"><abbr title="App\Domain\Models\Media::toEmbedLink">toEmbedLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#68"><abbr title="App\Domain\Models\Comment::getCreatedThe">getCreatedThe</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#76"><abbr title="App\Domain\Models\Comment::getUserCreate">getUserCreate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Comment.php.html#84"><abbr title="App\Domain\Models\Comment::getTrick">getTrick</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/FigureGroup.php.html#26"><abbr title="App\Domain\Models\FigureGroup::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/FigureGroup.php.html#31"><abbr title="App\Domain\Models\FigureGroup::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/FigureGroup.php.html#39"><abbr title="App\Domain\Models\FigureGroup::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/FigureGroup.php.html#47"><abbr title="App\Domain\Models\FigureGroup::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#41"><abbr title="App\Domain\Models\Media::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#52"><abbr title="App\Domain\Models\Media::defineTrick">defineTrick</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#83"><abbr title="App\Domain\Models\Media::unsetFirst">unsetFirst</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Trick.php.html#52"><abbr title="App\Domain\Models\Trick::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#92"><abbr title="App\Domain\Models\Media::updateMediaWithLink">updateMediaWithLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#107"><abbr title="App\Domain\Models\Media::updateMediaWithImage">updateMediaWithImage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#123"><abbr title="App\Domain\Models\Media::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#131"><abbr title="App\Domain\Models\Media::getLink">getLink</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#139"><abbr title="App\Domain\Models\Media::getAlt">getAlt</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#147"><abbr title="App\Domain\Models\Media::isFirst">isFirst</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#155"><abbr title="App\Domain\Models\Media::getUser">getUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#163"><abbr title="App\Domain\Models\Media::getTrick">getTrick</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#171"><abbr title="App\Domain\Models\Media::getTypeMedia">getTypeMedia</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDbValidator.php.html#38"><abbr title="App\Validator\Constraints\UniqueUsernameInDbValidator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Application/Handlers/Forms/UpdateTrickHandler.php.html#54"><abbr title="App\Application\Handlers\Forms\UpdateTrickHandler::handle">handle</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/UpdateMediaHandler.php.html#56"><abbr title="App\Application\Handlers\Forms\UpdateMediaHandler::handle">handle</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateTrickHandler.php.html#53"><abbr title="App\Application\Handlers\Forms\CreateTrickHandler::handle">handle</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Commands/InsertDbCommand.php.html#72"><abbr title="App\Commands\InsertDbCommand::execute">execute</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="UI/Actions/TricksDeleteAction.php.html#57"><abbr title="App\UI\Actions\TricksDeleteAction::action">action</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Domain/DTO/CreateTrickDTO.php.html#68"><abbr title="App\Domain\DTO\CreateTrickDTO::__construct">__construct</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateTrickDTO.php.html#71"><abbr title="App\Domain\DTO\UpdateTrickDTO::__construct">__construct</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#107"><abbr title="App\Domain\Models\Media::updateMediaWithImage">updateMediaWithImage</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksDeleteAction.php.html#56"><abbr title="App\UI\Actions\MediasTricksDeleteAction::action">action</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/DTO/RegistrationDTO.php.html#64"><abbr title="App\Domain\DTO\RegistrationDTO::__construct">__construct</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/DTO/NewImageMediaDTO.php.html#50"><abbr title="App\Domain\DTO\NewImageMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/TricksDetailsAction.php.html#80"><abbr title="App\UI\Actions\TricksDetailsAction::action">action</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#61"><abbr title="App\Domain\Models\Media::toEmbedLink">toEmbedLink</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Responders/TricksDetailsResponder.php.html#50"><abbr title="App\UI\Responders\TricksDetailsResponder::response">response</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ResetPasswordHandler.php.html#57"><abbr title="App\Application\Handlers\Forms\ResetPasswordHandler::handle">handle</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/ForgotPasswordHandler.php.html#57"><abbr title="App\Application\Handlers\Forms\ForgotPasswordHandler::handle">handle</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="UI/Actions/TricksUpdateAction.php.html#77"><abbr title="App\UI\Actions\TricksUpdateAction::action">action</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/MediasUpdateResponder.php.html#49"><abbr title="App\UI\Responders\MediasUpdateResponder::response">response</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Actions/TricksAddAction.php.html#65"><abbr title="App\UI\Actions\TricksAddAction::action">action</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Actions/ResetPasswordAction.php.html#59"><abbr title="App\UI\Actions\ResetPasswordAction::action">action</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Actions/MediasTricksUpdateAction.php.html#85"><abbr title="App\UI\Actions\MediasTricksUpdateAction::action">action</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/TricksUpdateResponder.php.html#49"><abbr title="App\UI\Responders\TricksUpdateResponder::response">response</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueTitleInDbValidator.php.html#39"><abbr title="App\Validator\Constraints\UniqueTitleInDbValidator::validate">validate</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/CreateCommentHandler.php.html#39"><abbr title="App\Application\Handlers\Forms\CreateCommentHandler::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#92"><abbr title="App\Domain\Models\Media::updateMediaWithLink">updateMediaWithLink</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/Models/Media.php.html#41"><abbr title="App\Domain\Models\Media::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/LoginHandler.php.html#36"><abbr title="App\Application\Handlers\Forms\LoginHandler::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Application/Handlers/Forms/RegistrationHandler.php.html#47"><abbr title="App\Application\Handlers\Forms\RegistrationHandler::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Application/Helpers/HydrateHelper.php.html#38"><abbr title="App\Application\Helpers\HydrateHelper::hydrateUpdateMediaDTO">hydrateUpdateMediaDTO</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateImageMediaDTO.php.html#43"><abbr title="App\Domain\DTO\UpdateImageMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/ResetPasswordDTO.php.html#41"><abbr title="App\Domain\DTO\ResetPasswordDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/NewLinkMediaDTO.php.html#35"><abbr title="App\Domain\DTO\NewLinkMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/LoginDTO.php.html#38"><abbr title="App\Domain\DTO\LoginDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Domain/DTO/UpdateLinkMediaDTO.php.html#35"><abbr title="App\Domain\DTO\UpdateLinkMediaDTO::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Application/Helpers/ManageTokenHelper.php.html#40"><abbr title="App\Application\Helpers\ManageTokenHelper::checkTokenIsValid">checkTokenIsValid</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="UI/Responders/MediasTricksDeleteResponder.php.html#34"><abbr title="App\UI\Responders\MediasTricksDeleteResponder::response">response</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueEmailInDbValidator.php.html#38"><abbr title="App\Validator\Constraints\UniqueEmailInDbValidator::validate">validate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Responders/TricksAddResponder.php.html#46"><abbr title="App\UI\Responders\TricksAddResponder::response">response</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Responders/ResetPasswordResponder.php.html#46"><abbr title="App\UI\Responders\ResetPasswordResponder::response">response</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Responders/RegistrationResponder.php.html#46"><abbr title="App\UI\Responders\RegistrationResponder::response">response</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Application/Helpers/WhichMediaHelper.php.html#22"><abbr title="App\Application\Helpers\WhichMediaHelper::getMediaType">getMediaType</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Responders/LoginResponder.php.html#48"><abbr title="App\UI\Responders\LoginResponder::response">response</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Responders/ForgotPasswordResponder.php.html#46"><abbr title="App\UI\Responders\ForgotPasswordResponder::response">response</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/DTO/CreateCommentDTO.php.html#27"><abbr title="App\Domain\DTO\CreateCommentDTO::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Domain/DTO/ForgotPasswordDTO.php.html#30"><abbr title="App\Domain\DTO\ForgotPasswordDTO::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Actions/RegistrationAction.php.html#51"><abbr title="App\UI\Actions\RegistrationAction::action">action</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="UI/Actions/ForgotPasswordAction.php.html#50"><abbr title="App\UI\Actions\ForgotPasswordAction::action">action</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#153"><abbr title="App\Security\LoginFormAuthenticator::checkCredentials">checkCredentials</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#128"><abbr title="App\Security\LoginFormAuthenticator::getUser">getUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#73"><abbr title="App\Security\LoginFormAuthenticator::supports">supports</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validator/Constraints/UniqueUsernameInDbValidator.php.html#38"><abbr title="App\Validator\Constraints\UniqueUsernameInDbValidator::validate">validate</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.2</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 6.5.14</a> at Sun Jul 26 14:15:23 UTC 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/d3.min.js" type="text/javascript"></script>
+  <script src=".js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([72,0,0,0,0,0,0,0,0,0,0,7], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([186,0,0,0,0,0,0,0,0,0,0,13], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,4,"<a href=\"Application\/Handlers\/Forms\/CreateCommentHandler.php.html#20\">App\\Application\\Handlers\\Forms\\CreateCommentHandler<\/a>"],[0,9,"<a href=\"Application\/Handlers\/Forms\/CreateTrickHandler.php.html#23\">App\\Application\\Handlers\\Forms\\CreateTrickHandler<\/a>"],[0,5,"<a href=\"Application\/Handlers\/Forms\/ForgotPasswordHandler.php.html#21\">App\\Application\\Handlers\\Forms\\ForgotPasswordHandler<\/a>"],[0,4,"<a href=\"Application\/Handlers\/Forms\/LoginHandler.php.html#16\">App\\Application\\Handlers\\Forms\\LoginHandler<\/a>"],[0,4,"<a href=\"Application\/Handlers\/Forms\/RegistrationHandler.php.html#18\">App\\Application\\Handlers\\Forms\\RegistrationHandler<\/a>"],[0,5,"<a href=\"Application\/Handlers\/Forms\/ResetPasswordHandler.php.html#22\">App\\Application\\Handlers\\Forms\\ResetPasswordHandler<\/a>"],[0,9,"<a href=\"Application\/Handlers\/Forms\/UpdateMediaHandler.php.html#25\">App\\Application\\Handlers\\Forms\\UpdateMediaHandler<\/a>"],[0,10,"<a href=\"Application\/Handlers\/Forms\/UpdateTrickHandler.php.html#23\">App\\Application\\Handlers\\Forms\\UpdateTrickHandler<\/a>"],[0,4,"<a href=\"Application\/Helpers\/HydrateHelper.php.html#18\">App\\Application\\Helpers\\HydrateHelper<\/a>"],[0,2,"<a href=\"Application\/Helpers\/MailerHelper.php.html#15\">App\\Application\\Helpers\\MailerHelper<\/a>"],[0,4,"<a href=\"Application\/Helpers\/ManageTokenHelper.php.html#17\">App\\Application\\Helpers\\ManageTokenHelper<\/a>"],[100,4,"<a href=\"Application\/Helpers\/PaginatorHelper.php.html#13\">App\\Application\\Helpers\\PaginatorHelper<\/a>"],[0,2,"<a href=\"Application\/Helpers\/SafeRenameHelper.php.html#11\">App\\Application\\Helpers\\SafeRenameHelper<\/a>"],[0,2,"<a href=\"Application\/Helpers\/WhichMediaHelper.php.html#16\">App\\Application\\Helpers\\WhichMediaHelper<\/a>"],[0,8,"<a href=\"Commands\/InsertDbCommand.php.html#22\">App\\Commands\\InsertDbCommand<\/a>"],[0,2,"<a href=\"Commands\/SlugCommand.php.html#23\">App\\Commands\\SlugCommand<\/a>"],[0,2,"<a href=\"Commands\/UniqueFilenameCommand.php.html#23\">App\\Commands\\UniqueFilenameCommand<\/a>"],[0,2,"<a href=\"DataFixtures\/AppFixture.php.html#20\">App\\DataFixtures\\AppFixture<\/a>"],[0,2,"<a href=\"Domain\/DTO\/CreateCommentDTO.php.html#14\">App\\Domain\\DTO\\CreateCommentDTO<\/a>"],[0,6,"<a href=\"Domain\/DTO\/CreateTrickDTO.php.html#21\">App\\Domain\\DTO\\CreateTrickDTO<\/a>"],[0,2,"<a href=\"Domain\/DTO\/ForgotPasswordDTO.php.html#14\">App\\Domain\\DTO\\ForgotPasswordDTO<\/a>"],[0,3,"<a href=\"Domain\/DTO\/LoginDTO.php.html#14\">App\\Domain\\DTO\\LoginDTO<\/a>"],[0,4,"<a href=\"Domain\/DTO\/NewImageMediaDTO.php.html#16\">App\\Domain\\DTO\\NewImageMediaDTO<\/a>"],[0,3,"<a href=\"Domain\/DTO\/NewLinkMediaDTO.php.html#14\">App\\Domain\\DTO\\NewLinkMediaDTO<\/a>"],[0,4,"<a href=\"Domain\/DTO\/RegistrationDTO.php.html#24\">App\\Domain\\DTO\\RegistrationDTO<\/a>"],[0,3,"<a href=\"Domain\/DTO\/ResetPasswordDTO.php.html#14\">App\\Domain\\DTO\\ResetPasswordDTO<\/a>"],[0,3,"<a href=\"Domain\/DTO\/UpdateImageMediaDTO.php.html#15\">App\\Domain\\DTO\\UpdateImageMediaDTO<\/a>"],[0,3,"<a href=\"Domain\/DTO\/UpdateLinkMediaDTO.php.html#14\">App\\Domain\\DTO\\UpdateLinkMediaDTO<\/a>"],[0,5,"<a href=\"Domain\/DTO\/UpdateTrickDTO.php.html#23\">App\\Domain\\DTO\\UpdateTrickDTO<\/a>"],[0,7,"<a href=\"Domain\/Models\/Comment.php.html#14\">App\\Domain\\Models\\Comment<\/a>"],[0,4,"<a href=\"Domain\/Models\/FigureGroup.php.html#15\">App\\Domain\\Models\\FigureGroup<\/a>"],[0,23,"<a href=\"Domain\/Models\/Media.php.html#17\">App\\Domain\\Models\\Media<\/a>"],[0,14,"<a href=\"Domain\/Models\/Trick.php.html#20\">App\\Domain\\Models\\Trick<\/a>"],[0,3,"<a href=\"Domain\/Models\/TypeMedia.php.html#14\">App\\Domain\\Models\\TypeMedia<\/a>"],[0,14,"<a href=\"Domain\/Models\/User.php.html#15\">App\\Domain\\Models\\User<\/a>"],[0,10,"<a href=\"Security\/LoginFormAuthenticator.php.html#29\">App\\Security\\LoginFormAuthenticator<\/a>"],[100,3,"<a href=\"UI\/Actions\/AjaxHomepageAction.php.html#20\">App\\UI\\Actions\\AjaxHomepageAction<\/a>"],[100,3,"<a href=\"UI\/Actions\/AjaxTricksDetailsAction.php.html#19\">App\\UI\\Actions\\AjaxTricksDetailsAction<\/a>"],[0,3,"<a href=\"UI\/Actions\/ForgotPasswordAction.php.html#20\">App\\UI\\Actions\\ForgotPasswordAction<\/a>"],[100,2,"<a href=\"UI\/Actions\/HomepageAction.php.html#19\">App\\UI\\Actions\\HomepageAction<\/a>"],[0,2,"<a href=\"UI\/Actions\/LoginAction.php.html#21\">App\\UI\\Actions\\LoginAction<\/a>"],[0,5,"<a href=\"UI\/Actions\/MediasTricksDeleteAction.php.html#20\">App\\UI\\Actions\\MediasTricksDeleteAction<\/a>"],[0,4,"<a href=\"UI\/Actions\/MediasTricksUpdateAction.php.html#28\">App\\UI\\Actions\\MediasTricksUpdateAction<\/a>"],[0,3,"<a href=\"UI\/Actions\/RegistrationAction.php.html#21\">App\\UI\\Actions\\RegistrationAction<\/a>"],[0,4,"<a href=\"UI\/Actions\/ResetPasswordAction.php.html#23\">App\\UI\\Actions\\ResetPasswordAction<\/a>"],[0,4,"<a href=\"UI\/Actions\/TricksAddAction.php.html#22\">App\\UI\\Actions\\TricksAddAction<\/a>"],[0,7,"<a href=\"UI\/Actions\/TricksDeleteAction.php.html#21\">App\\UI\\Actions\\TricksDeleteAction<\/a>"],[0,5,"<a href=\"UI\/Actions\/TricksDetailsAction.php.html#28\">App\\UI\\Actions\\TricksDetailsAction<\/a>"],[0,4,"<a href=\"UI\/Actions\/TricksUpdateAction.php.html#26\">App\\UI\\Actions\\TricksUpdateAction<\/a>"],[0,3,"<a href=\"UI\/Forms\/CreateCommentType.php.html#18\">App\\UI\\Forms\\CreateCommentType<\/a>"],[0,3,"<a href=\"UI\/Forms\/CreateTrickType.php.html#22\">App\\UI\\Forms\\CreateTrickType<\/a>"],[0,3,"<a href=\"UI\/Forms\/ForgotPasswordType.php.html#18\">App\\UI\\Forms\\ForgotPasswordType<\/a>"],[0,3,"<a href=\"UI\/Forms\/LoginType.php.html#20\">App\\UI\\Forms\\LoginType<\/a>"],[0,3,"<a href=\"UI\/Forms\/NewImageMediaType2.php.html#21\">App\\UI\\Forms\\NewImageMediaType2<\/a>"],[0,3,"<a href=\"UI\/Forms\/NewLinkMediaType2.php.html#19\">App\\UI\\Forms\\NewLinkMediaType2<\/a>"],[0,3,"<a href=\"UI\/Forms\/RegistrationType.php.html#22\">App\\UI\\Forms\\RegistrationType<\/a>"],[0,3,"<a href=\"UI\/Forms\/ResetPasswordType.php.html#21\">App\\UI\\Forms\\ResetPasswordType<\/a>"],[0,2,"<a href=\"UI\/Forms\/UpdateImageMediaType.php.html#19\">App\\UI\\Forms\\UpdateImageMediaType<\/a>"],[0,2,"<a href=\"UI\/Forms\/UpdateLinkMediaType.php.html#17\">App\\UI\\Forms\\UpdateLinkMediaType<\/a>"],[0,2,"<a href=\"UI\/Forms\/UpdateTrickType.php.html#20\">App\\UI\\Forms\\UpdateTrickType<\/a>"],[100,3,"<a href=\"UI\/Responders\/AjaxHomepageResponder.php.html#15\">App\\UI\\Responders\\AjaxHomepageResponder<\/a>"],[100,3,"<a href=\"UI\/Responders\/AjaxTricksDetailsResponder.php.html#15\">App\\UI\\Responders\\AjaxTricksDetailsResponder<\/a>"],[0,3,"<a href=\"UI\/Responders\/ForgotPasswordResponder.php.html#18\">App\\UI\\Responders\\ForgotPasswordResponder<\/a>"],[100,2,"<a href=\"UI\/Responders\/HomepageResponder.php.html#16\">App\\UI\\Responders\\HomepageResponder<\/a>"],[0,3,"<a href=\"UI\/Responders\/LoginResponder.php.html#19\">App\\UI\\Responders\\LoginResponder<\/a>"],[0,3,"<a href=\"UI\/Responders\/MediasTricksDeleteResponder.php.html#16\">App\\UI\\Responders\\MediasTricksDeleteResponder<\/a>"],[0,4,"<a href=\"UI\/Responders\/MediasUpdateResponder.php.html#19\">App\\UI\\Responders\\MediasUpdateResponder<\/a>"],[0,3,"<a href=\"UI\/Responders\/RegistrationResponder.php.html#18\">App\\UI\\Responders\\RegistrationResponder<\/a>"],[0,3,"<a href=\"UI\/Responders\/ResetPasswordResponder.php.html#18\">App\\UI\\Responders\\ResetPasswordResponder<\/a>"],[0,3,"<a href=\"UI\/Responders\/TricksAddResponder.php.html#18\">App\\UI\\Responders\\TricksAddResponder<\/a>"],[0,2,"<a href=\"UI\/Responders\/TricksDeleteResponder.php.html#16\">App\\UI\\Responders\\TricksDeleteResponder<\/a>"],[0,5,"<a href=\"UI\/Responders\/TricksDetailsResponder.php.html#19\">App\\UI\\Responders\\TricksDetailsResponder<\/a>"],[0,4,"<a href=\"UI\/Responders\/TricksUpdateResponder.php.html#20\">App\\UI\\Responders\\TricksUpdateResponder<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueEmailInDb.php.html#16\">App\\Validator\\Constraints\\UniqueEmailInDb<\/a>"],[0,3,"<a href=\"Validator\/Constraints\/UniqueEmailInDbValidator.php.html#16\">App\\Validator\\Constraints\\UniqueEmailInDbValidator<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueTitleInDb.php.html#16\">App\\Validator\\Constraints\\UniqueTitleInDb<\/a>"],[0,4,"<a href=\"Validator\/Constraints\/UniqueTitleInDbValidator.php.html#17\">App\\Validator\\Constraints\\UniqueTitleInDbValidator<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueUsernameInDb.php.html#16\">App\\Validator\\Constraints\\UniqueUsernameInDb<\/a>"],[0,3,"<a href=\"Validator\/Constraints\/UniqueUsernameInDbValidator.php.html#16\">App\\Validator\\Constraints\\UniqueUsernameInDbValidator<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Application\/Handlers\/Forms\/CreateCommentHandler.php.html#29\">App\\Application\\Handlers\\Forms\\CreateCommentHandler::__construct<\/a>"],[0,3,"<a href=\"Application\/Handlers\/Forms\/CreateCommentHandler.php.html#39\">App\\Application\\Handlers\\Forms\\CreateCommentHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/CreateTrickHandler.php.html#38\">App\\Application\\Handlers\\Forms\\CreateTrickHandler::__construct<\/a>"],[0,8,"<a href=\"Application\/Handlers\/Forms\/CreateTrickHandler.php.html#53\">App\\Application\\Handlers\\Forms\\CreateTrickHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/ForgotPasswordHandler.php.html#39\">App\\Application\\Handlers\\Forms\\ForgotPasswordHandler::__construct<\/a>"],[0,4,"<a href=\"Application\/Handlers\/Forms\/ForgotPasswordHandler.php.html#57\">App\\Application\\Handlers\\Forms\\ForgotPasswordHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/LoginHandler.php.html#25\">App\\Application\\Handlers\\Forms\\LoginHandler::__construct<\/a>"],[0,3,"<a href=\"Application\/Handlers\/Forms\/LoginHandler.php.html#36\">App\\Application\\Handlers\\Forms\\LoginHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/RegistrationHandler.php.html#33\">App\\Application\\Handlers\\Forms\\RegistrationHandler::__construct<\/a>"],[0,3,"<a href=\"Application\/Handlers\/Forms\/RegistrationHandler.php.html#47\">App\\Application\\Handlers\\Forms\\RegistrationHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/ResetPasswordHandler.php.html#40\">App\\Application\\Handlers\\Forms\\ResetPasswordHandler::__construct<\/a>"],[0,4,"<a href=\"Application\/Handlers\/Forms\/ResetPasswordHandler.php.html#57\">App\\Application\\Handlers\\Forms\\ResetPasswordHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/UpdateMediaHandler.php.html#40\">App\\Application\\Handlers\\Forms\\UpdateMediaHandler::__construct<\/a>"],[0,8,"<a href=\"Application\/Handlers\/Forms\/UpdateMediaHandler.php.html#56\">App\\Application\\Handlers\\Forms\\UpdateMediaHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Handlers\/Forms\/UpdateTrickHandler.php.html#38\">App\\Application\\Handlers\\Forms\\UpdateTrickHandler::__construct<\/a>"],[0,9,"<a href=\"Application\/Handlers\/Forms\/UpdateTrickHandler.php.html#54\">App\\Application\\Handlers\\Forms\\UpdateTrickHandler::handle<\/a>"],[0,1,"<a href=\"Application\/Helpers\/HydrateHelper.php.html#24\">App\\Application\\Helpers\\HydrateHelper::hydrateUpdateTrickDTO<\/a>"],[0,3,"<a href=\"Application\/Helpers\/HydrateHelper.php.html#38\">App\\Application\\Helpers\\HydrateHelper::hydrateUpdateMediaDTO<\/a>"],[0,1,"<a href=\"Application\/Helpers\/MailerHelper.php.html#27\">App\\Application\\Helpers\\MailerHelper::__construct<\/a>"],[0,1,"<a href=\"Application\/Helpers\/MailerHelper.php.html#45\">App\\Application\\Helpers\\MailerHelper::sendEmail<\/a>"],[0,1,"<a href=\"Application\/Helpers\/ManageTokenHelper.php.html#29\">App\\Application\\Helpers\\ManageTokenHelper::__construct<\/a>"],[0,3,"<a href=\"Application\/Helpers\/ManageTokenHelper.php.html#40\">App\\Application\\Helpers\\ManageTokenHelper::checkTokenIsValid<\/a>"],[100,4,"<a href=\"Application\/Helpers\/PaginatorHelper.php.html#22\">App\\Application\\Helpers\\PaginatorHelper::nbPagesTot<\/a>"],[0,1,"<a href=\"Application\/Helpers\/SafeRenameHelper.php.html#17\">App\\Application\\Helpers\\SafeRenameHelper::slug<\/a>"],[0,1,"<a href=\"Application\/Helpers\/SafeRenameHelper.php.html#47\">App\\Application\\Helpers\\SafeRenameHelper::uniqueFilename<\/a>"],[0,2,"<a href=\"Application\/Helpers\/WhichMediaHelper.php.html#22\">App\\Application\\Helpers\\WhichMediaHelper::getMediaType<\/a>"],[0,1,"<a href=\"Commands\/InsertDbCommand.php.html#39\">App\\Commands\\InsertDbCommand::__construct<\/a>"],[0,1,"<a href=\"Commands\/InsertDbCommand.php.html#48\">App\\Commands\\InsertDbCommand::configure<\/a>"],[0,6,"<a href=\"Commands\/InsertDbCommand.php.html#72\">App\\Commands\\InsertDbCommand::execute<\/a>"],[0,1,"<a href=\"Commands\/SlugCommand.php.html#31\">App\\Commands\\SlugCommand::configure<\/a>"],[0,1,"<a href=\"Commands\/SlugCommand.php.html#52\">App\\Commands\\SlugCommand::execute<\/a>"],[0,1,"<a href=\"Commands\/UniqueFilenameCommand.php.html#31\">App\\Commands\\UniqueFilenameCommand::configure<\/a>"],[0,1,"<a href=\"Commands\/UniqueFilenameCommand.php.html#46\">App\\Commands\\UniqueFilenameCommand::execute<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixture.php.html#31\">App\\DataFixtures\\AppFixture::__construct<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixture.php.html#39\">App\\DataFixtures\\AppFixture::load<\/a>"],[0,2,"<a href=\"Domain\/DTO\/CreateCommentDTO.php.html#27\">App\\Domain\\DTO\\CreateCommentDTO::__construct<\/a>"],[0,6,"<a href=\"Domain\/DTO\/CreateTrickDTO.php.html#68\">App\\Domain\\DTO\\CreateTrickDTO::__construct<\/a>"],[0,2,"<a href=\"Domain\/DTO\/ForgotPasswordDTO.php.html#30\">App\\Domain\\DTO\\ForgotPasswordDTO::__construct<\/a>"],[0,3,"<a href=\"Domain\/DTO\/LoginDTO.php.html#38\">App\\Domain\\DTO\\LoginDTO::__construct<\/a>"],[0,4,"<a href=\"Domain\/DTO\/NewImageMediaDTO.php.html#50\">App\\Domain\\DTO\\NewImageMediaDTO::__construct<\/a>"],[0,3,"<a href=\"Domain\/DTO\/NewLinkMediaDTO.php.html#35\">App\\Domain\\DTO\\NewLinkMediaDTO::__construct<\/a>"],[0,4,"<a href=\"Domain\/DTO\/RegistrationDTO.php.html#64\">App\\Domain\\DTO\\RegistrationDTO::__construct<\/a>"],[0,3,"<a href=\"Domain\/DTO\/ResetPasswordDTO.php.html#41\">App\\Domain\\DTO\\ResetPasswordDTO::__construct<\/a>"],[0,3,"<a href=\"Domain\/DTO\/UpdateImageMediaDTO.php.html#43\">App\\Domain\\DTO\\UpdateImageMediaDTO::__construct<\/a>"],[0,3,"<a href=\"Domain\/DTO\/UpdateLinkMediaDTO.php.html#35\">App\\Domain\\DTO\\UpdateLinkMediaDTO::__construct<\/a>"],[0,5,"<a href=\"Domain\/DTO\/UpdateTrickDTO.php.html#71\">App\\Domain\\DTO\\UpdateTrickDTO::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#33\">App\\Domain\\Models\\Comment::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#44\">App\\Domain\\Models\\Comment::defineTrick<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#52\">App\\Domain\\Models\\Comment::getId<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#60\">App\\Domain\\Models\\Comment::getComment<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#68\">App\\Domain\\Models\\Comment::getCreatedThe<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#76\">App\\Domain\\Models\\Comment::getUserCreate<\/a>"],[0,1,"<a href=\"Domain\/Models\/Comment.php.html#84\">App\\Domain\\Models\\Comment::getTrick<\/a>"],[0,1,"<a href=\"Domain\/Models\/FigureGroup.php.html#26\">App\\Domain\\Models\\FigureGroup::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/FigureGroup.php.html#31\">App\\Domain\\Models\\FigureGroup::__toString<\/a>"],[0,1,"<a href=\"Domain\/Models\/FigureGroup.php.html#39\">App\\Domain\\Models\\FigureGroup::getId<\/a>"],[0,1,"<a href=\"Domain\/Models\/FigureGroup.php.html#47\">App\\Domain\\Models\\FigureGroup::getTitle<\/a>"],[0,3,"<a href=\"Domain\/Models\/Media.php.html#41\">App\\Domain\\Models\\Media::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#52\">App\\Domain\\Models\\Media::defineTrick<\/a>"],[0,4,"<a href=\"Domain\/Models\/Media.php.html#61\">App\\Domain\\Models\\Media::toEmbedLink<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#83\">App\\Domain\\Models\\Media::unsetFirst<\/a>"],[0,3,"<a href=\"Domain\/Models\/Media.php.html#92\">App\\Domain\\Models\\Media::updateMediaWithLink<\/a>"],[0,4,"<a href=\"Domain\/Models\/Media.php.html#107\">App\\Domain\\Models\\Media::updateMediaWithImage<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#123\">App\\Domain\\Models\\Media::getId<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#131\">App\\Domain\\Models\\Media::getLink<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#139\">App\\Domain\\Models\\Media::getAlt<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#147\">App\\Domain\\Models\\Media::isFirst<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#155\">App\\Domain\\Models\\Media::getUser<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#163\">App\\Domain\\Models\\Media::getTrick<\/a>"],[0,1,"<a href=\"Domain\/Models\/Media.php.html#171\">App\\Domain\\Models\\Media::getTypeMedia<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#52\">App\\Domain\\Models\\Trick::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#73\">App\\Domain\\Models\\Trick::addMedia<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#83\">App\\Domain\\Models\\Trick::updateTrick<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#97\">App\\Domain\\Models\\Trick::getId<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#105\">App\\Domain\\Models\\Trick::getTitle<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#113\">App\\Domain\\Models\\Trick::getSlug<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#121\">App\\Domain\\Models\\Trick::getDescription<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#129\">App\\Domain\\Models\\Trick::getFigureGroup<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#137\">App\\Domain\\Models\\Trick::getMedias<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#145\">App\\Domain\\Models\\Trick::getCreatedThe<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#153\">App\\Domain\\Models\\Trick::getUpdatedThe<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#161\">App\\Domain\\Models\\Trick::getUserCreate<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#169\">App\\Domain\\Models\\Trick::getUserUpdate<\/a>"],[0,1,"<a href=\"Domain\/Models\/Trick.php.html#177\">App\\Domain\\Models\\Trick::getComments<\/a>"],[0,1,"<a href=\"Domain\/Models\/TypeMedia.php.html#25\">App\\Domain\\Models\\TypeMedia::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/TypeMedia.php.html#33\">App\\Domain\\Models\\TypeMedia::getId<\/a>"],[0,1,"<a href=\"Domain\/Models\/TypeMedia.php.html#41\">App\\Domain\\Models\\TypeMedia::getType<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#42\">App\\Domain\\Models\\User::__construct<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#55\">App\\Domain\\Models\\User::createTokenForgotPwdInformations<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#64\">App\\Domain\\Models\\User::resetPwd<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#74\">App\\Domain\\Models\\User::getId<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#82\">App\\Domain\\Models\\User::getUsername<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#90\">App\\Domain\\Models\\User::getSlug<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#98\">App\\Domain\\Models\\User::getEmail<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#106\">App\\Domain\\Models\\User::getPassword<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#114\">App\\Domain\\Models\\User::getTokenForgotPwd<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#122\">App\\Domain\\Models\\User::getTokenDateForgotPwd<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#130\">App\\Domain\\Models\\User::getMedia<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#151\">App\\Domain\\Models\\User::getRoles<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#163\">App\\Domain\\Models\\User::getSalt<\/a>"],[0,1,"<a href=\"Domain\/Models\/User.php.html#174\">App\\Domain\\Models\\User::eraseCredentials<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#50\">App\\Security\\LoginFormAuthenticator::__construct<\/a>"],[0,2,"<a href=\"Security\/LoginFormAuthenticator.php.html#73\">App\\Security\\LoginFormAuthenticator::supports<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#102\">App\\Security\\LoginFormAuthenticator::getCredentials<\/a>"],[0,2,"<a href=\"Security\/LoginFormAuthenticator.php.html#128\">App\\Security\\LoginFormAuthenticator::getUser<\/a>"],[0,2,"<a href=\"Security\/LoginFormAuthenticator.php.html#153\">App\\Security\\LoginFormAuthenticator::checkCredentials<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#177\">App\\Security\\LoginFormAuthenticator::onAuthenticationSuccess<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#188\">App\\Security\\LoginFormAuthenticator::getLoginUrl<\/a>"],[100,1,"<a href=\"UI\/Actions\/AjaxHomepageAction.php.html#35\">App\\UI\\Actions\\AjaxHomepageAction::__construct<\/a>"],[100,2,"<a href=\"UI\/Actions\/AjaxHomepageAction.php.html#50\">App\\UI\\Actions\\AjaxHomepageAction::action<\/a>"],[100,1,"<a href=\"UI\/Actions\/AjaxTricksDetailsAction.php.html#34\">App\\UI\\Actions\\AjaxTricksDetailsAction::__construct<\/a>"],[100,2,"<a href=\"UI\/Actions\/AjaxTricksDetailsAction.php.html#53\">App\\UI\\Actions\\AjaxTricksDetailsAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/ForgotPasswordAction.php.html#35\">App\\UI\\Actions\\ForgotPasswordAction::__construct<\/a>"],[0,2,"<a href=\"UI\/Actions\/ForgotPasswordAction.php.html#50\">App\\UI\\Actions\\ForgotPasswordAction::action<\/a>"],[100,1,"<a href=\"UI\/Actions\/HomepageAction.php.html#34\">App\\UI\\Actions\\HomepageAction::__construct<\/a>"],[100,1,"<a href=\"UI\/Actions\/HomepageAction.php.html#47\">App\\UI\\Actions\\HomepageAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/LoginAction.php.html#36\">App\\UI\\Actions\\LoginAction::__construct<\/a>"],[0,1,"<a href=\"UI\/Actions\/LoginAction.php.html#51\">App\\UI\\Actions\\LoginAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/MediasTricksDeleteAction.php.html#38\">App\\UI\\Actions\\MediasTricksDeleteAction::__construct<\/a>"],[0,4,"<a href=\"UI\/Actions\/MediasTricksDeleteAction.php.html#56\">App\\UI\\Actions\\MediasTricksDeleteAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/MediasTricksUpdateAction.php.html#58\">App\\UI\\Actions\\MediasTricksUpdateAction::__construct<\/a>"],[0,3,"<a href=\"UI\/Actions\/MediasTricksUpdateAction.php.html#85\">App\\UI\\Actions\\MediasTricksUpdateAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/RegistrationAction.php.html#36\">App\\UI\\Actions\\RegistrationAction::__construct<\/a>"],[0,2,"<a href=\"UI\/Actions\/RegistrationAction.php.html#51\">App\\UI\\Actions\\RegistrationAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/ResetPasswordAction.php.html#41\">App\\UI\\Actions\\ResetPasswordAction::__construct<\/a>"],[0,3,"<a href=\"UI\/Actions\/ResetPasswordAction.php.html#59\">App\\UI\\Actions\\ResetPasswordAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/TricksAddAction.php.html#43\">App\\UI\\Actions\\TricksAddAction::__construct<\/a>"],[0,3,"<a href=\"UI\/Actions\/TricksAddAction.php.html#65\">App\\UI\\Actions\\TricksAddAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/TricksDeleteAction.php.html#39\">App\\UI\\Actions\\TricksDeleteAction::__construct<\/a>"],[0,6,"<a href=\"UI\/Actions\/TricksDeleteAction.php.html#57\">App\\UI\\Actions\\TricksDeleteAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/TricksDetailsAction.php.html#55\">App\\UI\\Actions\\TricksDetailsAction::__construct<\/a>"],[0,4,"<a href=\"UI\/Actions\/TricksDetailsAction.php.html#80\">App\\UI\\Actions\\TricksDetailsAction::action<\/a>"],[0,1,"<a href=\"UI\/Actions\/TricksUpdateAction.php.html#53\">App\\UI\\Actions\\TricksUpdateAction::__construct<\/a>"],[0,3,"<a href=\"UI\/Actions\/TricksUpdateAction.php.html#77\">App\\UI\\Actions\\TricksUpdateAction::action<\/a>"],[0,1,"<a href=\"UI\/Forms\/CreateCommentType.php.html#20\">App\\UI\\Forms\\CreateCommentType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/CreateCommentType.php.html#32\">App\\UI\\Forms\\CreateCommentType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/CreateCommentType.php.html#36\">App\\UI\\Forms\\CreateCommentType::anonymousFunction:36#202<\/a>"],[0,1,"<a href=\"UI\/Forms\/CreateTrickType.php.html#24\">App\\UI\\Forms\\CreateTrickType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/CreateTrickType.php.html#60\">App\\UI\\Forms\\CreateTrickType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/CreateTrickType.php.html#64\">App\\UI\\Forms\\CreateTrickType::anonymousFunction:64#441<\/a>"],[0,1,"<a href=\"UI\/Forms\/ForgotPasswordType.php.html#20\">App\\UI\\Forms\\ForgotPasswordType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/ForgotPasswordType.php.html#32\">App\\UI\\Forms\\ForgotPasswordType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/ForgotPasswordType.php.html#36\">App\\UI\\Forms\\ForgotPasswordType::anonymousFunction:36#202<\/a>"],[0,1,"<a href=\"UI\/Forms\/LoginType.php.html#22\">App\\UI\\Forms\\LoginType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/LoginType.php.html#38\">App\\UI\\Forms\\LoginType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/LoginType.php.html#42\">App\\UI\\Forms\\LoginType::anonymousFunction:42#248<\/a>"],[0,1,"<a href=\"UI\/Forms\/NewImageMediaType2.php.html#23\">App\\UI\\Forms\\NewImageMediaType2::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/NewImageMediaType2.php.html#47\">App\\UI\\Forms\\NewImageMediaType2::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/NewImageMediaType2.php.html#51\">App\\UI\\Forms\\NewImageMediaType2::anonymousFunction:51#316<\/a>"],[0,1,"<a href=\"UI\/Forms\/NewLinkMediaType2.php.html#21\">App\\UI\\Forms\\NewLinkMediaType2::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/NewLinkMediaType2.php.html#37\">App\\UI\\Forms\\NewLinkMediaType2::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/NewLinkMediaType2.php.html#41\">App\\UI\\Forms\\NewLinkMediaType2::anonymousFunction:41#231<\/a>"],[0,1,"<a href=\"UI\/Forms\/RegistrationType.php.html#24\">App\\UI\\Forms\\RegistrationType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/RegistrationType.php.html#50\">App\\UI\\Forms\\RegistrationType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/RegistrationType.php.html#54\">App\\UI\\Forms\\RegistrationType::anonymousFunction:54#341<\/a>"],[0,1,"<a href=\"UI\/Forms\/ResetPasswordType.php.html#23\">App\\UI\\Forms\\ResetPasswordType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/ResetPasswordType.php.html#45\">App\\UI\\Forms\\ResetPasswordType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/ResetPasswordType.php.html#49\">App\\UI\\Forms\\ResetPasswordType::anonymousFunction:49#295<\/a>"],[0,1,"<a href=\"UI\/Forms\/UpdateImageMediaType.php.html#21\">App\\UI\\Forms\\UpdateImageMediaType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/UpdateImageMediaType.php.html#45\">App\\UI\\Forms\\UpdateImageMediaType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/UpdateLinkMediaType.php.html#19\">App\\UI\\Forms\\UpdateLinkMediaType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/UpdateLinkMediaType.php.html#35\">App\\UI\\Forms\\UpdateLinkMediaType::configureOptions<\/a>"],[0,1,"<a href=\"UI\/Forms\/UpdateTrickType.php.html#22\">App\\UI\\Forms\\UpdateTrickType::buildForm<\/a>"],[0,1,"<a href=\"UI\/Forms\/UpdateTrickType.php.html#58\">App\\UI\\Forms\\UpdateTrickType::configureOptions<\/a>"],[100,1,"<a href=\"UI\/Responders\/AjaxHomepageResponder.php.html#24\">App\\UI\\Responders\\AjaxHomepageResponder::__construct<\/a>"],[100,2,"<a href=\"UI\/Responders\/AjaxHomepageResponder.php.html#37\">App\\UI\\Responders\\AjaxHomepageResponder::response<\/a>"],[100,1,"<a href=\"UI\/Responders\/AjaxTricksDetailsResponder.php.html#24\">App\\UI\\Responders\\AjaxTricksDetailsResponder::__construct<\/a>"],[100,2,"<a href=\"UI\/Responders\/AjaxTricksDetailsResponder.php.html#37\">App\\UI\\Responders\\AjaxTricksDetailsResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/ForgotPasswordResponder.php.html#30\">App\\UI\\Responders\\ForgotPasswordResponder::__construct<\/a>"],[0,2,"<a href=\"UI\/Responders\/ForgotPasswordResponder.php.html#46\">App\\UI\\Responders\\ForgotPasswordResponder::response<\/a>"],[100,1,"<a href=\"UI\/Responders\/HomepageResponder.php.html#25\">App\\UI\\Responders\\HomepageResponder::__construct<\/a>"],[100,1,"<a href=\"UI\/Responders\/HomepageResponder.php.html#39\">App\\UI\\Responders\\HomepageResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/LoginResponder.php.html#31\">App\\UI\\Responders\\LoginResponder::__construct<\/a>"],[0,2,"<a href=\"UI\/Responders\/LoginResponder.php.html#48\">App\\UI\\Responders\\LoginResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/MediasTricksDeleteResponder.php.html#24\">App\\UI\\Responders\\MediasTricksDeleteResponder::__construct<\/a>"],[0,2,"<a href=\"UI\/Responders\/MediasTricksDeleteResponder.php.html#34\">App\\UI\\Responders\\MediasTricksDeleteResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/MediasUpdateResponder.php.html#31\">App\\UI\\Responders\\MediasUpdateResponder::__construct<\/a>"],[0,3,"<a href=\"UI\/Responders\/MediasUpdateResponder.php.html#49\">App\\UI\\Responders\\MediasUpdateResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/RegistrationResponder.php.html#30\">App\\UI\\Responders\\RegistrationResponder::__construct<\/a>"],[0,2,"<a href=\"UI\/Responders\/RegistrationResponder.php.html#46\">App\\UI\\Responders\\RegistrationResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/ResetPasswordResponder.php.html#30\">App\\UI\\Responders\\ResetPasswordResponder::__construct<\/a>"],[0,2,"<a href=\"UI\/Responders\/ResetPasswordResponder.php.html#46\">App\\UI\\Responders\\ResetPasswordResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/TricksAddResponder.php.html#30\">App\\UI\\Responders\\TricksAddResponder::__construct<\/a>"],[0,2,"<a href=\"UI\/Responders\/TricksAddResponder.php.html#46\">App\\UI\\Responders\\TricksAddResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/TricksDeleteResponder.php.html#24\">App\\UI\\Responders\\TricksDeleteResponder::__construct<\/a>"],[0,1,"<a href=\"UI\/Responders\/TricksDeleteResponder.php.html#33\">App\\UI\\Responders\\TricksDeleteResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/TricksDetailsResponder.php.html#31\">App\\UI\\Responders\\TricksDetailsResponder::__construct<\/a>"],[0,4,"<a href=\"UI\/Responders\/TricksDetailsResponder.php.html#50\">App\\UI\\Responders\\TricksDetailsResponder::response<\/a>"],[0,1,"<a href=\"UI\/Responders\/TricksUpdateResponder.php.html#32\">App\\UI\\Responders\\TricksUpdateResponder::__construct<\/a>"],[0,3,"<a href=\"UI\/Responders\/TricksUpdateResponder.php.html#49\">App\\UI\\Responders\\TricksUpdateResponder::response<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueEmailInDb.php.html#20\">App\\Validator\\Constraints\\UniqueEmailInDb::getTargets<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueEmailInDbValidator.php.html#26\">App\\Validator\\Constraints\\UniqueEmailInDbValidator::__construct<\/a>"],[0,2,"<a href=\"Validator\/Constraints\/UniqueEmailInDbValidator.php.html#38\">App\\Validator\\Constraints\\UniqueEmailInDbValidator::validate<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueTitleInDb.php.html#20\">App\\Validator\\Constraints\\UniqueTitleInDb::getTargets<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueTitleInDbValidator.php.html#27\">App\\Validator\\Constraints\\UniqueTitleInDbValidator::__construct<\/a>"],[0,3,"<a href=\"Validator\/Constraints\/UniqueTitleInDbValidator.php.html#39\">App\\Validator\\Constraints\\UniqueTitleInDbValidator::validate<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueUsernameInDb.php.html#20\">App\\Validator\\Constraints\\UniqueUsernameInDb::getTargets<\/a>"],[0,1,"<a href=\"Validator\/Constraints\/UniqueUsernameInDbValidator.php.html#26\">App\\Validator\\Constraints\\UniqueUsernameInDbValidator::__construct<\/a>"],[0,2,"<a href=\"Validator\/Constraints\/UniqueUsernameInDbValidator.php.html#38\">App\\Validator\\Constraints\\UniqueUsernameInDbValidator::validate<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

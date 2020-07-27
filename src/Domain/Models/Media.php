@@ -40,7 +40,7 @@ class Media implements MediaInterface
      */
     public function __construct(string $link, string $alt, TypeMedia $typeMedia, ?bool $first = false)
     {
-        $this->link = $typeMedia === "video" ? $this->toEmbedLink($link) : $link;
+        $this->link = $typeMedia->getType() === "video" ? $this->toEmbedLink($link) : $link;
         $this->alt = $alt;
         $this->typeMedia = $typeMedia;
         $this->first = $first;
@@ -60,21 +60,26 @@ class Media implements MediaInterface
      */
     public function toEmbedLink(string $link): string
     {
-        // Get id video
-        parse_str(parse_url($link, PHP_URL_QUERY), $params);
-        $idVideo=$link;
-        if (array_key_exists('v', $params)) {
-            $idVideo = $params['v'];
-        }
+        // $matches[0] => url / $matches[1] => id video
+        preg_match(
+            "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/",
+            $link,
+            $matches
+        );
 
-        // Check if the video exists
-        $checkURL = "http://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=$idVideo&format=json";
-        $headers = get_headers($checkURL);
-        $existsURL = (substr($headers[0], 9, 3) !== "404" && substr($headers[0], 9, 3) !== "401");
+        $link = "Link error : please give a youtube url";
+        if (!empty($matches)) {
+            $idVideo = $matches[1];
 
-        $link = "error";
-        if ($existsURL) {
-            $link = $idVideo;
+            // Check if the video exists
+            $checkURL = "http://www.youtube.com/oembed?url=http://www.youtube.com/watch?v=$idVideo&format=json";
+            $headers = get_headers($checkURL);
+            $existsURL = (substr($headers[0], 9, 3) !== "404" && substr($headers[0], 9, 3) !== "401");
+
+            $link = "Video with id '$idVideo' not exist";
+            if ($existsURL) {
+                $link = $idVideo;
+            }
         }
 
         return $link;
